@@ -4,7 +4,7 @@
  *
  * Root layout shell shared by all pages.
  * Composes SEOHead, Header, the page <slot />, and Footer.
- * Accepts the same SEO props as SEOHead and passes them through.
+ * Accepts the same SEO props as SEOHead plus an optional JSON-LD schema string.
  */
 
 import SEOHead from '../components/layout/SEOHead.astro';
@@ -17,9 +17,10 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  schema?: string; // JSON-LD structured data as a serialized string
 }
 
-const { title, description, canonical, ogImage } = Astro.props;
+const { title, description, canonical, ogImage, schema } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -29,6 +30,7 @@ const { title, description, canonical, ogImage } = Astro.props;
     description={description}
     canonical={canonical}
     ogImage={ogImage}
+    schema={schema}
   />
   <body class="min-h-screen flex flex-col">
     <Header />

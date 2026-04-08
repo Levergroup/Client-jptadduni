@@ -2,13 +2,86 @@
 /**
  * Services.astro
  *
- * Overview of Lever Group's core service offerings
- * (e.g. SEO, Google Ads, Web Design, Social Media, etc.).
- * Renders a card or icon-grid layout with a short description per service.
- * Each card should link to a dedicated service page or anchor.
+ * Services grid for Duka Masonry.
+ * Each card names the problem the service solves before describing the service,
+ * so prospects see themselves in the copy rather than reading a generic list.
  */
+
+const services = [
+  {
+    icon: "🧱",
+    problem: "Cracked or crumbling bricks",
+    name: "Brick Repair",
+    description:
+      "A broken brick isn't just ugly — it's an open wound in your wall. We replace damaged bricks and match the color and texture to your existing masonry so the repair disappears.",
+  },
+  {
+    icon: "⚒️",
+    problem: "Mortar joints that are loose or missing",
+    name: "Tuckpointing & Repointing",
+    description:
+      "Mortar is the glue holding your brickwork together. When it erodes, your wall loses its strength and its waterproofing. We grind out the old mortar and pack in fresh — properly.",
+  },
+  {
+    icon: "🏠",
+    problem: "A chimney that's shedding, leaking, or leaning",
+    name: "Chimney Repair",
+    description:
+      "A damaged chimney is a fire hazard and a water highway into your home. We repair caps, crowns, flashing, spalling bricks, and mortar joints — and keep you warm and safe.",
+  },
+  {
+    icon: "🪨",
+    problem: "Cracked or heaving concrete",
+    name: "Concrete Work",
+    description:
+      "A cracked driveway or sinking walkway is a liability waiting to happen. We repair, resurface, and pour new concrete that handles Connecticut freeze-thaw cycles without giving up.",
+  },
+  {
+    icon: "🗿",
+    problem: "Loose or damaged stonework",
+    name: "Stone Work",
+    description:
+      "Natural stone is built to last centuries — but it needs proper mortar and setting. We reset loose stones, repair damaged fieldstone walls, and restore the look of your property.",
+  },
+  {
+    icon: "🏗️",
+    problem: "A retaining wall that's leaning or separating",
+    name: "Retaining Walls",
+    description:
+      "A failing retaining wall doesn't just look bad — it can collapse and take your landscaping, driveway, or foundation with it. We rebuild and reinforce walls before that happens.",
+  },
+];
 ---
 
-<section class="bg-offwhite text-charcoal">
-  <!-- Service cards / icon grid goes here -->
+<section class="bg-offwhite text-charcoal py-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="max-w-2xl mb-14">
+      <p class="text-gold text-sm font-bold uppercase tracking-widest mb-3">What We Fix</p>
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">
+        Every service we offer exists because
+        a real problem needed a real fix.
+      </h2>
+    </div>
+
+    <!-- Services grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="bg-white border border-charcoal/10 p-7 flex flex-col gap-4 hover:shadow-md transition-shadow">
+          <div class="text-3xl">{service.icon}</div>
+          <p class="text-xs font-bold uppercase tracking-wider text-gold">{service.problem}</p>
+          <h3 class="text-xl font-bold">{service.name}</h3>
+          <p class="text-charcoal/70 leading-relaxed text-sm flex-1">{service.description}</p>
+          <a
+            href="/contact"
+            class="text-sm font-bold text-charcoal hover:text-gold transition-colors mt-auto"
+          >
+            Get a free quote &rarr;
+          </a>
+        </div>
+      ))}
+    </div>
+
+  </div>
 </section>

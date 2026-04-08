@@ -2,12 +2,42 @@
 /**
  * Header.astro
  *
- * Site-wide navigation header for Lever Group.
- * Renders the logo, primary nav links, and a CTA button (e.g. "Get a Quote").
- * Intended to be included in the root Layout and present on every page.
+ * Site-wide navigation header for Duka Masonry.
+ * Shows the logo/business name, primary nav links, phone number, and a CTA button.
  */
+
+const phone = "[PHONE NUMBER]";
+const phoneHref = "tel:+1XXXXXXXXXX"; // TODO: replace with real number
 ---
 
 <header class="w-full bg-charcoal text-offwhite">
-  <!-- Logo, nav links, and CTA go here -->
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+
+    <!-- Logo / Business Name -->
+    <a href="/" class="text-xl font-bold tracking-tight">
+      Duka <span class="text-gold">Masonry</span>
+    </a>
+
+    <!-- Primary Nav -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="/" class="hover:text-gold transition-colors">Home</a>
+      <a href="/about" class="hover:text-gold transition-colors">About</a>
+      <a href="/contact" class="hover:text-gold transition-colors">Services</a>
+      <a href="/contact" class="hover:text-gold transition-colors">Contact</a>
+    </nav>
+
+    <!-- CTA group -->
+    <div class="flex items-center gap-4">
+      <a href={phoneHref} class="hidden sm:block text-sm font-semibold text-gold hover:brightness-110 transition-all">
+        {phone}
+      </a>
+      <a
+        href="/contact"
+        class="bg-gold text-charcoal text-sm font-bold px-5 py-2.5 hover:brightness-105 transition-all whitespace-nowrap"
+      >
+        Free Quote
+      </a>
+    </div>
+
+  </div>
 </header>

@@ -2,13 +2,69 @@
 /**
  * PainSection.astro
  *
- * "Pain agitation" section that speaks directly to the prospect's frustrations
- * (e.g. inconsistent leads, wasted ad spend, no local visibility in CT).
- * Follows PAS copywriting structure: Problem → Agitate → Solution preview.
- * Positioned after the Hero to build emotional resonance before the pitch.
+ * Pain agitation section for Duka Masonry.
+ * Goes 3 layers deep: the visible problem → the hidden damage → the cost of waiting.
+ * Follows the PAS framework to create urgency without being pushy.
  */
 ---
 
-<section class="bg-offwhite text-charcoal">
-  <!-- Pain points list / agitation copy goes here -->
+<section class="bg-offwhite text-charcoal py-20">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="max-w-2xl mb-16">
+      <p class="text-gold text-sm font-bold uppercase tracking-widest mb-3">Sound Familiar?</p>
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">
+        Most homeowners ignore masonry damage until it becomes a much bigger problem.
+      </h2>
+    </div>
+
+    <!-- 3-layer pain grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Layer 1: Surface pain — visible problem -->
+      <div class="border-t-4 border-gold pt-6">
+        <p class="text-xs font-bold uppercase tracking-widest text-gold mb-3">Layer 1 — What You See</p>
+        <h3 class="text-xl font-bold mb-3">A crack here. A gap there. Bricks that look wrong.</h3>
+        <p class="text-charcoal/70 leading-relaxed">
+          Maybe it's a chimney that's been shedding pieces. A retaining wall that's starting to lean.
+          Mortar joints so eroded you can scrape them out with your fingernail.
+          You know something's off — you've just been hoping it'll hold a little longer.
+        </p>
+      </div>
+
+      <!-- Layer 2: Hidden damage -->
+      <div class="border-t-4 border-charcoal pt-6">
+        <p class="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Layer 2 — What You Can't See</p>
+        <h3 class="text-xl font-bold mb-3">Water is already inside — and it's spreading.</h3>
+        <p class="text-charcoal/70 leading-relaxed">
+          Every open crack is a doorway for water. It seeps behind your walls, under your slab,
+          into your chimney lining. You won't notice the mold or the rotting framing until
+          a contractor tears something open. By then, what started as a masonry issue
+          is now a structural one.
+        </p>
+      </div>
+
+      <!-- Layer 3: Cost of waiting -->
+      <div class="border-t-4 border-charcoal pt-6">
+        <p class="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Layer 3 — What It's Costing You</p>
+        <h3 class="text-xl font-bold mb-3">Every CT winter makes it worse — and more expensive.</h3>
+        <p class="text-charcoal/70 leading-relaxed">
+          Water gets in, freezes, and expands. That tiny crack becomes a fracture.
+          That loose stone becomes a collapse. A $400 repointing job you put off for a year
+          can turn into a $4,000 rebuild. The damage isn't waiting for you to be ready.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bridge to solution -->
+    <div class="mt-14 bg-charcoal text-offwhite px-8 py-6 max-w-2xl">
+      <p class="text-lg font-semibold leading-relaxed">
+        The good news: most masonry damage is very fixable — if you catch it early.
+        Duka Masonry gives you a straight diagnosis and an honest quote. No upselling. No guesswork.
+      </p>
+    </div>
+
+  </div>
 </section>

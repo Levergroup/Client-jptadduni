@@ -2,13 +2,71 @@
 /**
  * ServiceAreas.astro
  *
- * Geographic service area section highlighting the Connecticut towns and cities
- * Lever Group serves (e.g. Hartford, New Haven, Stamford, Greenwich, Fairfield, etc.).
- * Helps with local SEO by creating keyword-rich, location-specific content.
- * May include a map embed and/or a linked list of service area pages.
+ * Service area section for Duka Masonry.
+ * Lists every CT town served with a local-feel headline.
+ * Local SEO: town names are rendered as text (crawlable) with a CTA
+ * to call if you're not sure whether your town is covered.
  */
+
+const towns = [
+  { name: "Waterbury", note: "Primary service area" },
+  { name: "Naugatuck", note: "" },
+  { name: "Ansonia", note: "" },
+  { name: "Derby", note: "" },
+  { name: "Shelton", note: "" },
+  { name: "Seymour", note: "" },
+  { name: "Milford", note: "" },
+  { name: "Woodbridge", note: "" },
+];
+
+const phone = "[PHONE NUMBER]";
+const phoneHref = "tel:+1XXXXXXXXXX";
 ---
 
-<section class="bg-charcoal text-offwhite">
-  <!-- CT service area map, city list, and local SEO copy goes here -->
+<section class="bg-charcoal text-offwhite py-20">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+
+      <!-- Left: Copy -->
+      <div>
+        <p class="text-gold text-sm font-bold uppercase tracking-widest mb-3">Where We Work</p>
+        <h2 class="text-3xl md:text-4xl font-bold leading-snug mb-6">
+          Serving Waterbury, Naugatuck,<br class="hidden md:block" />
+          and the Naugatuck Valley.
+        </h2>
+        <p class="text-offwhite/70 leading-relaxed mb-8">
+          We're based right here in the Valley. When you call Duka Masonry, you're getting
+          a local crew that knows Connecticut soil, Connecticut winters, and the kind
+          of brick homes this region is full of. We're not a franchise. We're your neighbors.
+        </p>
+        <a
+          href={phoneHref}
+          class="inline-block border-2 border-gold text-gold font-bold px-6 py-3 hover:bg-gold hover:text-charcoal transition-all"
+        >
+          Call {phone}
+        </a>
+      </div>
+
+      <!-- Right: Town list -->
+      <div>
+        <ul class="grid grid-cols-2 gap-3">
+          {towns.map((town) => (
+            <li class="flex items-center gap-3 bg-offwhite/5 px-4 py-3">
+              <span class="w-2 h-2 rounded-full bg-gold flex-shrink-0"></span>
+              <span class="font-medium">{town.name}, CT</span>
+              {town.note && (
+                <span class="text-gold text-xs ml-auto">{town.note}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+        <p class="text-offwhite/40 text-sm mt-5">
+          Not on the list? Call us — we likely cover your area.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
 </section>

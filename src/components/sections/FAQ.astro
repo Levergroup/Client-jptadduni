@@ -2,13 +2,76 @@
 /**
  * FAQ.astro
  *
- * Frequently Asked Questions accordion section.
- * Addresses common prospect objections and questions about Lever Group's
- * services, pricing, timelines, and process.
- * FAQ schema markup (JSON-LD) should be added here for SEO rich results.
+ * FAQ section for Duka Masonry — 5 real objections answered.
+ * Written to handle the exact hesitations that keep prospects from calling:
+ * cost, DIY temptation, trust, timeline, and aesthetic matching.
+ * FAQ schema (JSON-LD) is injected via a <script> tag for rich results.
  */
+
+const faqs = [
+  {
+    q: "How much does masonry repair cost in CT?",
+    a: "It depends on the scope — a small repointing job might run a few hundred dollars, while a full chimney rebuild can be a few thousand. That's exactly why we offer free, no-obligation quotes. We come out, assess the damage in person, and give you a straight number before any work begins. No surprise invoices.",
+  },
+  {
+    q: "Can't I just patch it myself with caulk or concrete?",
+    a: "You can — and it'll look fine for a few months. But masonry repairs need the right mortar mix for the age and type of brick you have. The wrong mix actually accelerates damage by trapping moisture and cracking the brick face. A DIY patch that fails in one winter will cost you more to fix than the original repair would have.",
+  },
+  {
+    q: "Are you licensed and insured in Connecticut?",
+    a: "Yes, fully licensed and insured in the state of Connecticut. We carry liability insurance and workers' comp on every job. Before we start any work, we're happy to provide proof of insurance — just ask.",
+  },
+  {
+    q: "How long will the repair take?",
+    a: "Most residential repairs are completed in one to two days. Larger projects like chimney rebuilds or retaining walls may take longer. We'll give you a realistic timeline when we quote the job — and we stick to it. We know you can't leave scaffolding up for weeks.",
+  },
+  {
+    q: "Will the new mortar or replacement bricks match my existing masonry?",
+    a: "Matching is one of the things we take seriously. We source brick as close to your existing color and texture as possible, and we mix mortar to match the joint color. On older homes, a perfect match isn't always possible, but we'll be honest with you about what to expect — and the work will be clean and professional regardless.",
+  },
+];
+
+// JSON-LD FAQ schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
 ---
 
-<section class="bg-offwhite text-charcoal">
-  <!-- FAQ accordion items and JSON-LD schema go here -->
+<section class="bg-offwhite text-charcoal py-20">
+  <div class="max-w-3xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="mb-12">
+      <p class="text-gold text-sm font-bold uppercase tracking-widest mb-3">FAQ</p>
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">
+        Questions we hear all the time.
+      </h2>
+    </div>
+
+    <!-- FAQ accordion (static — no JS required) -->
+    <div class="flex flex-col divide-y divide-charcoal/10">
+      {faqs.map((faq, i) => (
+        <details class="group py-5 cursor-pointer" name="faq">
+          <summary class="flex justify-between items-start gap-6 list-none font-bold text-lg select-none">
+            <span>{faq.q}</span>
+            <span class="text-gold text-2xl leading-none mt-0.5 group-open:rotate-45 transition-transform flex-shrink-0">+</span>
+          </summary>
+          <p class="mt-4 text-charcoal/70 leading-relaxed">{faq.a}</p>
+        </details>
+      ))}
+    </div>
+
+  </div>
 </section>
+
+<!-- FAQ JSON-LD structured data -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

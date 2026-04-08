@@ -2,14 +2,28 @@
 /**
  * ProofBar.astro
  *
- * A compact social-proof bar displayed between major sections.
- * Typically shows trust signals such as: number of clients served,
- * years in business, Google review rating, certifications/badges,
- * or logos of notable clients/partners.
- * Designed as a full-width band in the gold or charcoal brand color.
+ * Trust signal bar for Duka Masonry.
+ * 4 social proof stats displayed as a full-width gold band between sections.
+ * Anchors the credibility claim made in the Hero.
  */
+
+const stats = [
+  { number: "15+", label: "Years in Business" },
+  { number: "200+", label: "Projects Completed" },
+  { number: "100%", label: "Licensed & Insured" },
+  { number: "$0", label: "Cost to Get a Quote" },
+];
 ---
 
-<div class="w-full bg-gold text-charcoal">
-  <!-- Stats, badges, and trust signals go here -->
+<div class="w-full bg-gold text-charcoal py-12">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      {stats.map((stat) => (
+        <div class="flex flex-col items-center gap-1">
+          <span class="text-4xl md:text-5xl font-black">{stat.number}</span>
+          <span class="text-sm font-semibold uppercase tracking-wide text-charcoal/70">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
 </div>

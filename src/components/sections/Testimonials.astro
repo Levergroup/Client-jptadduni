@@ -2,13 +2,70 @@
 /**
  * Testimonials.astro
  *
- * Client testimonial section to build credibility and trust.
- * Renders a carousel or grid of quote cards, each with the client's name,
- * business, star rating, and review text.
- * Can pull from a static data array or a CMS/headless API in the future.
+ * Client testimonials for Duka Masonry.
+ * Placeholder cards ready to be swapped with real Google reviews.
+ * Each card: star rating, quote, client name, and town.
  */
+
+const testimonials = [
+  {
+    stars: 5,
+    quote:
+      "Duka Masonry repointed our entire chimney and replaced several bricks that had spalled badly. The price was fair, the crew showed up when they said they would, and the work looks great. Couldn't ask for more.",
+    name: "[Client Name]",
+    location: "Waterbury, CT",
+  },
+  {
+    stars: 5,
+    quote:
+      "I called three masonry companies before I found Duka. They were the only ones who actually came out to look at my retaining wall before quoting me. Turned out it needed less work than I thought — and they told me that. Honest people.",
+    name: "[Client Name]",
+    location: "Naugatuck, CT",
+  },
+  {
+    stars: 5,
+    quote:
+      "Our front walkway had been heaving and cracking for two winters. Duka repoured a section and fixed the drainage issue causing the problem. No issues since. I should have called sooner.",
+    name: "[Client Name]",
+    location: "Derby, CT",
+  },
+];
 ---
 
-<section class="bg-offwhite text-charcoal">
-  <!-- Testimonial cards / carousel goes here -->
+<section class="bg-charcoal text-offwhite py-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="max-w-2xl mb-12">
+      <p class="text-gold text-sm font-bold uppercase tracking-widest mb-3">What Customers Say</p>
+      <h2 class="text-3xl md:text-4xl font-bold leading-snug">
+        Real jobs. Real homeowners.<br class="hidden md:block" /> Right here in the Valley.
+      </h2>
+    </div>
+
+    <!-- Testimonial cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {testimonials.map((t) => (
+        <div class="bg-offwhite/5 border border-offwhite/10 p-7 flex flex-col gap-4">
+          <!-- Stars -->
+          <div class="flex gap-1 text-gold text-lg">
+            {"★".repeat(t.stars)}
+          </div>
+          <!-- Quote -->
+          <p class="text-offwhite/80 leading-relaxed text-sm italic flex-1">"{t.quote}"</p>
+          <!-- Attribution -->
+          <div class="border-t border-offwhite/10 pt-4">
+            <p class="font-bold text-offwhite">{t.name}</p>
+            <p class="text-offwhite/40 text-sm">{t.location}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Note -->
+    <p class="text-offwhite/30 text-xs mt-8 text-center">
+      <!-- TODO: replace placeholder names with real Google reviews -->
+    </p>
+
+  </div>
 </section>

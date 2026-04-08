@@ -1,11 +1,13 @@
 ---
 /**
- * index.astro – Homepage
+ * index.astro – Duka Masonry Homepage
  *
- * Main marketing landing page for Lever Group.
- * Assembles all homepage sections in conversion-optimized order:
- * Hero → PainSection → Services → ProofBar → Testimonials
- * → ServiceAreas → FAQ → CTABanner
+ * Full marketing homepage following the Pain/Promise/Proof framework.
+ * Includes LocalBusiness + Service JSON-LD schema for local SEO.
+ *
+ * Section order (conversion-optimized):
+ *   Hero → PainSection → Services → ProofBar →
+ *   Testimonials → ServiceAreas → FAQ → CTABanner
  */
 
 import Layout from '../layouts/Layout.astro';
@@ -17,11 +19,64 @@ import Testimonials from '../components/sections/Testimonials.astro';
 import ServiceAreas from '../components/sections/ServiceAreas.astro';
 import FAQ from '../components/sections/FAQ.astro';
 import CTABanner from '../components/sections/CTABanner.astro';
+
+// ─── LocalBusiness JSON-LD Schema ────────────────────────────────────────────
+const localBusinessSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Duka Masonry",
+  "description":
+    "Expert masonry repair and restoration in Waterbury, Naugatuck, and the Naugatuck Valley. Specializing in brick repair, tuckpointing, chimney repair, concrete, stone work, and retaining walls. 15+ years experience. Licensed and insured in Connecticut.",
+  "telephone": "[PHONE NUMBER]",         // TODO: replace with real number
+  "url": "https://dukamasonry.com",       // TODO: confirm domain
+  "priceRange": "$$",
+  "foundingDate": "2009",
+  "slogan": "15+ Years. Free Quotes. Licensed & Insured.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Waterbury",
+    "addressRegion": "CT",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "41.5582",
+    "longitude": "-73.0515"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Waterbury" },
+    { "@type": "City", "name": "Naugatuck" },
+    { "@type": "City", "name": "Ansonia" },
+    { "@type": "City", "name": "Derby" },
+    { "@type": "City", "name": "Shelton" },
+    { "@type": "City", "name": "Seymour" },
+    { "@type": "City", "name": "Milford" },
+    { "@type": "City", "name": "Woodbridge" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Masonry Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brick Repair" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tuckpointing & Repointing" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chimney Repair" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Concrete Work" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stone Work" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retaining Walls" } }
+    ]
+  },
+  "knowsAbout": [
+    "masonry repair", "brick repair", "tuckpointing", "repointing",
+    "chimney repair", "concrete work", "stone work", "retaining walls",
+    "Connecticut masonry", "Waterbury masonry"
+  ]
+});
 ---
 
 <Layout
-  title="Lever Group | Connecticut Marketing Agency"
-  description="Lever Group is a Connecticut marketing agency specializing in SEO, Google Ads, and web design for local businesses."
+  title="Duka Masonry | Brick Repair & Tuckpointing in Waterbury & Naugatuck CT"
+  description="Duka Masonry offers expert brick repair, tuckpointing, chimney repair, and concrete work in Waterbury, Naugatuck, Ansonia, and the Naugatuck Valley. 15+ years experience. Free quotes. Licensed & insured in CT."
+  schema={localBusinessSchema}
 >
   <Hero />
   <PainSection />

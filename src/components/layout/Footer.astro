@@ -2,13 +2,66 @@
 /**
  * Footer.astro
  *
- * Site-wide footer for Lever Group.
- * Contains secondary navigation links, contact info, social media icons,
- * service area blurb, and legal/copyright line.
- * Included in the root Layout and shown on every page.
+ * Site-wide footer for Duka Masonry.
+ * Contact info, service links, service areas, and legal line.
  */
+
+const phone = "[PHONE NUMBER]";
+const phoneHref = "tel:+1XXXXXXXXXX"; // TODO: replace with real number
+const year = new Date().getFullYear();
 ---
 
-<footer class="w-full bg-charcoal text-offwhite">
-  <!-- Footer columns, links, and copyright go here -->
+<footer class="w-full bg-charcoal text-offwhite/80 text-sm">
+  <div class="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <!-- Column 1: Brand -->
+    <div>
+      <p class="text-lg font-bold text-offwhite mb-2">
+        Duka <span class="text-gold">Masonry</span>
+      </p>
+      <p class="mb-4 leading-relaxed">
+        Connecticut's masonry repair specialists — serving the Naugatuck Valley and surrounding towns since 2009.
+      </p>
+      <a href={phoneHref} class="text-gold font-semibold hover:brightness-110 transition-all">
+        {phone}
+      </a>
+    </div>
+
+    <!-- Column 2: Services -->
+    <div>
+      <p class="text-offwhite font-semibold mb-3 uppercase tracking-wide text-xs">Services</p>
+      <ul class="space-y-2">
+        <li><a href="/contact" class="hover:text-gold transition-colors">Brick Repair</a></li>
+        <li><a href="/contact" class="hover:text-gold transition-colors">Tuckpointing & Repointing</a></li>
+        <li><a href="/contact" class="hover:text-gold transition-colors">Chimney Repair</a></li>
+        <li><a href="/contact" class="hover:text-gold transition-colors">Concrete Work</a></li>
+        <li><a href="/contact" class="hover:text-gold transition-colors">Stone Work</a></li>
+        <li><a href="/contact" class="hover:text-gold transition-colors">Retaining Walls</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Service Areas -->
+    <div>
+      <p class="text-offwhite font-semibold mb-3 uppercase tracking-wide text-xs">Service Areas</p>
+      <ul class="space-y-2">
+        <li>Waterbury, CT</li>
+        <li>Naugatuck, CT</li>
+        <li>Ansonia, CT</li>
+        <li>Derby, CT</li>
+        <li>Shelton, CT</li>
+        <li>Seymour, CT</li>
+        <li>Milford, CT</li>
+        <li>Woodbridge, CT</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Legal bar -->
+  <div class="border-t border-offwhite/10">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between gap-2">
+      <p>&copy; {year} Duka Masonry. All rights reserved.</p>
+      <p>Licensed & Insured in Connecticut</p>
+    </div>
+  </div>
 </footer>

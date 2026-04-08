@@ -2,13 +2,52 @@
 /**
  * CTABanner.astro
  *
- * Full-width call-to-action banner used at the bottom of pages (and mid-page).
- * Contains a punchy headline, a short supporting line, and a primary CTA button
- * (e.g. "Get Your Free Marketing Audit" or "Request a Quote").
- * Renders in gold or charcoal to stand out from surrounding content sections.
+ * Urgency CTA for Duka Masonry — the final push before the prospect leaves.
+ * Gives a concrete reason to call TODAY (CT winters + freeze-thaw cycle damage).
+ * Gold background makes this stand out from surrounding charcoal/offwhite sections.
  */
+
+const phone = "[PHONE NUMBER]";
+const phoneHref = "tel:+1XXXXXXXXXX";
 ---
 
-<section class="w-full bg-gold text-charcoal">
-  <!-- CTA headline, supporting copy, and button go here -->
+<section class="w-full bg-gold text-charcoal py-16">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+
+    <!-- Urgency headline -->
+    <h2 class="text-3xl md:text-4xl font-black leading-tight mb-4">
+      Small cracks don't wait.<br class="hidden md:block" /> Neither should you.
+    </h2>
+
+    <!-- Reason-why copy -->
+    <p class="text-lg text-charcoal/80 mb-3 max-w-xl mx-auto leading-relaxed">
+      Every Connecticut freeze-thaw cycle pushes water deeper into open cracks.
+      What costs $400 to fix today can cost $4,000 by spring.
+    </p>
+    <p class="text-base font-semibold text-charcoal/70 mb-10">
+      Book your free quote now — no commitment, no pressure, just an honest assessment.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/contact"
+        class="inline-block bg-charcoal text-offwhite font-bold px-10 py-4 text-lg hover:bg-charcoal/80 transition-all"
+      >
+        Request a Free Quote
+      </a>
+      <a
+        href={phoneHref}
+        class="inline-block border-2 border-charcoal text-charcoal font-bold px-10 py-4 text-lg hover:bg-charcoal hover:text-offwhite transition-all"
+      >
+        Call {phone}
+      </a>
+    </div>
+
+    <!-- Final trust micro-line -->
+    <p class="text-sm text-charcoal/50 mt-8">
+      15+ years experience &nbsp;·&nbsp; Licensed &amp; Insured &nbsp;·&nbsp; Serving Waterbury, Naugatuck &amp; the Valley
+    </p>
+
+  </div>
 </section>
