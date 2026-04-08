@@ -1,0 +1,43 @@
+---
+/**
+ * SEOHead.astro
+ *
+ * Centralized <head> component for all SEO and meta needs.
+ * Accepts per-page props (title, description, canonical URL, OG image, etc.)
+ * and outputs the appropriate <meta> / <link> tags.
+ * Also loads global fonts and the global CSS stylesheet.
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+} = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+
+  <!-- Canonical URL -->
+  {canonical && <link rel="canonical" href={canonical} />}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <title>{title}</title>
+</head>

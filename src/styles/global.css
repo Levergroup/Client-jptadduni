@@ -1,0 +1,13 @@
+/* Lever Group – global stylesheet */
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* Set charcoal as the default text color */
+    color: #1A1A1A;
+    background-color: #FAFAF7;
+  }
+}

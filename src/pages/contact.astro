@@ -1,0 +1,22 @@
+---
+/**
+ * contact.astro – Contact / Quote Request Page
+ *
+ * Primary conversion page where prospects submit the QuoteForm.
+ * Also displays contact details (phone, email, address) and
+ * optionally an embedded Google Map for the CT office location.
+ */
+
+import Layout from '../layouts/Layout.astro';
+import QuoteForm from '../components/forms/QuoteForm.astro';
+---
+
+<Layout
+  title="Contact Lever Group | Get a Free Marketing Quote"
+  description="Ready to grow your Connecticut business? Contact Lever Group for a free marketing consultation and custom quote."
+>
+  <section class="bg-offwhite text-charcoal">
+    <!-- Contact info and map embed go here -->
+    <QuoteForm />
+  </section>
+</Layout>

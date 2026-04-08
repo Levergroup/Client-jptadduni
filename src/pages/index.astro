@@ -1,0 +1,34 @@
+---
+/**
+ * index.astro – Homepage
+ *
+ * Main marketing landing page for Lever Group.
+ * Assembles all homepage sections in conversion-optimized order:
+ * Hero → PainSection → Services → ProofBar → Testimonials
+ * → ServiceAreas → FAQ → CTABanner
+ */
+
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import PainSection from '../components/sections/PainSection.astro';
+import Services from '../components/sections/Services.astro';
+import ProofBar from '../components/sections/ProofBar.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import ServiceAreas from '../components/sections/ServiceAreas.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+---
+
+<Layout
+  title="Lever Group | Connecticut Marketing Agency"
+  description="Lever Group is a Connecticut marketing agency specializing in SEO, Google Ads, and web design for local businesses."
+>
+  <Hero />
+  <PainSection />
+  <Services />
+  <ProofBar />
+  <Testimonials />
+  <ServiceAreas />
+  <FAQ />
+  <CTABanner />
+</Layout>

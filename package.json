@@ -1,0 +1,20 @@
+{
+  "name": "lever-master-template",
+  "version": "0.0.1",
+  "description": "Master website template for Lever Group – a Connecticut marketing agency",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "tailwindcss": "^3.4.0"
+  }
+}
