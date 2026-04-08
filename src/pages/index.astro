@@ -1,89 +1,84 @@
 ---
 /**
- * index.astro – Duka Masonry Homepage
- *
- * Full marketing homepage following the Pain/Promise/Proof framework.
- * Includes LocalBusiness + Service JSON-LD schema for local SEO.
+ * index.astro – JP Tadduni Transmissions & Driveline Homepage
  *
  * Section order (conversion-optimized):
- *   Hero → PainSection → Services → ProofBar →
- *   Testimonials → ServiceAreas → FAQ → CTABanner
+ *   Hero → PainSection → PromiseSection → Services → ProofBar →
+ *   ServiceAreas → PartsPreview → FAQ → CTABanner
  */
 
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/Hero.astro';
 import PainSection from '../components/sections/PainSection.astro';
+import PromiseSection from '../components/sections/PromiseSection.astro';
 import Services from '../components/sections/Services.astro';
 import ProofBar from '../components/sections/ProofBar.astro';
-import Testimonials from '../components/sections/Testimonials.astro';
 import ServiceAreas from '../components/sections/ServiceAreas.astro';
+import PartsPreview from '../components/sections/PartsPreview.astro';
 import FAQ from '../components/sections/FAQ.astro';
 import CTABanner from '../components/sections/CTABanner.astro';
 
-// ─── LocalBusiness JSON-LD Schema ────────────────────────────────────────────
 const localBusinessSchema = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "Duka Masonry",
+  "@type": "AutoRepair",
+  "name": "JP Tadduni Transmissions & Driveline",
   "description":
-    "Expert masonry repair and restoration in Waterbury, Naugatuck, and the Naugatuck Valley. Specializing in brick repair, tuckpointing, chimney repair, concrete, stone work, and retaining walls. 15+ years experience. Licensed and insured in Connecticut.",
-  "telephone": "(203) 555-0100",
-  "url": "https://dukamasonry.com",       // TODO: confirm domain
+    "Stratford, Connecticut's transmission rebuild and driveline specialists. Expert transmission rebuilds, driveline services, classic car transmission specialists, manual transmissions, parts sales, and diagnostics. 30+ years experience. All makes and models. Written warranty.",
+  "telephone": "(203) 375-1700",
+  "url": "https://jptaddunitransmissions.com",
   "priceRange": "$$",
-  "foundingDate": "2009",
-  "slogan": "15+ Years. Free Quotes. Licensed & Insured.",
+  "foundingDate": "1995",
+  "slogan": "Transmissions Rebuilt Right. Warranted.",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Waterbury",
+    "addressLocality": "Stratford",
     "addressRegion": "CT",
+    "postalCode": "06615",
     "addressCountry": "US"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "41.5582",
-    "longitude": "-73.0515"
+    "latitude": "41.1843",
+    "longitude": "-73.1332"
   },
   "areaServed": [
-    { "@type": "City", "name": "Waterbury" },
-    { "@type": "City", "name": "Naugatuck" },
-    { "@type": "City", "name": "Ansonia" },
-    { "@type": "City", "name": "Derby" },
-    { "@type": "City", "name": "Shelton" },
-    { "@type": "City", "name": "Seymour" },
-    { "@type": "City", "name": "Milford" },
-    { "@type": "City", "name": "Woodbridge" }
-  ],
+    "Stratford", "Bridgeport", "Milford", "New Haven",
+    "Fairfield", "Trumbull", "Shelton", "Derby",
+    "Ansonia", "Naugatuck", "Waterbury", "Meriden",
+    "Hartford", "Greenwich", "Stamford", "Norwalk", "Danbury"
+  ].map(city => ({ "@type": "City", "name": city })),
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Masonry Services",
+    "name": "Transmission & Driveline Services",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brick Repair" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tuckpointing & Repointing" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chimney Repair" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Concrete Work" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stone Work" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retaining Walls" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Transmission Rebuild" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Driveline Services" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Classic Car Transmissions" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manual Transmission Service" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Parts Sales" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Transmission Diagnostics" } }
     ]
   },
   "knowsAbout": [
-    "masonry repair", "brick repair", "tuckpointing", "repointing",
-    "chimney repair", "concrete work", "stone work", "retaining walls",
-    "Connecticut masonry", "Waterbury masonry"
+    "transmission rebuild", "driveline service", "classic car transmission",
+    "manual transmission repair", "automatic transmission rebuild",
+    "Connecticut transmission shop", "Stratford CT auto repair"
   ]
 });
 ---
 
 <Layout
-  title="Duka Masonry | Brick Repair & Tuckpointing in Waterbury & Naugatuck CT"
-  description="Duka Masonry offers expert brick repair, tuckpointing, chimney repair, and concrete work in Waterbury, Naugatuck, Ansonia, and the Naugatuck Valley. 15+ years experience. Free quotes. Licensed & insured in CT."
+  title="Transmission Rebuild & Driveline Service in Stratford, CT | JP Tadduni Transmissions"
+  description="JP Tadduni rebuilds transmissions right the first time — with a written warranty. Stratford, CT's specialist for all makes, models, and classic cars. Free diagnosis."
   schema={localBusinessSchema}
 >
   <Hero />
   <PainSection />
+  <PromiseSection />
   <Services />
   <ProofBar />
-  <Testimonials />
   <ServiceAreas />
+  <PartsPreview />
   <FAQ />
   <CTABanner />
 </Layout>

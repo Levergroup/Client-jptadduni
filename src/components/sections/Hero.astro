@@ -1,56 +1,103 @@
 ---
 /**
- * Hero.astro
- *
- * Above-the-fold hero section for Duka Masonry.
- * H1 names the prospect's pain (cracking/crumbling masonry) and immediately
- * pivots to the promise. Two CTAs: form and direct call.
+ * Hero.astro – Full-viewport hero for JP Tadduni Transmissions home page.
+ * Dark showroom aesthetic: radial red glow, grid lines, precision typography.
  */
 
-const phone = "(203) 555-0100";
-const phoneHref = "tel:+12035550100";
+const phone = "(203) 375-1700";
 ---
 
-<section class="bg-charcoal text-offwhite py-20 lg:py-32">
-  <div class="max-w-5xl mx-auto px-6">
+<section
+  class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 overflow-hidden"
+  style="background: #0A0A0A;"
+>
+  <!-- Background: subtle grid lines -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background-image: linear-gradient(rgba(204,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(204,0,0,0.05) 1px, transparent 1px); background-size: 80px 80px;"
+    aria-hidden="true"
+  ></div>
 
-    <!-- Eyebrow -->
-    <p class="text-gold text-sm font-bold uppercase tracking-widest mb-5">
-      Waterbury · Naugatuck · The Valley · And Beyond
-    </p>
+  <!-- Background: red radial glow from center -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 80% 60% at 50% 55%, rgba(204,0,0,0.13) 0%, rgba(204,0,0,0.04) 50%, transparent 75%);"
+    aria-hidden="true"
+  ></div>
 
-    <!-- H1 — names the pain, promises the fix -->
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-      Your Brick Is Cracking.<br class="hidden md:block" />
-      <span class="text-gold">We Fix It Right — the First Time.</span>
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto">
+
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-3 mb-8">
+      <span class="h-px w-10 bg-jp-red opacity-70"></span>
+      <span
+        class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-chrome px-4 py-1.5"
+        style="border: 1px solid rgba(192,192,192,0.2); background: rgba(20,20,20,0.9);"
+      >
+        Stratford, Connecticut's Transmission Specialists
+      </span>
+      <span class="h-px w-10 bg-jp-red opacity-70"></span>
+    </div>
+
+    <!-- H1 -->
+    <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-jp-white leading-[1.05] mb-6 tracking-tight">
+      Is Your Transmission<br />
+      <span class="text-jp-red">Slipping, Grinding,</span><br />
+      or Leaving You Stranded?
     </h1>
 
-    <p class="text-lg md:text-xl text-offwhite/75 mb-10 max-w-2xl leading-relaxed">
-      Duka Masonry has been repairing bricks, repointing mortar, and rebuilding chimneys
-      across Connecticut for 15+ years. We give straight answers, honest quotes,
-      and workmanship that lasts.
-    </p>
-
-    <!-- Trust micro-line -->
-    <p class="text-sm text-offwhite/50 mb-8">
-      Licensed &amp; Insured in CT &nbsp;·&nbsp; Free Quotes &nbsp;·&nbsp; 200+ Projects Completed
+    <!-- Subheadline -->
+    <p class="font-body text-lg sm:text-xl text-jp-gray max-w-2xl mx-auto mb-10 leading-relaxed">
+      Most transmission problems get worse every mile you drive.
+      JP Tadduni rebuilds it right the first time —&nbsp;
+      <span class="text-jp-white font-semibold">with a warranty to prove it.</span>
     </p>
 
     <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row gap-4">
-      <a
-        href="/contact"
-        class="inline-block bg-gold text-charcoal font-bold px-8 py-4 text-lg hover:brightness-105 transition-all text-center"
-      >
-        Get Your Free Quote
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="/contact" class="btn-primary w-full sm:w-auto">
+        Get Your Free Diagnosis →
       </a>
-      <a
-        href={phoneHref}
-        class="inline-block border-2 border-offwhite/40 text-offwhite font-semibold px-8 py-4 text-lg hover:border-gold hover:text-gold transition-all text-center"
-      >
-        Call {phone}
+      <a href="tel:+12033751700" class="btn-secondary w-full sm:w-auto">
+        Call Us Now: {phone}
       </a>
     </div>
 
+    <!-- Trust strip -->
+    <div class="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs text-jp-muted font-medium uppercase tracking-widest">
+      <span class="flex items-center gap-1.5">
+        <span class="w-1 h-4 bg-jp-red inline-block"></span>
+        30+ Years Experience
+      </span>
+      <span class="flex items-center gap-1.5">
+        <span class="w-1 h-4 bg-jp-red inline-block"></span>
+        Written Warranty
+      </span>
+      <span class="flex items-center gap-1.5">
+        <span class="w-1 h-4 bg-jp-red inline-block"></span>
+        All Makes &amp; Models
+      </span>
+      <span class="flex items-center gap-1.5">
+        <span class="w-1 h-4 bg-jp-red inline-block"></span>
+        Classic Car Experts
+      </span>
+    </div>
+
   </div>
+
+  <!-- Bottom gradient fade into next section -->
+  <div
+    class="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
+    style="background: linear-gradient(to bottom, transparent, #0A0A0A);"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-30">
+    <svg class="w-5 h-5 text-jp-chrome animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+    </svg>
+  </div>
+
 </section>

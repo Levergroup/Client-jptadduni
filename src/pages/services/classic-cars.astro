@@ -1,0 +1,138 @@
+---
+/**
+ * classic-cars.astro – Classic Car Transmission Specialists page for JP Tadduni.
+ */
+
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/sections/CTABanner.astro';
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Classic Car Transmission Specialist",
+  "description": "Expert classic car and muscle car transmission rebuilds in Stratford, CT. Muncie 4-speed, TH350, TH400, Toploader, T10, and more.",
+  "provider": {
+    "@type": "AutoRepair",
+    "name": "JP Tadduni Transmissions & Driveline",
+    "telephone": "(203) 375-1700",
+    "address": { "@type": "PostalAddress", "addressLocality": "Stratford", "addressRegion": "CT" }
+  },
+  "areaServed": { "@type": "State", "name": "Connecticut" }
+});
+
+const transmissions = [
+  { name: "Muncie 4-Speed", sub: "M20, M21, M22 Rock Crusher" },
+  { name: "Turbo-Hydramatic 350", sub: "TH350, TH350C" },
+  { name: "Turbo-Hydramatic 400", sub: "TH400, 3L80" },
+  { name: "700R4 / 4L60", sub: "Overdrive upgrade builds" },
+  { name: "Ford Toploader", sub: "3 and 4-speed units" },
+  { name: "T10 4-Speed", sub: "Borg-Warner and Saginaw" },
+  { name: "A833 4-Speed", sub: "Mopar 4-speed transmissions" },
+  { name: "Powerglide", sub: "2-speed GM automatic" },
+  { name: "Chrysler 727 TorqueFlite", sub: "A727 rebuilds" },
+  { name: "Ford C4 / C6", sub: "Ford automatic rebuilds" },
+  { name: "Saginaw 3 & 4-Speed", sub: "GM column and floor shift" },
+  { name: "Custom Performance Builds", sub: "Stage kits, shift kits, high-stall converters" },
+];
+---
+
+<Layout
+  title="Classic Car Transmission Specialists in CT | JP Tadduni Transmissions"
+  description="Vintage and muscle car transmission rebuilds in Stratford, CT. Muncie 4-speed, TH400, Toploader, T10, Powerglide, and more. Decades of classic car experience."
+  schema={serviceSchema}
+>
+
+  <!-- Hero -->
+  <section class="relative pt-24 pb-16 bg-jp-black overflow-hidden">
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 60% 40%, rgba(204,0,0,0.12) 0%, transparent 60%);"
+      aria-hidden="true"
+    ></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <nav class="flex items-center gap-2 text-xs text-jp-muted mb-8 font-body uppercase tracking-widest">
+        <a href="/" class="hover:text-jp-gray transition-colors">Home</a>
+        <span>/</span>
+        <a href="/services" class="hover:text-jp-gray transition-colors">Services</a>
+        <span>/</span>
+        <span class="text-jp-chrome">Classic Car Specialists</span>
+      </nav>
+      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-4">Vintage & Muscle Car Experts</p>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-white leading-tight mb-6">
+        Classic Car Transmissions.<br />
+        <span class="text-jp-red">Old Iron Deserves Expert Hands.</span>
+      </h1>
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed mb-10">
+        Your '69 Camaro. Your '70 Chevelle. Your '67 Mustang fastback.
+        These machines deserve more than a general shop that's never seen a Muncie Rock Crusher up close.
+        JP Tadduni has been rebuilding classic American iron for decades.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn-primary">Talk to a Classic Car Specialist →</a>
+        <a href="tel:+12033751700" class="btn-secondary" style="animation: none;">Call (203) 375-1700</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Why JP Tadduni for classics -->
+  <section class="py-20 bg-jp-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
+        <div>
+          <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-4">Why It Matters</p>
+          <h2 class="font-heading font-bold text-3xl sm:text-4xl text-jp-white leading-snug mb-6">
+            Most Shops Have Never<br />
+            <span class="text-jp-chrome">Seen These Units.</span>
+          </h2>
+          <div class="flex flex-col gap-5 font-body text-jp-muted leading-relaxed">
+            <p>Classic American transmissions — Muncies, Toploaders, TH400s — are entirely different animals from modern computer-controlled units. The tolerances, the shimming, the synchronizer fitting — it's a different craft.</p>
+            <p>Most shops today specialize in modern vehicles and outsource or decline classic car work. JP Tadduni has been building these units for decades. We know what a correct Muncie rebuild looks like. We know the difference between a Road Race M21 and a Rock Crusher M22.</p>
+            <p class="text-jp-white font-semibold">Your investment deserves the shop that actually knows the work.</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          {[
+            { title: "Correct OEM Specs", body: "We rebuild to factory specifications — not close, not approximate. Correct." },
+            { title: "Correct Parts", body: "GM, Ford, Mopar — we source correct NOS and quality reproduction parts when original are unavailable." },
+            { title: "Performance Options", body: "Shift kits, stage kits, close-ratio gear sets, high-stall converters for drivers who want more." },
+            { title: "Decades of Experience", body: "We've seen every issue these transmissions develop. Nothing surprises us." },
+          ].map(item => (
+            <div class="jp-card">
+              <h3 class="font-heading font-bold text-jp-white text-lg mb-2">{item.title}</h3>
+              <p class="font-body text-jp-muted text-sm leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transmissions we work on -->
+  <section class="py-20 bg-jp-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-14">
+        <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-3">What We Rebuild</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-jp-white leading-tight">
+          Classic Transmissions We Specialize In
+        </h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        {transmissions.map(trans => (
+          <div class="bg-jp-black border border-jp-border hover:border-jp-red p-5 flex flex-col gap-1 transition-colors duration-200 group">
+            <h3 class="font-heading font-bold text-jp-white text-base group-hover:text-jp-red transition-colors">{trans.name}</h3>
+            <p class="font-body text-jp-muted text-xs">{trans.sub}</p>
+          </div>
+        ))}
+      </div>
+      <p class="font-body text-jp-muted text-sm mt-8">
+        Don't see your transmission on the list?
+        <a href="/contact" class="text-jp-chrome hover:text-white font-semibold transition-colors"> Ask us — we've probably built it.</a>
+      </p>
+    </div>
+  </section>
+
+  <CTABanner />
+
+</Layout>

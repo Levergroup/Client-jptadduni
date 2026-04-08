@@ -1,53 +1,50 @@
 ---
 /**
- * CTABanner.astro
- *
- * Urgency CTA for Duka Masonry — the final push before the prospect leaves.
- * Gives a concrete reason to call TODAY (CT winters + freeze-thaw cycle damage).
- * Gold background makes this stand out from surrounding charcoal/offwhite sections.
+ * CTABanner.astro – Urgency CTA banner for JP Tadduni Transmissions.
+ * Red background section with booking urgency.
  */
-
-const phone = "(203) 555-0100";
-const phoneHref = "tel:+12035550100";
 ---
 
-<section class="w-full bg-gold text-charcoal py-16">
-  <div class="max-w-4xl mx-auto px-6 text-center">
+<section
+  class="relative py-16 sm:py-20 overflow-hidden"
+  style="background: #CC0000;"
+>
+  <!-- Subtle dark grid overlay -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background-image: linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px); background-size: 40px 40px;"
+    aria-hidden="true"
+  ></div>
 
-    <!-- Urgency headline -->
-    <h2 class="text-3xl md:text-4xl font-black leading-tight mb-4">
-      Small cracks don't wait.<br class="hidden md:block" /> Neither should you.
+  <!-- Darker red corners -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse at 50% 50%, rgba(204,0,0,0) 30%, rgba(100,0,0,0.4) 100%);"
+    aria-hidden="true"
+  ></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+
+    <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-white leading-tight mb-4">
+      Transmission problems don't fix themselves.
+      <span class="block opacity-90">Every mile makes it worse.</span>
     </h2>
 
-    <!-- Reason-why copy -->
-    <p class="text-lg text-charcoal/80 mb-3 max-w-xl mx-auto leading-relaxed">
-      Every Connecticut freeze-thaw cycle pushes water deeper into open cracks.
-      What costs $400 to fix today can cost $4,000 by spring.
-    </p>
-    <p class="text-base font-semibold text-charcoal/70 mb-10">
-      Book your free quote now — no commitment, no pressure, just an honest assessment.
+    <p class="font-body text-white/80 text-lg mb-3 max-w-xl mx-auto leading-relaxed">
+      We're currently booking rebuilds — don't wait until it leaves you stranded.
     </p>
 
-    <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="/contact"
-        class="inline-block bg-charcoal text-offwhite font-bold px-10 py-4 text-lg hover:bg-charcoal/80 transition-all"
-      >
-        Request a Free Quote
-      </a>
-      <a
-        href={phoneHref}
-        class="inline-block border-2 border-charcoal text-charcoal font-bold px-10 py-4 text-lg hover:bg-charcoal hover:text-offwhite transition-all"
-      >
-        Call {phone}
-      </a>
-    </div>
-
-    <!-- Final trust micro-line -->
-    <p class="text-sm text-charcoal/50 mt-8">
-      15+ years experience &nbsp;·&nbsp; Licensed &amp; Insured &nbsp;·&nbsp; Serving Waterbury, Naugatuck &amp; the Valley
+    <p class="font-body text-white/60 text-sm mb-10 uppercase tracking-widest font-medium">
+      Free Diagnosis · Honest Quote · Written Warranty
     </p>
+
+    <a
+      href="/contact"
+      class="inline-flex items-center gap-2 bg-white text-jp-red font-heading font-bold text-lg uppercase tracking-wide px-10 py-4 hover:bg-jp-gray transition-all duration-200"
+      style="clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));"
+    >
+      Get Your Free Quote Today →
+    </a>
 
   </div>
 </section>

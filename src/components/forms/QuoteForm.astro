@@ -1,15 +1,171 @@
 ---
 /**
- * QuoteForm.astro
- *
- * Lead capture form for prospective clients requesting a marketing quote.
- * Fields will include: name, business name, email, phone, service interest,
- * current monthly ad spend, and a message/goals field.
- * On submit, redirects to /thank-you.
- * Integrate with a form backend (e.g. Netlify Forms, Formspree, or a custom API).
+ * QuoteForm.astro – Contact/quote form for JP Tadduni Transmissions.
+ * POSTs to GHL webhook, redirects to /thank-you on success.
+ * Fields: Name, Phone, Email, Vehicle (Year/Make/Model), Issue, Referral.
  */
+
+const GHL_WEBHOOK = "https://placeholder-ghl-webhook.com/jp-tadduni";
 ---
 
-<form class="flex flex-col gap-4 text-charcoal" method="POST" action="/thank-you">
-  <!-- Form fields and submit button go here -->
+<form
+  id="quote-form"
+  class="flex flex-col gap-5"
+  novalidate
+>
+  <!-- Row: Name + Phone -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div class="flex flex-col gap-2">
+      <label for="name" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+        Full Name <span class="text-jp-red">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        autocomplete="name"
+        placeholder="John Smith"
+        class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="phone" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+        Phone Number <span class="text-jp-red">*</span>
+      </label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        autocomplete="tel"
+        placeholder="(203) 555-0100"
+        class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors"
+      />
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="flex flex-col gap-2">
+    <label for="email" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+      Email Address <span class="text-jp-red">*</span>
+    </label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      autocomplete="email"
+      placeholder="john@example.com"
+      class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors"
+    />
+  </div>
+
+  <!-- Vehicle -->
+  <div class="flex flex-col gap-2">
+    <label for="vehicle" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+      Vehicle Year, Make &amp; Model <span class="text-jp-red">*</span>
+    </label>
+    <input
+      type="text"
+      id="vehicle"
+      name="vehicle"
+      required
+      placeholder="e.g. 1969 Chevrolet Camaro, 2018 Ford F-150"
+      class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors"
+    />
+  </div>
+
+  <!-- Issue Description -->
+  <div class="flex flex-col gap-2">
+    <label for="issue" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+      Describe the Issue <span class="text-jp-red">*</span>
+    </label>
+    <textarea
+      id="issue"
+      name="issue"
+      required
+      rows="4"
+      placeholder="Tell us what's happening — slipping, grinding, no movement, vibration, leaking, etc."
+      class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors resize-none"
+    ></textarea>
+  </div>
+
+  <!-- How did you hear about us -->
+  <div class="flex flex-col gap-2">
+    <label for="referral" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+      How Did You Hear About Us?
+    </label>
+    <select
+      id="referral"
+      name="referral"
+      class="bg-jp-black border border-jp-border text-jp-gray px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors appearance-none"
+    >
+      <option value="">Select one...</option>
+      <option value="google">Google Search</option>
+      <option value="referral">Friend or Family Referral</option>
+      <option value="repeat">Returning Customer</option>
+      <option value="social">Social Media</option>
+      <option value="drive-by">Drove By the Shop</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <!-- Error message -->
+  <p id="form-error" class="hidden font-body text-sm text-jp-red font-medium"></p>
+
+  <!-- Submit -->
+  <button
+    type="submit"
+    id="submit-btn"
+    class="btn-primary w-full justify-center text-base py-4 mt-2"
+    style="animation: none;"
+  >
+    <span id="submit-text">Send My Request →</span>
+    <span id="submit-loading" class="hidden">Sending...</span>
+  </button>
+
+  <p class="font-body text-xs text-jp-muted text-center">
+    We'll call you within 1 business hour. No obligation, no pressure.
+  </p>
 </form>
+
+<script define:vars={{ GHL_WEBHOOK }}>
+  const form = document.getElementById('quote-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitText = document.getElementById('submit-text');
+  const submitLoading = document.getElementById('submit-loading');
+  const errorMsg = document.getElementById('form-error');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitText.classList.add('hidden');
+    submitLoading.classList.remove('hidden');
+    errorMsg.classList.add('hidden');
+
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+
+    try {
+      await fetch(GHL_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        mode: 'no-cors',
+      });
+      window.location.href = '/thank-you';
+    } catch {
+      errorMsg.textContent = 'Something went wrong. Please call us directly at (203) 375-1700.';
+      errorMsg.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitText.classList.remove('hidden');
+      submitLoading.classList.add('hidden');
+    }
+  });
+</script>

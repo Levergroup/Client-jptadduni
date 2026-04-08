@@ -1,10 +1,7 @@
 ---
 /**
- * Layout.astro
- *
- * Root layout shell shared by all pages.
- * Composes SEOHead, Header, the page <slot />, and Footer.
- * Accepts the same SEO props as SEOHead plus an optional JSON-LD schema string.
+ * Layout.astro – Root layout for JP Tadduni Transmissions & Driveline
+ * Dark motorsport aesthetic with racing red accents.
  */
 
 import SEOHead from '../components/layout/SEOHead.astro';
@@ -17,7 +14,7 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
-  schema?: string; // JSON-LD structured data as a serialized string
+  schema?: string;
 }
 
 const { title, description, canonical, ogImage, schema } = Astro.props;
@@ -32,7 +29,7 @@ const { title, description, canonical, ogImage, schema } = Astro.props;
     ogImage={ogImage}
     schema={schema}
   />
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col bg-jp-black text-jp-gray">
     <Header />
     <main class="flex-1">
       <slot />

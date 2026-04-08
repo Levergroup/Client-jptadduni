@@ -1,0 +1,135 @@
+---
+/**
+ * services.astro – All Services overview for JP Tadduni Transmissions.
+ */
+
+import Layout from '../layouts/Layout.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Transmission & Driveline Services",
+  "provider": {
+    "@type": "AutoRepair",
+    "name": "JP Tadduni Transmissions & Driveline",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Stratford",
+      "addressRegion": "CT",
+      "postalCode": "06615"
+    }
+  },
+  "areaServed": { "@type": "State", "name": "Connecticut" }
+});
+
+const services = [
+  {
+    href: "/services/transmission-rebuild",
+    name: "Transmission Rebuild",
+    tagline: "Slipping, grinding, or no movement?",
+    description: "A complete tear-down, inspection, and rebuild to factory spec. Every seal, clutch pack, band, solenoid, and bushing replaced or measured. Not a parts-swap — a real rebuild with a real warranty.",
+    bullets: ["All automatic and manual transmissions", "Complete disassembly and inspection", "Factory spec rebuild with OEM-quality parts", "Written warranty on all work"],
+  },
+  {
+    href: "/services/driveline",
+    name: "Driveline Services",
+    tagline: "Vibration at highway speed?",
+    description: "Your driveline is everything between the transmission and the wheels. We balance, repair, rebuild, and replace driveshafts, U-joints, CV axles, and differentials.",
+    bullets: ["Driveshaft balance and repair", "U-joint replacement", "CV axle service", "Differential rebuild and repair"],
+  },
+  {
+    href: "/services/classic-cars",
+    name: "Classic Car Transmissions",
+    tagline: "Old iron deserves expert hands.",
+    description: "Vintage and muscle car transmissions require specialized knowledge most shops simply don't have. JP Tadduni has been working on classic American iron for decades.",
+    bullets: ["Muncie 4-speed rebuilds", "TH350, TH400, 700R4 rebuilds", "Toploader and T10 rebuilds", "Correct restoration and performance builds"],
+  },
+  {
+    href: "/services",
+    name: "Manual Transmission Service",
+    tagline: "Hard shifting or grinding gears?",
+    description: "Manual transmissions require precision synchronizer work and precise shimming that most automatic-only shops can't do. We rebuild manuals most shops won't touch.",
+    bullets: ["Synchronizer replacement and inspection", "Gear wear assessment", "Bearing replacement", "Shift fork and linkage service"],
+  },
+  {
+    href: "/parts",
+    name: "Parts Sales",
+    tagline: "Need a specific component?",
+    description: "We stock and source transmission and driveline components that are hard to find elsewhere. From OEM replacements to performance upgrades and classic car-specific parts.",
+    bullets: ["Clutch packs and steel plates", "Solenoid kits and valve bodies", "Torque converters", "Classic car hard parts"],
+  },
+  {
+    href: "/contact",
+    name: "Diagnostics",
+    tagline: "Not sure what's wrong?",
+    description: "Before you spend a dollar on a repair, know exactly what the problem is. Our diagnostic process identifies the real issue — not just the symptom — so you get a fix that lasts.",
+    bullets: ["Road test and symptom analysis", "Electronic scan and code reading", "Fluid inspection and analysis", "Straight quote before any work begins"],
+  },
+];
+---
+
+<Layout
+  title="Transmission & Driveline Services in Stratford, CT | JP Tadduni"
+  description="Full transmission rebuild, driveline service, classic car specialists, manual transmissions, parts, and diagnostics. Stratford, CT. Free diagnosis. Written warranty."
+  schema={serviceSchema}
+>
+
+  <!-- Page Header -->
+  <section class="relative pt-24 pb-16 bg-jp-black overflow-hidden">
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 30% 50%, rgba(204,0,0,0.1) 0%, transparent 60%);"
+      aria-hidden="true"
+    ></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-4">Expert Drivetrain Work</p>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-white leading-tight mb-6">
+        Every Service.<br />
+        <span class="text-jp-chrome">Done Right.</span>
+      </h1>
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed">
+        From a full transmission rebuild to hard-to-find classic car parts —
+        JP Tadduni is Connecticut's go-to transmission and driveline specialist.
+        30+ years. All makes and models. Written warranty on every job.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Services list -->
+  <section class="py-20 bg-jp-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col gap-px" style="background: rgba(255,255,255,0.04);">
+        {services.map((service, i) => (
+          <div class="bg-jp-black grid grid-cols-1 lg:grid-cols-2 gap-0">
+            <!-- Left: Info -->
+            <div class="p-8 sm:p-12 flex flex-col gap-5 border-l-4 border-jp-red/30 hover:border-jp-red transition-colors duration-300">
+              <p class="font-body text-xs font-semibold uppercase tracking-widest text-jp-red">{service.tagline}</p>
+              <h2 class="font-heading font-bold text-2xl sm:text-3xl text-jp-white leading-snug">{service.name}</h2>
+              <p class="font-body text-jp-muted leading-relaxed">{service.description}</p>
+              <a href={service.href} class="btn-secondary text-sm self-start mt-auto" style="animation: none;">
+                Learn More →
+              </a>
+            </div>
+            <!-- Right: Bullets -->
+            <div class="bg-jp-dark p-8 sm:p-12 flex flex-col justify-center">
+              <ul class="flex flex-col gap-3">
+                {service.bullets.map(bullet => (
+                  <li class="flex items-center gap-3 font-body text-sm text-jp-gray">
+                    <span class="w-1.5 h-1.5 rounded-full bg-jp-red flex-shrink-0"></span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+
+</Layout>

@@ -1,67 +1,146 @@
 ---
 /**
- * Footer.astro
- *
- * Site-wide footer for Duka Masonry.
- * Contact info, service links, service areas, and legal line.
+ * Footer.astro – JP Tadduni Transmissions & Driveline
+ * Dark footer with chrome accents and red highlights.
  */
 
-const phone = "(203) 555-0100";
-const phoneHref = "tel:+12035550100";
+const phone = "(203) 375-1700";
+const phoneHref = "tel:+12033751700";
+const email = "info@jptaddunitransmissions.com";
 const year = new Date().getFullYear();
+
+const services = [
+  { label: "Transmission Rebuild",    href: "/services/transmission-rebuild" },
+  { label: "Driveline Services",      href: "/services/driveline" },
+  { label: "Classic Car Specialists", href: "/services/classic-cars" },
+  { label: "Manual Transmission",     href: "/services" },
+  { label: "Parts Sales",             href: "/parts" },
+  { label: "Diagnostics",             href: "/contact" },
+];
+
+const areas = [
+  "Stratford", "Bridgeport", "Milford", "New Haven",
+  "Fairfield", "Trumbull", "Shelton", "Waterbury",
+  "Greenwich", "Stamford", "Norwalk", "Danbury",
+];
 ---
 
-<footer class="w-full bg-charcoal text-offwhite/80 text-sm">
-  <div class="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
+<footer class="w-full bg-jp-black border-t border-jp-border text-jp-muted text-sm">
 
-    <!-- Column 1: Brand -->
-    <div>
-      <p class="text-lg font-bold text-offwhite mb-2">
-        Duka <span class="text-gold">Masonry</span>
+  <!-- Red glow divider -->
+  <div class="section-divider"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+    <!-- Brand -->
+    <div class="lg:col-span-1">
+      <div class="mb-4">
+        <p class="font-heading font-bold text-2xl chrome-text tracking-widest uppercase leading-none">
+          JP Tadduni
+        </p>
+        <p class="font-heading text-jp-chrome text-xs tracking-[0.25em] uppercase">
+          Transmissions &amp; Driveline
+        </p>
+      </div>
+      <p class="mb-5 leading-relaxed text-jp-muted">
+        Stratford, Connecticut's transmission rebuild and driveline specialists.
+        Precision work. Honest quotes. Written warranties.
       </p>
-      <p class="mb-4 leading-relaxed">
-        Connecticut's masonry repair specialists — serving the Naugatuck Valley and surrounding towns since 2009.
-      </p>
-      <a href={phoneHref} class="text-gold font-semibold hover:brightness-110 transition-all">
-        {phone}
-      </a>
+      <div class="flex flex-col gap-2">
+        <a href={phoneHref} class="flex items-center gap-2 text-jp-red font-semibold hover:text-red-400 transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          {phone}
+        </a>
+        <a href={`mailto:${email}`} class="flex items-center gap-2 text-jp-muted hover:text-jp-gray transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          {email}
+        </a>
+        <p class="flex items-center gap-2 text-jp-muted">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          Stratford, CT 06615
+        </p>
+      </div>
     </div>
 
-    <!-- Column 2: Services -->
+    <!-- Services -->
     <div>
-      <p class="text-offwhite font-semibold mb-3 uppercase tracking-wide text-xs">Services</p>
+      <p class="font-heading text-jp-white font-semibold mb-4 uppercase tracking-[0.15em] text-xs border-l-2 border-jp-red pl-3">
+        Services
+      </p>
       <ul class="space-y-2">
-        <li><a href="/contact" class="hover:text-gold transition-colors">Brick Repair</a></li>
-        <li><a href="/contact" class="hover:text-gold transition-colors">Tuckpointing & Repointing</a></li>
-        <li><a href="/contact" class="hover:text-gold transition-colors">Chimney Repair</a></li>
-        <li><a href="/contact" class="hover:text-gold transition-colors">Concrete Work</a></li>
-        <li><a href="/contact" class="hover:text-gold transition-colors">Stone Work</a></li>
-        <li><a href="/contact" class="hover:text-gold transition-colors">Retaining Walls</a></li>
+        {services.map(s => (
+          <li>
+            <a href={s.href} class="hover:text-jp-gray hover:border-l hover:border-jp-red hover:pl-2 transition-all duration-200">
+              {s.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
 
-    <!-- Column 3: Service Areas -->
+    <!-- Quick Links -->
     <div>
-      <p class="text-offwhite font-semibold mb-3 uppercase tracking-wide text-xs">Service Areas</p>
+      <p class="font-heading text-jp-white font-semibold mb-4 uppercase tracking-[0.15em] text-xs border-l-2 border-jp-red pl-3">
+        Quick Links
+      </p>
       <ul class="space-y-2">
-        <li>Waterbury, CT</li>
-        <li>Naugatuck, CT</li>
-        <li>Ansonia, CT</li>
-        <li>Derby, CT</li>
-        <li>Shelton, CT</li>
-        <li>Seymour, CT</li>
-        <li>Milford, CT</li>
-        <li>Woodbridge, CT</li>
+        <li><a href="/" class="hover:text-jp-gray transition-colors">Home</a></li>
+        <li><a href="/services" class="hover:text-jp-gray transition-colors">All Services</a></li>
+        <li><a href="/parts" class="hover:text-jp-gray transition-colors">Parts</a></li>
+        <li><a href="/about" class="hover:text-jp-gray transition-colors">About Us</a></li>
+        <li><a href="/contact" class="hover:text-jp-gray transition-colors">Contact & Quote</a></li>
       </ul>
+      <div class="mt-6 space-y-1 text-xs">
+        <p class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-jp-red"></span>
+          Licensed &amp; Insured
+        </p>
+        <p class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-jp-red"></span>
+          Connecticut Family Owned
+        </p>
+        <p class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-jp-red"></span>
+          Written Warranty on Every Rebuild
+        </p>
+      </div>
+    </div>
+
+    <!-- Service Areas -->
+    <div>
+      <p class="font-heading text-jp-white font-semibold mb-4 uppercase tracking-[0.15em] text-xs border-l-2 border-jp-red pl-3">
+        Service Areas
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {areas.map(town => (
+          <a
+            href={`/service-areas/${town.toLowerCase().replace(/\s+/g, '-')}`}
+            class="text-xs text-jp-muted hover:text-jp-gray transition-colors"
+          >
+            {town}
+          </a>
+        ))}
+      </div>
+      <p class="mt-4 text-xs text-jp-muted leading-relaxed">
+        We also accept shipped transmissions from across the US.
+      </p>
     </div>
 
   </div>
 
   <!-- Legal bar -->
-  <div class="border-t border-offwhite/10">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between gap-2">
-      <p>&copy; {year} Duka Masonry. All rights reserved.</p>
-      <p>Licensed & Insured in Connecticut</p>
+  <div class="border-t border-jp-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-jp-muted">
+      <p>&copy; {year} JP Tadduni Transmissions &amp; Driveline. All rights reserved.</p>
+      <p class="italic text-jp-chrome">Transmissions rebuilt right. Warranted.</p>
     </div>
   </div>
+
 </footer>

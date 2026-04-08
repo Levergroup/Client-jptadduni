@@ -1,69 +1,78 @@
 ---
 /**
- * PainSection.astro
- *
- * Pain agitation section for Duka Masonry.
- * Goes 3 layers deep: the visible problem → the hidden damage → the cost of waiting.
- * Follows the PAS framework to create urgency without being pushy.
+ * PainSection.astro – Pain Chain for JP Tadduni Transmissions.
+ * 3 escalating pain blocks: symptom → damage multiplier → bad shop problem.
  */
+
+const blocks = [
+  {
+    number: "01",
+    headline: "Slipping gears aren't just annoying — they're a warning sign your transmission is failing.",
+    body: "That hesitation when you accelerate, the RPMs climbing before your car catches — your transmission is telling you something is wrong. Ignoring it doesn't make it go away. It makes it worse.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>`,
+  },
+  {
+    number: "02",
+    headline: "Every mile you drive on a slipping transmission multiplies the damage — and the repair cost.",
+    body: "What starts as a worn clutch pack or solenoid becomes a destroyed torque converter, scored drums, and a case full of metal shavings. The longer you drive it, the more you're grinding away.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>`,
+  },
+  {
+    number: "03",
+    headline: "Most shops parts-swap and hope for the best. A real rebuild means tearing it completely down.",
+    body: "Any shop can bolt in a used transmission and call it fixed. A real rebuild means every component — clutch packs, seals, bushings, solenoids, bands — inspected, measured, and rebuilt to factory spec. That's the difference between 18 months and 100,000 miles.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+  },
+];
 ---
 
-<section class="bg-offwhite text-charcoal py-20">
-  <div class="max-w-5xl mx-auto px-6">
+<section class="py-20 sm:py-28 bg-jp-black">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
-    <!-- Section header -->
-    <div class="max-w-2xl mb-16">
-      <p class="text-gold text-sm font-bold uppercase tracking-widest mb-3">Sound Familiar?</p>
-      <h2 class="text-3xl md:text-4xl font-bold leading-snug">
-        Most homeowners ignore masonry damage until it becomes a much bigger problem.
-      </h2>
+    <!-- Section label -->
+    <div class="flex items-center gap-4 mb-16">
+      <span class="h-px flex-1 max-w-12" style="background: linear-gradient(90deg, transparent, #CC0000);"></span>
+      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red">The Problem</p>
+      <span class="h-px flex-1" style="background: linear-gradient(90deg, #CC0000, transparent);"></span>
     </div>
 
-    <!-- 3-layer pain grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Pain blocks -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-px" style="background: rgba(255,255,255,0.05);">
+      {blocks.map((block) => (
+        <div class="bg-jp-black p-8 sm:p-10 flex flex-col gap-6 group">
 
-      <!-- Layer 1: Surface pain — visible problem -->
-      <div class="border-t-4 border-gold pt-6">
-        <p class="text-xs font-bold uppercase tracking-widest text-gold mb-3">Layer 1 — What You See</p>
-        <h3 class="text-xl font-bold mb-3">A crack here. A gap there. Bricks that look wrong.</h3>
-        <p class="text-charcoal/70 leading-relaxed">
-          Maybe it's a chimney that's been shedding pieces. A retaining wall that's starting to lean.
-          Mortar joints so eroded you can scrape them out with your fingernail.
-          You know something's off — you've just been hoping it'll hold a little longer.
-        </p>
-      </div>
+          <!-- Number + icon row -->
+          <div class="flex items-start justify-between">
+            <span
+              class="font-heading font-bold text-5xl leading-none"
+              style="color: rgba(204,0,0,0.2);"
+            >
+              {block.number}
+            </span>
+            <div
+              class="w-10 h-10 flex items-center justify-center border border-jp-border rounded-sm group-hover:border-jp-red transition-colors duration-300"
+            >
+              <svg class="w-5 h-5 text-jp-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <Fragment set:html={block.icon} />
+              </svg>
+            </div>
+          </div>
 
-      <!-- Layer 2: Hidden damage -->
-      <div class="border-t-4 border-charcoal pt-6">
-        <p class="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Layer 2 — What You Can't See</p>
-        <h3 class="text-xl font-bold mb-3">Water is already inside — and it's spreading.</h3>
-        <p class="text-charcoal/70 leading-relaxed">
-          Every open crack is a doorway for water. It seeps behind your walls, under your slab,
-          into your chimney lining. You won't notice the mold or the rotting framing until
-          a contractor tears something open. By then, what started as a masonry issue
-          is now a structural one.
-        </p>
-      </div>
+          <!-- Headline -->
+          <h3 class="font-heading font-bold text-xl sm:text-2xl text-jp-white leading-snug">
+            {block.headline}
+          </h3>
 
-      <!-- Layer 3: Cost of waiting -->
-      <div class="border-t-4 border-charcoal pt-6">
-        <p class="text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Layer 3 — What It's Costing You</p>
-        <h3 class="text-xl font-bold mb-3">Every CT winter makes it worse — and more expensive.</h3>
-        <p class="text-charcoal/70 leading-relaxed">
-          Water gets in, freezes, and expands. That tiny crack becomes a fracture.
-          That loose stone becomes a collapse. A $400 repointing job you put off for a year
-          can turn into a $4,000 rebuild. The damage isn't waiting for you to be ready.
-        </p>
-      </div>
+          <!-- Body -->
+          <p class="font-body text-jp-muted leading-relaxed text-sm flex-1">
+            {block.body}
+          </p>
 
-    </div>
+          <!-- Red bottom accent on hover -->
+          <div class="h-px w-0 group-hover:w-full bg-jp-red transition-all duration-500"></div>
 
-    <!-- Bridge to solution -->
-    <div class="mt-14 bg-charcoal text-offwhite px-8 py-6 max-w-2xl">
-      <p class="text-lg font-semibold leading-relaxed">
-        The good news: most masonry damage is very fixable — if you catch it early.
-        Duka Masonry gives you a straight diagnosis and an honest quote. No upselling. No guesswork.
-      </p>
+        </div>
+      ))}
     </div>
 
   </div>

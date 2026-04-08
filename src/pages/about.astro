@@ -1,21 +1,145 @@
 ---
 /**
- * about.astro – About Page
- *
- * Lever Group's story, mission, team, and values.
- * Builds trust with prospects by humanizing the agency.
- * Sections to add: team intro, agency origin story, core values,
- * certifications, and a mid-page CTABanner.
+ * about.astro – About JP Tadduni Transmissions & Driveline.
  */
 
 import Layout from '../layouts/Layout.astro';
 import CTABanner from '../components/sections/CTABanner.astro';
+import ProofBar from '../components/sections/ProofBar.astro';
+
+const values = [
+  {
+    title: "Diagnose First",
+    body: "We never start work until we know exactly what's wrong. Our diagnostic process identifies the real problem — not just the symptom. You get a complete, honest assessment before you spend a dollar.",
+  },
+  {
+    title: "Rebuild Right",
+    body: "A transmission rebuild means tearing the unit completely down. Every component inspected, measured, and rebuilt to factory specification. Not close — correct. That's the only standard we accept.",
+  },
+  {
+    title: "Quote Straight",
+    body: "We give you a complete quote before any work begins. No upsells after teardown, no surprise invoices. What we quote is what you pay — unless you authorize otherwise.",
+  },
+  {
+    title: "Warrant the Work",
+    body: "Every rebuild we complete comes with a written warranty. We stand behind our work with something on paper because we're confident in every transmission that leaves our shop.",
+  },
+];
 ---
 
 <Layout
-  title="About Lever Group | Connecticut Marketing Agency"
-  description="Learn about Lever Group – the Connecticut marketing team helping local businesses grow through data-driven digital marketing."
+  title="About JP Tadduni Transmissions & Driveline | Stratford, CT"
+  description="JP Tadduni Transmissions & Driveline — Stratford, CT's transmission rebuild specialist. 30+ years experience. Family owned. All makes and models. Written warranty."
 >
-  <!-- About page sections go here -->
+
+  <!-- Hero -->
+  <section class="relative pt-24 pb-16 bg-jp-black overflow-hidden">
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 40% 60%, rgba(204,0,0,0.1) 0%, transparent 60%);"
+      aria-hidden="true"
+    ></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-4">Our Story</p>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-white leading-tight mb-6">
+        30+ Years.<br />
+        <span class="text-jp-chrome">Built on Precision &amp; Trust.</span>
+      </h1>
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed">
+        JP Tadduni Transmissions & Driveline has been Stratford, Connecticut's
+        go-to transmission specialist for over three decades. Family owned.
+        Connecticut based. A real shop that does real work.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Story -->
+  <section class="py-20 bg-jp-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Story text -->
+        <div class="flex flex-col gap-6 font-body text-jp-muted leading-relaxed">
+          <p class="text-jp-gray text-lg leading-relaxed">
+            JP Tadduni didn't set out to build a business. He set out to build transmissions right.
+          </p>
+          <p>
+            What started as a deep passion for mechanical precision became one of Connecticut's most
+            trusted drivetrain shops. For over 30 years, JP Tadduni Transmissions & Driveline has
+            served customers from Stratford to Stamford, New Haven to Hartford — and from across the
+            country via shipped transmission work.
+          </p>
+          <p>
+            The shop has stayed family owned by design. There's no corporate management layer between
+            you and the people doing the work. When you call JP Tadduni, you talk to someone who
+            actually knows transmissions. When you bring your car in, the same people who answer
+            the phone are the ones tearing down your unit.
+          </p>
+          <p>
+            We specialize in what other shops avoid: complete transmission rebuilds, classic car
+            drivetrains, manual transmissions, and hard-to-find parts. We built our reputation
+            on taking the jobs nobody else would do — and doing them right.
+          </p>
+          <p class="text-jp-white font-semibold">
+            Every transmission that leaves our shop has a written warranty. Not because we're required
+            to — because we're confident in every job we complete.
+          </p>
+        </div>
+
+        <!-- Stats / Quick facts -->
+        <div class="flex flex-col gap-4">
+          {[
+            { label: "Founded", value: "1995", sub: "Over 30 years in business" },
+            { label: "Location", value: "Stratford, CT", sub: "Serving all of Connecticut" },
+            { label: "Specialty", value: "Transmission Rebuild", sub: "And all driveline services" },
+            { label: "Experience", value: "All Makes & Models", sub: "Including classic cars" },
+            { label: "Guarantee", value: "Written Warranty", sub: "On every rebuild" },
+            { label: "Nationwide", value: "Ship-In Service", sub: "We accept shipped transmissions" },
+          ].map(fact => (
+            <div class="jp-card flex items-center gap-6">
+              <div class="flex flex-col">
+                <span class="font-body text-xs uppercase tracking-widest text-jp-muted mb-0.5">{fact.label}</span>
+                <span class="font-heading font-bold text-jp-white text-lg leading-none">{fact.value}</span>
+                <span class="font-body text-xs text-jp-muted mt-0.5">{fact.sub}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <ProofBar />
+
+  <!-- Values -->
+  <section class="py-20 bg-jp-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-14">
+        <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-3">How We Work</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-jp-white leading-tight">
+          Four Things We Never Compromise On
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {values.map((val, i) => (
+          <div class="jp-card flex flex-col gap-3">
+            <span
+              class="font-heading font-bold text-3xl leading-none"
+              style="color: rgba(204,0,0,0.3);"
+            >
+              0{i + 1}
+            </span>
+            <h3 class="font-heading font-bold text-xl text-jp-white">{val.title}</h3>
+            <p class="font-body text-jp-muted leading-relaxed text-sm">{val.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <CTABanner />
+
 </Layout>

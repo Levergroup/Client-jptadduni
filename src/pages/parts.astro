@@ -1,0 +1,146 @@
+---
+/**
+ * parts.astro – Parts Sales page for JP Tadduni Transmissions.
+ */
+
+import Layout from '../layouts/Layout.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+
+const parts = [
+  {
+    category: "Manual Transmission Units",
+    items: [
+      { name: "Muncie 4-Speed (M20)", detail: "Wide ratio, 2.52 first gear" },
+      { name: "Muncie 4-Speed (M21)", detail: "Close ratio, 2.20 first gear" },
+      { name: "Muncie Rock Crusher (M22)", detail: "Heavy-duty close ratio" },
+      { name: "T56 Magnum 6-Speed", detail: "LS swap and performance applications" },
+      { name: "Ford Toploader 4-Speed", detail: "3.00 and 2.78 first gear ratios" },
+      { name: "T10 4-Speed", detail: "Borg-Warner and Saginaw units" },
+    ],
+  },
+  {
+    category: "Automatic Transmission Parts",
+    items: [
+      { name: "Overhaul Kits", detail: "Complete soft parts kits for most units" },
+      { name: "Clutch Packs & Steel Plates", detail: "OEM spec and high-performance" },
+      { name: "Torque Converters", detail: "Stock stall and high-stall performance" },
+      { name: "Valve Bodies", detail: "Remanufactured and performance shift kits" },
+      { name: "Solenoid Kits", detail: "OEM replacement for late-model units" },
+      { name: "Pump Assemblies", detail: "Rebuilt front and rear pumps" },
+    ],
+  },
+  {
+    category: "Driveline Components",
+    items: [
+      { name: "Positraction Units", detail: "GM, Ford, and Mopar limited-slip" },
+      { name: "Ring & Pinion Sets", detail: "Multiple ratios for most domestic axles" },
+      { name: "U-Joint Kits", detail: "1310, 1330, and 1350 series" },
+      { name: "CV Axle Assemblies", detail: "FWD and AWD applications" },
+      { name: "Differential Bearings", detail: "Complete bearing and seal kits" },
+      { name: "Driveshaft Components", detail: "Slip yokes, flanges, and tube sections" },
+    ],
+  },
+  {
+    category: "Shift & Linkage",
+    items: [
+      { name: "Hurst Shifters", detail: "Competition Plus and Indy shifters" },
+      { name: "Shifter Rods & Linkage", detail: "Column and floor shift components" },
+      { name: "Clutch Forks & Pivots", detail: "GM, Ford, and Mopar applications" },
+      { name: "Pilot Bearings & Bushings", detail: "Transmission input shaft support" },
+      { name: "Transmission Crossmembers", detail: "OEM and aftermarket" },
+      { name: "Transmission Mounts", detail: "Rubber and polyurethane options" },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Transmission & Driveline Parts in Stratford, CT | JP Tadduni"
+  description="Hard-to-find transmission and driveline parts — Muncie 4-speed, T56, Positraction, ring & pinion, solenoid kits, torque converters, and more. Stratford, CT."
+>
+
+  <!-- Hero -->
+  <section class="relative pt-24 pb-16 bg-jp-black overflow-hidden">
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 50% 40%, rgba(192,192,192,0.06) 0%, transparent 60%);"
+      aria-hidden="true"
+    ></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-4">Parts Sales</p>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-white leading-tight mb-6">
+        Hard-to-Find Parts.<br />
+        <span class="chrome-text">We Stock &amp; Source Them.</span>
+      </h1>
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed mb-10">
+        From classic muscle car transmissions to late-model solenoid kits and ring & pinion sets —
+        JP Tadduni stocks and sources drivetrain components that most parts stores have never heard of.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn-primary">Inquire About a Part →</a>
+        <a href="tel:+12033751700" class="btn-secondary" style="animation: none;">Call (203) 375-1700</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Parts categories -->
+  <section class="py-20 bg-jp-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="mb-14">
+        <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-3">Inventory & Sourcing</p>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-jp-white leading-tight">
+          What We Stock &amp; Source
+        </h2>
+        <p class="font-body text-jp-muted mt-3 max-w-2xl">
+          This is a sample of what we regularly have available. If you don't see what you need,
+          call us — we source hard-to-find components through our supplier network.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {parts.map(category => (
+          <div class="flex flex-col gap-4">
+            <h2 class="font-heading font-bold text-xl text-jp-chrome border-b border-jp-border pb-3 uppercase tracking-wide">
+              {category.category}
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {category.items.map(item => (
+                <div
+                  class="bg-jp-dark border border-jp-chrome/15 hover:border-jp-chrome/40 p-4 flex flex-col gap-1 transition-all duration-200 group"
+                >
+                  <h3 class="font-heading font-bold text-jp-white text-base group-hover:text-jp-chrome transition-colors">{item.name}</h3>
+                  <p class="font-body text-jp-muted text-xs">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Don't see it -->
+  <section class="py-16 bg-jp-dark">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl text-jp-white mb-4">
+        Don't see what you need?
+      </h2>
+      <p class="font-body text-jp-muted leading-relaxed mb-8">
+        We source hard-to-find drivetrain components through our supplier network.
+        If it exists, we can usually find it. Give us the part number, the application,
+        or just describe what you need — we'll track it down.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary">Ask About a Part →</a>
+        <a href="tel:+12033751700" class="btn-secondary" style="animation: none;">Call (203) 375-1700</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+
+</Layout>
