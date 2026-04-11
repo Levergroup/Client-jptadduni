@@ -19,9 +19,9 @@ const contactSchema = JSON.stringify({
 
   <section class="bg-jp-bg pt-12 pb-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-      <span class="section-label mx-auto">Free Diagnosis</span>
-      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-jp-charcoal leading-tight mb-4">Let's Talk About Your Transmission</h1>
-      <p class="font-body text-lg text-jp-muted max-w-xl mx-auto">Fill out the form and we'll call you within 1 business hour. No obligation, no pressure.</p>
+      <span class="section-label mx-auto">Free Quote</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-jp-charcoal leading-tight mb-4">Get Your Free Quote in Under an Hour</h1>
+      <p class="font-body text-lg text-jp-muted max-w-xl mx-auto">Fill out the form and we'll call <em>and</em> email you a quote in under 1 hour. No obligation, no pressure.</p>
     </div>
   </section>
 
@@ -49,7 +49,7 @@ const contactSchema = JSON.stringify({
             <p class="font-body text-jp-muted text-sm leading-relaxed">We accept shipped transmissions from across the US. Call us before shipping.</p>
           </div>
           <div class="flex flex-col gap-2 text-sm font-body text-jp-muted">
-            {["Free diagnosis — no obligation","Honest quote before any work","We call back within 1 business hour","Written warranty on every rebuild"].map(item => (
+            {["Free quote — no obligation","We call & email your quote in under 1 hour","Honest assessment before any work begins","Written warranty on every rebuild"].map(item => (
               <span class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-jp-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {item}
@@ -60,8 +60,8 @@ const contactSchema = JSON.stringify({
 
         <div class="lg:col-span-3">
           <div class="jp-card">
-            <h2 class="font-heading font-bold text-2xl text-jp-charcoal mb-2">Request Your Free Diagnosis</h2>
-            <p class="font-body text-jp-muted text-sm mb-6">Tell us about your vehicle and the issue. We'll call within 1 business hour.</p>
+            <h2 class="font-heading font-bold text-2xl text-jp-charcoal mb-2">Request Your Free Quote</h2>
+            <p class="font-body text-jp-muted text-sm mb-6">Tell us about your vehicle and what's going on. We'll call <strong>and</strong> email your quote in under 1 hour.</p>
             <QuoteForm />
           </div>
         </div>
