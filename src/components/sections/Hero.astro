@@ -1,90 +1,87 @@
 ---
 /**
- * Hero.astro – Split-screen hero for JP Tadduni home page.
- * Light theme: F5F5F5 background, charcoal text, red accents.
+ * Hero.astro – Full-bleed background hero for JP Tadduni home page.
+ * Shop photo background with dark overlay, white text, red accents.
  */
 
 const phone = "(475) XXX-XXXX";
 const phoneHref = "tel:+14750000000";
 ---
 
-<section class="bg-jp-bg py-16 sm:py-20 lg:py-0 min-h-[88vh] flex items-center overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-0 items-center">
+<section class="relative min-h-[88vh] flex items-center overflow-hidden">
 
-      <!-- Left: Copy (60%) -->
-      <div class="lg:col-span-3 py-10 lg:pr-12">
+  <!-- Background photo -->
+  <img
+    src="https://images.pexels.com/photos/20872015/pexels-photo-20872015.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    alt="Professional auto repair workshop with car lift"
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    loading="eager"
+    decoding="async"
+  />
 
-        <!-- Red label -->
-        <p class="section-label">Stratford, Connecticut's #1 Transmission Shop</p>
+  <!-- Dark overlay — left solid, fades right for depth -->
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(105deg, rgba(26,26,26,0.88) 0%, rgba(26,26,26,0.72) 55%, rgba(26,26,26,0.45) 100%);"
+    aria-hidden="true"
+  ></div>
 
-        <!-- H1 -->
-        <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-jp-charcoal leading-tight mb-6">
-          Is Your Transmission<br />
-          <span class="text-jp-red">Slipping, Grinding,</span><br />
-          or Leaving You Stranded?
-        </h1>
+  <!-- Red left edge accent -->
+  <div class="absolute top-0 left-0 w-1.5 h-full bg-jp-red" aria-hidden="true"></div>
 
-        <!-- Subheadline -->
-        <p class="font-body text-lg text-jp-muted leading-relaxed mb-8 max-w-xl">
-          Most shops guess. JP Tadduni diagnoses it right, rebuilds it right,
-          and warranties every job — so it never fails again.
-        </p>
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full py-20">
+    <div class="max-w-2xl">
 
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-10">
-          <a href={phoneHref} class="btn-primary text-base px-7 py-4">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-            </svg>
-            Call Now: {phone}
-          </a>
-          <a href="/contact" class="btn-secondary text-base px-7 py-4">
-            Get A Free Quote →
-          </a>
-        </div>
+      <!-- Label -->
+      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red block mb-4">
+        Stratford, Connecticut's #1 Transmission Shop
+      </p>
 
-        <!-- Trust row -->
-        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-jp-muted font-semibold">
-          {[
-            "30+ Years Experience",
-            "All Makes & Models",
-            "Written Warranty",
-            "Classic Car Specialists",
-          ].map(item => (
-            <span class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-jp-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              {item}
-            </span>
-          ))}
-        </div>
+      <!-- H1 -->
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
+        Is Your Transmission<br />
+        <span class="text-jp-red">Slipping, Grinding,</span><br />
+        or Leaving You Stranded?
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="font-body text-lg leading-relaxed mb-8 max-w-xl" style="color: rgba(255,255,255,0.8);">
+        Most shops guess. JP Tadduni diagnoses it right, rebuilds it right,
+        and warranties every job — so it never fails again.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-10">
+        <a href={phoneHref} class="btn-primary text-base px-7 py-4">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          Call Now: {phone}
+        </a>
+        <a href="/contact" class="btn-white-outlined text-base px-7 py-4">
+          Get A Free Quote →
+        </a>
       </div>
 
-      <!-- Right: Visual panel (40%) -->
-      <div class="lg:col-span-2 relative self-stretch hidden lg:flex items-stretch">
-        <!-- Gray panel with red diagonal accent -->
-        <div class="w-full bg-jp-light flex flex-col items-center justify-center relative overflow-hidden min-h-[480px]">
-
-          <!-- Red diagonal accent strip -->
-          <div
-            class="absolute top-0 right-0 w-16 h-full bg-jp-red"
-            style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);"
-            aria-hidden="true"
-          ></div>
-
-            <!-- Hero photo -->
-          <img
-            src="https://images.pexels.com/photos/8985519/pexels-photo-8985519.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="Professional mechanic rebuilding a transmission in a specialist shop"
-            class="absolute inset-0 w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
+      <!-- Trust row -->
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold" style="color: rgba(255,255,255,0.7);">
+        {[
+          "30+ Years Experience",
+          "All Makes & Models",
+          "Written Warranty",
+          "Classic Car Specialists",
+        ].map(item => (
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-jp-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            {item}
+          </span>
+        ))}
       </div>
 
     </div>
   </div>
+
 </section>
