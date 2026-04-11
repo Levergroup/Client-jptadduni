@@ -112,7 +112,7 @@
   #mobile-call-bar {
     display: flex;
   }
-  main {
+  body {
     padding-bottom: 64px;
   }
 }
