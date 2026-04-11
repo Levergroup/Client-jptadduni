@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/sections/CTABanner.astro';
+
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
+
+const gearboxes = [
+  { name: "Muncie 4-Speed", sub: "M20, M21, M22 Rock Crusher — GM muscle cars" },
+  { name: "T-56 6-Speed", sub: "GM F-body, Viper, Tremec applications" },
+  { name: "Ford Toploader", sub: "3 and 4-speed — Mustangs, Falcons, Torinos" },
+  { name: "T10 4-Speed", sub: "Borg-Warner and Saginaw units" },
+  { name: "A833 4-Speed", sub: "Mopar muscle — Charger, Challenger, Barracuda" },
+  { name: "NV3550 / NV4500", sub: "Jeep and GM truck applications" },
+  { name: "T5 / T45 5-Speed", sub: "Ford Mustang 5.0 and 4.6" },
+  { name: "Tremec TKO / T56 Magnum", sub: "Retrofit and performance applications" },
+  { name: "Saginaw 3 & 4-Speed", sub: "GM column and floor shift units" },
+  { name: "GM Getrag Units", sub: "F40, M32, Corvette applications" },
+  { name: "ZF 6-Speed", sub: "BMW, Ford, and GM applications" },
+  { name: "Custom Builds", sub: "Close-ratio gear sets, performance upgrades" },
+];
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org", "@type": "Service", "name": "Manual Transmission Rebuild",
+  "provider": { "@type": "AutoRepair", "name": "JP Tadduni Transmissions & Driveline", "telephone": "(475) XXX-XXXX",
+    "address": { "@type": "PostalAddress", "addressLocality": "Stratford", "addressRegion": "CT" }
+  },
+  "areaServed": { "@type": "State", "name": "Connecticut" }
+});
+---
+<Layout title="Manual Transmission Rebuild in Stratford, CT | JP Tadduni Transmissions" description="Manual transmission rebuild specialists in Stratford, CT. Hard shifting, grinding gears, clutch issues — we rebuild what other shops turn away. All makes and models." schema={serviceSchema}>
+
+  <section class="bg-jp-bg pt-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center gap-2 text-xs text-jp-muted mb-6 font-body uppercase tracking-widest">
+        <a href="/" class="hover:text-jp-red transition-colors">Home</a><span>/</span>
+        <a href="/services" class="hover:text-jp-red transition-colors">Services</a><span>/</span>
+        <span class="text-jp-charcoal font-semibold">Manual Transmissions</span>
+      </nav>
+      <span class="section-label">Manual Transmission Specialists</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-charcoal leading-tight mb-6">
+        Manual Transmission Rebuild.<br /><span class="text-jp-red">We Take the Jobs Others Won't.</span>
+      </h1>
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed mb-8">
+        Hard shifting, grinding gears, or a clutch that won't release? Most shops won't attempt a manual transmission rebuild. JP Tadduni rebuilds manual transmissions that other shops turn away — including classic muscle car gearboxes most technicians have never held.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href={phoneHref} class="btn-primary">Call For A Free Quote</a>
+        <a href="/contact" class="btn-secondary">Request A Quote Online →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <span class="section-label">Why Manual Rebuilds Are Different</span>
+          <h2 class="section-title mb-6">Most Shops Won't<br /><span class="text-jp-red">Touch These Units.</span></h2>
+          <div class="flex flex-col gap-4 font-body text-jp-muted leading-relaxed">
+            <p>Manual transmissions require a different kind of diagnostic skill. There's no computer to read codes from — the technician has to understand gear engagement, synchronizer wear patterns, shift fork geometry, and bearing tolerances.</p>
+            <p>Modern shops are trained on modern automatics. Manual transmission work — especially on older and classic vehicles — is a disappearing craft. JP Tadduni has been rebuilding them for over 30 years.</p>
+            <p class="text-jp-charcoal font-semibold">We rebuild muscle car 4-speeds that other shops photograph for Instagram and send back untouched.</p>
+          </div>
+          <div class="mt-8 flex flex-col gap-1">
+            {[
+              "Hard shifting or won't go into gear",
+              "Grinding on gear changes",
+              "Popping out of gear under load",
+              "Clutch engagement problems",
+              "Noise in neutral or specific gears",
+              "Gear lever vibration or wobble",
+            ].map(symptom => (
+              <div class="flex items-center gap-3 py-2.5 border-b border-jp-border">
+                <span class="w-1.5 h-1.5 rounded-full bg-jp-red flex-shrink-0"></span>
+                <span class="font-body text-sm text-jp-text">{symptom}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-5">
+          {[
+            { title: "Complete Disassembly", body: "Every manual rebuild starts with complete teardown. The case, mainshaft, countershaft, synchronizers, and shift forks all go on the bench for inspection and measurement." },
+            { title: "Synchronizer & Gear Inspection", body: "Synchronizers are the heart of a manual transmission. We inspect every blocker ring, key, and spring against factory tolerances — worn synchronizers get replaced, not adjusted." },
+            { title: "Bearing & Bushing Replacement", body: "Every bearing gets replaced. Worn bearings create noise in specific gears and can cause premature synchronizer failure if left in place." },
+            { title: "Correct Parts Sourcing", body: "Classic manual transmissions require specific ratio and design components. We source correct NOS and quality reproduction parts for vintage applications." },
+            { title: "Performance Options", body: "Close-ratio gear sets, heavy-duty synchronizers, and shift kits available for performance builds and high-power applications." },
+          ].map(item => (
+            <div class="jp-card border-l-4 border-jp-red">
+              <h3 class="font-heading font-bold text-jp-charcoal text-lg mb-2">{item.title}</h3>
+              <p class="font-body text-jp-muted text-sm leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-jp-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <span class="section-label">What We Rebuild</span>
+        <h2 class="section-title">Manual Gearboxes We Specialize In</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {gearboxes.map(box => (
+          <div class="jp-card hover:border-l-4 hover:border-jp-red transition-all duration-200">
+            <h3 class="font-heading font-bold text-jp-charcoal text-base mb-1">{box.name}</h3>
+            <p class="font-body text-jp-muted text-xs">{box.sub}</p>
+          </div>
+        ))}
+      </div>
+      <p class="font-body text-jp-muted text-sm mt-8">
+        Don't see yours?
+        <a href="/contact" class="text-jp-red hover:text-jp-red-dark font-semibold transition-colors"> Ask us — chances are we've rebuilt it. →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="jp-card border-l-4 border-jp-red">
+        <h2 class="font-heading font-bold text-2xl text-jp-charcoal mb-4">Shipped Transmissions Welcome</h2>
+        <p class="font-body text-jp-muted leading-relaxed mb-4">
+          Working on a project car? Can't drive it in? We accept shipped manual transmissions from anywhere in the country. Pull the unit, ship it to us, and we'll rebuild it and ship it back.
+        </p>
+        <p class="font-body text-jp-muted leading-relaxed mb-6">
+          Call or email first so we can discuss the specific unit, what you're experiencing, and what you're building toward — whether that's OEM restore or a performance upgrade.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={phoneHref} class="btn-primary">Call to Discuss Your Transmission</a>
+          <a href="/contact" class="btn-secondary">Send Us a Message →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>

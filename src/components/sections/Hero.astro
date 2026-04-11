@@ -1,103 +1,98 @@
 ---
 /**
- * Hero.astro – Full-viewport hero for JP Tadduni Transmissions home page.
- * Dark showroom aesthetic: radial red glow, grid lines, precision typography.
+ * Hero.astro – Split-screen hero for JP Tadduni home page.
+ * Light theme: F5F5F5 background, charcoal text, red accents.
  */
 
-const phone = "(203) 375-1700";
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
 ---
 
-<section
-  class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 overflow-hidden"
-  style="background: #0A0A0A;"
->
-  <!-- Background: subtle grid lines -->
-  <div
-    class="absolute inset-0 pointer-events-none"
-    style="background-image: linear-gradient(rgba(204,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(204,0,0,0.05) 1px, transparent 1px); background-size: 80px 80px;"
-    aria-hidden="true"
-  ></div>
+<section class="bg-jp-bg py-16 sm:py-20 lg:py-0 min-h-[88vh] flex items-center overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-0 items-center">
 
-  <!-- Background: red radial glow from center -->
-  <div
-    class="absolute inset-0 pointer-events-none"
-    style="background: radial-gradient(ellipse 80% 60% at 50% 55%, rgba(204,0,0,0.13) 0%, rgba(204,0,0,0.04) 50%, transparent 75%);"
-    aria-hidden="true"
-  ></div>
+      <!-- Left: Copy (60%) -->
+      <div class="lg:col-span-3 py-10 lg:pr-12">
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-4xl mx-auto">
+        <!-- Red label -->
+        <p class="section-label">Stratford, Connecticut's #1 Transmission Shop</p>
 
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-3 mb-8">
-      <span class="h-px w-10 bg-jp-red opacity-70"></span>
-      <span
-        class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-chrome px-4 py-1.5"
-        style="border: 1px solid rgba(192,192,192,0.2); background: rgba(20,20,20,0.9);"
-      >
-        Stratford, Connecticut's Transmission Specialists
-      </span>
-      <span class="h-px w-10 bg-jp-red opacity-70"></span>
+        <!-- H1 -->
+        <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-jp-charcoal leading-tight mb-6">
+          Is Your Transmission<br />
+          <span class="text-jp-red">Slipping, Grinding,</span><br />
+          or Leaving You Stranded?
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="font-body text-lg text-jp-muted leading-relaxed mb-8 max-w-xl">
+          Most shops guess. JP Tadduni diagnoses it right, rebuilds it right,
+          and warranties every job — so it never fails again.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+          <a href={phoneHref} class="btn-primary text-base px-7 py-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            Call Now: {phone}
+          </a>
+          <a href="/contact" class="btn-secondary text-base px-7 py-4">
+            Get A Free Quote →
+          </a>
+        </div>
+
+        <!-- Trust row -->
+        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-jp-muted font-semibold">
+          {[
+            "30+ Years Experience",
+            "All Makes & Models",
+            "Written Warranty",
+            "Classic Car Specialists",
+          ].map(item => (
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-jp-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: Visual panel (40%) -->
+      <div class="lg:col-span-2 relative self-stretch hidden lg:flex items-stretch">
+        <!-- Gray panel with red diagonal accent -->
+        <div class="w-full bg-jp-light flex flex-col items-center justify-center relative overflow-hidden min-h-[480px]">
+
+          <!-- Red diagonal accent strip -->
+          <div
+            class="absolute top-0 right-0 w-16 h-full bg-jp-red"
+            style="clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);"
+            aria-hidden="true"
+          ></div>
+
+          <!-- Image placeholder -->
+          <div class="relative z-10 flex flex-col items-center justify-center text-center px-10">
+            <div class="w-36 h-36 mb-6 flex items-center justify-center" style="opacity: 0.2;">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" aria-hidden="true">
+                <circle cx="40" cy="40" r="36" stroke="#1A1A1A" stroke-width="3"/>
+                <circle cx="40" cy="40" r="18" stroke="#1A1A1A" stroke-width="3"/>
+                <circle cx="40" cy="40" r="6" fill="#1A1A1A"/>
+                <line x1="40" y1="4" x2="40" y2="20" stroke="#1A1A1A" stroke-width="3"/>
+                <line x1="40" y1="60" x2="40" y2="76" stroke="#1A1A1A" stroke-width="3"/>
+                <line x1="4" y1="40" x2="20" y2="40" stroke="#1A1A1A" stroke-width="3"/>
+                <line x1="60" y1="40" x2="76" y2="40" stroke="#1A1A1A" stroke-width="3"/>
+              </svg>
+            </div>
+            <p class="font-heading font-bold text-xl text-jp-charcoal mb-2">Client Photo Here</p>
+            <p class="font-body text-sm text-jp-muted">Shop exterior or transmission rebuild in progress</p>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- H1 -->
-    <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-jp-white leading-[1.05] mb-6 tracking-tight">
-      Is Your Transmission<br />
-      <span class="text-jp-red">Slipping, Grinding,</span><br />
-      or Leaving You Stranded?
-    </h1>
-
-    <!-- Subheadline -->
-    <p class="font-body text-lg sm:text-xl text-jp-gray max-w-2xl mx-auto mb-10 leading-relaxed">
-      Most transmission problems get worse every mile you drive.
-      JP Tadduni rebuilds it right the first time —&nbsp;
-      <span class="text-jp-white font-semibold">with a warranty to prove it.</span>
-    </p>
-
-    <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="/contact" class="btn-primary w-full sm:w-auto">
-        Get Your Free Diagnosis →
-      </a>
-      <a href="tel:+12033751700" class="btn-secondary w-full sm:w-auto">
-        Call Us Now: {phone}
-      </a>
-    </div>
-
-    <!-- Trust strip -->
-    <div class="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-2 text-xs text-jp-muted font-medium uppercase tracking-widest">
-      <span class="flex items-center gap-1.5">
-        <span class="w-1 h-4 bg-jp-red inline-block"></span>
-        30+ Years Experience
-      </span>
-      <span class="flex items-center gap-1.5">
-        <span class="w-1 h-4 bg-jp-red inline-block"></span>
-        Written Warranty
-      </span>
-      <span class="flex items-center gap-1.5">
-        <span class="w-1 h-4 bg-jp-red inline-block"></span>
-        All Makes &amp; Models
-      </span>
-      <span class="flex items-center gap-1.5">
-        <span class="w-1 h-4 bg-jp-red inline-block"></span>
-        Classic Car Experts
-      </span>
-    </div>
-
   </div>
-
-  <!-- Bottom gradient fade into next section -->
-  <div
-    class="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
-    style="background: linear-gradient(to bottom, transparent, #0A0A0A);"
-    aria-hidden="true"
-  ></div>
-
-  <!-- Scroll cue -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-30">
-    <svg class="w-5 h-5 text-jp-chrome animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
-    </svg>
-  </div>
-
 </section>

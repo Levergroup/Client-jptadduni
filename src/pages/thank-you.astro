@@ -1,49 +1,20 @@
 ---
-/**
- * thank-you.astro – Form submission confirmation for JP Tadduni Transmissions.
- */
-
 import Layout from '../layouts/Layout.astro';
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
 ---
-
-<Layout
-  title="Thank You | JP Tadduni Transmissions & Driveline"
-  description="Thank you for contacting JP Tadduni Transmissions. We'll call you within 1 business hour."
->
-
-  <section class="min-h-screen flex items-center justify-center py-20 bg-jp-black relative overflow-hidden">
-
-    <!-- Background glow -->
-    <div
-      class="absolute inset-0 pointer-events-none"
-      style="background: radial-gradient(ellipse at 50% 50%, rgba(204,0,0,0.08) 0%, transparent 65%);"
-      aria-hidden="true"
-    ></div>
-
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center relative z-10">
-
-      <!-- Checkmark -->
-      <div class="w-20 h-20 mx-auto mb-8 border-2 border-jp-red flex items-center justify-center">
-        <svg class="w-10 h-10 text-jp-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-        </svg>
+<Layout title="Thank You | JP Tadduni Transmissions & Driveline" description="Thank you for contacting JP Tadduni Transmissions. We'll call you within 1 business hour.">
+  <section class="min-h-screen flex items-center justify-center py-20 bg-jp-bg">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+      <div class="w-20 h-20 mx-auto mb-8 bg-jp-red rounded-full flex items-center justify-center">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
       </div>
-
-      <!-- Headline -->
-      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-jp-white leading-tight mb-4">
-        Got It. We'll Call You<br />
-        <span class="text-jp-red">Within 1 Business Hour.</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-jp-charcoal leading-tight mb-4">
+        Got It. We'll Call You<br /><span class="text-jp-red">Within 1 Business Hour.</span>
       </h1>
-
-      <!-- Message -->
-      <p class="font-body text-jp-muted text-lg leading-relaxed mb-8">
-        Your request has been received. A member of our team will call you
-        at the number you provided within 1 business hour during shop hours.
-      </p>
-
-      <!-- What to expect -->
-      <div class="bg-jp-dark border border-jp-border p-8 text-left mb-10">
-        <h2 class="font-heading font-bold text-jp-white text-lg mb-5">What happens next:</h2>
+      <p class="font-body text-jp-muted text-lg leading-relaxed mb-10">JP or a member of our team will call you at the number you provided. In the meantime, call us directly at {phone}.</p>
+      <div class="jp-card text-left mb-10">
+        <h2 class="font-heading font-bold text-xl text-jp-charcoal mb-5">What happens next:</h2>
         <div class="flex flex-col gap-4">
           {[
             { step: "1", text: "We'll call you within 1 business hour (Mon–Fri 8am–5pm, Sat 8am–1pm)." },
@@ -52,36 +23,21 @@ import Layout from '../layouts/Layout.astro';
             { step: "4", text: "After diagnosis, you get a complete written quote before any work begins." },
           ].map(item => (
             <div class="flex items-start gap-4">
-              <span
-                class="font-heading font-bold text-sm w-7 h-7 flex-shrink-0 flex items-center justify-center border border-jp-red text-jp-red"
-              >
-                {item.step}
-              </span>
-              <p class="font-body text-jp-muted text-sm leading-relaxed pt-0.5">{item.text}</p>
+              <span class="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-jp-red text-white font-heading font-bold text-sm rounded-full">{item.step}</span>
+              <p class="font-body text-jp-muted text-sm leading-relaxed pt-1">{item.text}</p>
             </div>
           ))}
         </div>
       </div>
-
-      <!-- Shop hours -->
       <div class="mb-10 font-body text-sm text-jp-muted">
-        <p class="font-semibold text-jp-chrome mb-2">Shop Hours</p>
+        <p class="font-semibold text-jp-charcoal mb-2">Shop Hours</p>
         <p>Monday – Friday: 8:00 AM – 5:00 PM</p>
-        <p>Saturday: 8:00 AM – 1:00 PM</p>
-        <p>Sunday: Closed</p>
+        <p>Saturday: 8:00 AM – 1:00 PM · Sunday: Closed</p>
       </div>
-
-      <!-- If you need immediate help -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:+12033751700" class="btn-primary" style="animation: none;">
-          Call Now: (203) 375-1700
-        </a>
-        <a href="/" class="btn-secondary" style="animation: none;">
-          Back to Home
-        </a>
+        <a href={phoneHref} class="btn-primary">Call Now: {phone}</a>
+        <a href="/" class="btn-secondary">Back to Home</a>
       </div>
-
     </div>
   </section>
-
 </Layout>

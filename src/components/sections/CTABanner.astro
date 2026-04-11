@@ -1,50 +1,51 @@
 ---
 /**
- * CTABanner.astro – Urgency CTA banner for JP Tadduni Transmissions.
- * Red background section with booking urgency.
+ * CTABanner.astro – Urgency CTA banner for JP Tadduni.
+ * Red background, white text, two CTA buttons.
  */
+
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
 ---
 
-<section
-  class="relative py-16 sm:py-20 overflow-hidden"
-  style="background: #CC0000;"
->
-  <!-- Subtle dark grid overlay -->
+<section class="py-16 sm:py-20 bg-jp-red relative overflow-hidden">
+  <!-- Subtle grid overlay -->
   <div
-    class="absolute inset-0 pointer-events-none"
-    style="background-image: linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px); background-size: 40px 40px;"
-    aria-hidden="true"
-  ></div>
-
-  <!-- Darker red corners -->
-  <div
-    class="absolute inset-0 pointer-events-none"
-    style="background: radial-gradient(ellipse at 50% 50%, rgba(204,0,0,0) 30%, rgba(100,0,0,0.4) 100%);"
+    class="absolute inset-0 pointer-events-none opacity-10"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.3) 1px, transparent 1px); background-size: 40px 40px;"
     aria-hidden="true"
   ></div>
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
 
     <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-white leading-tight mb-4">
-      Transmission problems don't fix themselves.
-      <span class="block opacity-90">Every mile makes it worse.</span>
+      Transmission Problems<br />Don't Fix Themselves
     </h2>
 
     <p class="font-body text-white/80 text-lg mb-3 max-w-xl mx-auto leading-relaxed">
-      We're currently booking rebuilds — don't wait until it leaves you stranded.
+      Every mile makes it worse and more expensive.
+      We're booking jobs now — don't wait until you're stranded.
     </p>
 
     <p class="font-body text-white/60 text-sm mb-10 uppercase tracking-widest font-medium">
       Free Diagnosis · Honest Quote · Written Warranty
     </p>
 
-    <a
-      href="/contact"
-      class="inline-flex items-center gap-2 bg-white text-jp-red font-heading font-bold text-lg uppercase tracking-wide px-10 py-4 hover:bg-jp-gray transition-all duration-200"
-      style="clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));"
-    >
-      Get Your Free Quote Today →
-    </a>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href={phoneHref} class="btn-white text-base px-8 py-4">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+        </svg>
+        Call Now: {phone}
+      </a>
+      <a href="/contact" class="btn-white-outlined text-base px-8 py-4">
+        Get A Free Quote →
+      </a>
+    </div>
+
+    <p class="font-body text-white/50 text-sm mt-6">
+      Or fill out our form and we'll call you within 1 business hour
+    </p>
 
   </div>
 </section>

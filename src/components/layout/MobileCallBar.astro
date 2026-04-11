@@ -1,0 +1,30 @@
+---
+/**
+ * MobileCallBar.astro – Sticky bottom call bar, mobile only.
+ * Hidden on desktop via CSS.
+ */
+
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
+---
+
+<div
+  id="mobile-call-bar"
+  class="fixed bottom-0 left-0 right-0 z-50 items-center justify-between px-4 py-3 bg-jp-charcoal"
+  style="box-shadow: 0 -2px 12px rgba(0,0,0,0.25);"
+  aria-label="Mobile call bar"
+>
+  <span class="font-heading font-bold text-white text-sm">
+    JP Tadduni Transmissions
+  </span>
+  <a
+    href={phoneHref}
+    class="flex items-center gap-2 bg-jp-red text-white font-heading font-bold text-sm px-4 py-2 hover:bg-jp-red-dark transition-colors"
+    style="border-radius: 8px;"
+  >
+    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+    </svg>
+    📞 Call Now
+  </a>
+</div>

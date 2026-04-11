@@ -1,37 +1,33 @@
 ---
 /**
- * FAQ.astro – AWE Framework FAQs for JP Tadduni Transmissions.
- * Acknowledge, Wedge, Elaborate — handles real objections.
- * Includes FAQ JSON-LD schema for rich results.
+ * FAQ.astro – Accordion FAQs for JP Tadduni home page.
+ * Light gray background, 4 questions with expand/collapse.
+ * Includes FAQ JSON-LD schema.
  */
 
 const faqs = [
   {
     q: "How much does a transmission rebuild cost?",
-    a: "Rebuilds vary based on the unit and the extent of damage. Most are more affordable than a replacement — and last significantly longer. We give free, honest quotes before any work begins. No guessing, no surprises.",
+    a: "Every rebuild is different — it depends on the unit and how far the damage has progressed. Most jobs are more affordable than people expect, and always cheaper than a replacement. We give you a straight quote before any work begins. No surprises.",
   },
   {
     q: "How long will the rebuild take?",
-    a: "Most rebuilds are completed within 3–5 business days. We'll give you a clear timeline before we start — and we stick to it. If anything changes, we call you first.",
+    a: "Most transmission rebuilds are completed within 3–5 business days. We'll give you a firm timeline before we start so you can plan accordingly.",
   },
   {
     q: "Do you work on my make and model?",
-    a: "All makes, all models — from daily drivers to classic muscle cars. Domestic, import, manual, automatic. If it has a transmission, we can rebuild it.",
+    a: "All makes, all models. Domestic, foreign, classic, modern, diesel. If it has a transmission, we can rebuild it. Classic and vintage cars are a specialty.",
   },
   {
     q: "Is the work guaranteed?",
-    a: "Yes. Every rebuild comes with a written warranty. We stand behind every job we complete. If there's ever a problem, we make it right — that's the JP Tadduni guarantee.",
-  },
-  {
-    q: "Should I just buy a used transmission instead?",
-    a: "Used transmissions are a gamble — you don't know the history or how close to failure they are. A rebuild from JP Tadduni means every component is inspected and brought back to spec. You get a known, warranted unit built to last another 100,000 miles.",
+    a: "Yes. Every rebuild comes with a written warranty. We stand behind every job — that's not something most shops will say.",
   },
 ];
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
+  mainEntity: faqs.map(f => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -39,46 +35,42 @@ const faqSchema = {
 };
 ---
 
-<section class="py-20 sm:py-28 bg-jp-dark">
+<section class="py-16 sm:py-24 bg-jp-bg">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
 
     <!-- Header -->
-    <div class="mb-14">
-      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-3">FAQ</p>
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-jp-white leading-tight">
-        Straight Answers.<br /><span class="text-jp-chrome">No Runaround.</span>
-      </h2>
+    <div class="mb-12">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Questions? We Get These A Lot.</h2>
     </div>
 
-    <!-- FAQ items -->
-    <div class="flex flex-col divide-y divide-jp-border">
+    <!-- Accordion -->
+    <div class="flex flex-col gap-3">
       {faqs.map((faq, i) => (
-        <details class="group py-6 cursor-pointer" name="faq">
-          <summary class="flex justify-between items-start gap-6 list-none select-none">
-            <h3 class="font-heading font-bold text-lg sm:text-xl text-jp-gray group-open:text-jp-white transition-colors leading-snug">
+        <details class="group bg-white rounded-card overflow-hidden" style="box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+          <summary class="flex items-center justify-between gap-6 px-6 py-5 cursor-pointer list-none select-none hover:bg-jp-bg transition-colors">
+            <h3 class="font-heading font-bold text-lg text-jp-charcoal group-open:text-jp-red transition-colors leading-snug">
               {faq.q}
             </h3>
-            <div class="flex-shrink-0 w-7 h-7 border border-jp-border flex items-center justify-center group-open:border-jp-red group-open:bg-jp-red transition-all duration-200 mt-0.5">
-              <svg class="w-3.5 h-3.5 text-jp-muted group-open:text-white group-open:rotate-45 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-jp-bg group-open:bg-jp-red rounded-full transition-all duration-200">
+              <svg class="w-4 h-4 text-jp-charcoal group-open:text-white group-open:rotate-45 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/>
               </svg>
             </div>
           </summary>
-          <p class="mt-4 font-body text-jp-muted leading-relaxed pr-12">
-            {faq.a}
-          </p>
+          <div class="px-6 pb-5 border-t border-jp-border">
+            <p class="font-body text-jp-muted leading-relaxed pt-4">
+              {faq.a}
+            </p>
+          </div>
         </details>
       ))}
     </div>
 
-    <!-- CTA bridge -->
-    <div class="mt-12 pt-8 border-t border-jp-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <p class="font-body text-jp-muted text-sm">
-        Still have questions? We're straight shooters — just ask.
-      </p>
-      <a href="/contact" class="btn-primary text-sm px-6 py-3" style="animation: none;">
-        Talk to Us →
-      </a>
+    <!-- CTA -->
+    <div class="mt-10 text-center">
+      <p class="font-body text-jp-muted mb-4">Still have questions? We're straight shooters — just ask.</p>
+      <a href="/contact" class="btn-primary">Talk to Us →</a>
     </div>
 
   </div>

@@ -1,4 +1,4 @@
-/* JP Tadduni Transmissions & Driveline – Global Styles */
+/* JP Tadduni Transmissions & Driveline – Global Styles (Light Redesign) */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -7,97 +7,114 @@
 
 @layer base {
   html {
-    color: #E5E5E5;
-    background-color: #0A0A0A;
+    color: #333333;
+    background-color: #F5F5F5;
     scroll-behavior: smooth;
   }
-
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #0A0A0A;
-    /* Subtle dark noise texture via CSS */
-    background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    background-color: #F5F5F5;
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.6;
   }
-
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Rajdhani', system-ui, sans-serif;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    color: #1A1A1A;
+    line-height: 1.2;
   }
 }
 
 @layer components {
-  /* Primary CTA Button – solid red with shine */
+  /* Primary button — red */
   .btn-primary {
     @apply inline-flex items-center gap-2 bg-jp-red text-white font-heading font-bold
-           px-6 py-3 text-lg tracking-wide uppercase
-           transition-all duration-200 hover:bg-jp-red-dark;
-    animation: pulseRed 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    box-shadow: 0 0 20px rgba(204,0,0,0.4);
-    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+           px-6 py-3 text-base tracking-wide transition-all duration-200
+           hover:bg-jp-red-dark hover:shadow-lg;
+    border-radius: 8px;
   }
 
-  .btn-primary:hover {
-    animation: none;
-    box-shadow: 0 0 30px rgba(204,0,0,0.6);
-  }
-
-  /* Secondary CTA Button – outlined */
+  /* Secondary button — outlined red */
   .btn-secondary {
-    @apply inline-flex items-center gap-2 border border-jp-chrome text-jp-chrome font-heading
-           font-bold px-6 py-3 text-lg tracking-wide uppercase
-           transition-all duration-200 hover:border-white hover:text-white;
-    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    @apply inline-flex items-center gap-2 border-2 border-jp-red text-jp-red font-heading font-bold
+           px-6 py-3 text-base tracking-wide transition-all duration-200
+           hover:bg-jp-red hover:text-white;
+    border-radius: 8px;
   }
 
-  /* Dark card with red left border */
+  /* White button — for use on red backgrounds */
+  .btn-white {
+    @apply inline-flex items-center gap-2 bg-white text-jp-red font-heading font-bold
+           px-6 py-3 text-base tracking-wide transition-all duration-200
+           hover:bg-gray-100;
+    border-radius: 8px;
+  }
+
+  /* White outlined button */
+  .btn-white-outlined {
+    @apply inline-flex items-center gap-2 border-2 border-white text-white font-heading font-bold
+           px-6 py-3 text-base tracking-wide transition-all duration-200
+           hover:bg-white hover:text-jp-red;
+    border-radius: 8px;
+  }
+
+  /* Service card — white, red top border */
+  .service-card {
+    @apply bg-white p-6 border-t-4 border-jp-red transition-all duration-300;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(204,0,0,0.15);
+  }
+
+  /* Parts card — white, red left border */
+  .parts-card {
+    @apply bg-white p-6 border-l-4 border-jp-red transition-all duration-300;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .parts-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  }
+
+  /* Generic white card */
   .jp-card {
-    @apply bg-jp-dark border-l-4 border-jp-red rounded-r-sm p-6
-           transition-all duration-300 hover:shadow-red-sm;
+    @apply bg-white p-6 transition-all duration-300;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   }
 
-  /* Section divider – red gradient glow */
-  .section-divider {
-    @apply w-full h-px;
-    background: linear-gradient(90deg, transparent 0%, #CC0000 30%, #CC0000 70%, transparent 100%);
-    box-shadow: 0 0 20px rgba(204,0,0,0.5);
-    opacity: 0.6;
+  /* Section label */
+  .section-label {
+    @apply font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red block mb-3;
   }
 
-  /* Chrome shimmer text */
-  .chrome-text {
-    background: linear-gradient(135deg, #C0C0C0 0%, #FFFFFF 40%, #C0C0C0 60%, #808080 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Section title */
+  .section-title {
+    @apply font-heading font-bold text-3xl sm:text-4xl text-jp-charcoal leading-tight;
   }
 
-  /* Red accent underline */
-  .red-underline {
-    @apply relative;
-  }
-  .red-underline::after {
-    content: '';
-    @apply absolute bottom-0 left-0 h-1 bg-jp-red;
-    width: 60px;
+  /* Section sub */
+  .section-sub {
+    @apply font-body text-jp-muted text-lg leading-relaxed mt-4;
   }
 }
 
-@layer utilities {
-  .font-heading {
-    font-family: 'Rajdhani', system-ui, sans-serif;
+/* Mobile call bar — only on mobile */
+#mobile-call-bar {
+  display: none;
+}
+@media (max-width: 767px) {
+  #mobile-call-bar {
+    display: flex;
   }
-}
-
-@keyframes pulseRed {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(204,0,0,0.5), 0 0 20px rgba(204,0,0,0.3); }
-  50%       { box-shadow: 0 0 0 10px rgba(204,0,0,0), 0 0 20px rgba(204,0,0,0.3); }
-}
-
-@keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  main {
+    padding-bottom: 64px;
+  }
 }
 
 /* Mobile menu */

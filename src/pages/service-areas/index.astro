@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/sections/CTABanner.astro';
+
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
+
+const towns = [
+  { slug: "stratford",   name: "Stratford",   county: "Fairfield" },
+  { slug: "bridgeport",  name: "Bridgeport",  county: "Fairfield" },
+  { slug: "milford",     name: "Milford",     county: "New Haven" },
+  { slug: "new-haven",   name: "New Haven",   county: "New Haven" },
+  { slug: "fairfield",   name: "Fairfield",   county: "Fairfield" },
+  { slug: "trumbull",    name: "Trumbull",    county: "Fairfield" },
+  { slug: "shelton",     name: "Shelton",     county: "Fairfield" },
+  { slug: "derby",       name: "Derby",       county: "New Haven" },
+  { slug: "ansonia",     name: "Ansonia",     county: "New Haven" },
+  { slug: "naugatuck",   name: "Naugatuck",   county: "New Haven" },
+  { slug: "waterbury",   name: "Waterbury",   county: "New Haven" },
+  { slug: "meriden",     name: "Meriden",     county: "New Haven" },
+  { slug: "hartford",    name: "Hartford",    county: "Hartford"  },
+  { slug: "greenwich",   name: "Greenwich",   county: "Fairfield" },
+  { slug: "stamford",    name: "Stamford",    county: "Fairfield" },
+  { slug: "norwalk",     name: "Norwalk",     county: "Fairfield" },
+  { slug: "danbury",     name: "Danbury",     county: "Fairfield" },
+  { slug: "westport",    name: "Westport",    county: "Fairfield" },
+  { slug: "darien",      name: "Darien",      county: "Fairfield" },
+  { slug: "new-canaan",  name: "New Canaan",  county: "Fairfield" },
+  { slug: "wilton",      name: "Wilton",      county: "Fairfield" },
+  { slug: "ridgefield",  name: "Ridgefield",  county: "Fairfield" },
+  { slug: "bethel",      name: "Bethel",      county: "Fairfield" },
+  { slug: "newtown",     name: "Newtown",     county: "Fairfield" },
+  { slug: "monroe",      name: "Monroe",      county: "Fairfield" },
+];
+
+const counties = [...new Set(towns.map(t => t.county))];
+
+const pageSchema = JSON.stringify({
+  "@context": "https://schema.org", "@type": "AutoRepair",
+  "name": "JP Tadduni Transmissions & Driveline",
+  "telephone": "(475) XXX-XXXX",
+  "address": { "@type": "PostalAddress", "addressLocality": "Stratford", "addressRegion": "CT", "postalCode": "06615" },
+  "areaServed": towns.map(t => ({ "@type": "City", "name": t.name, "containedInPlace": { "@type": "State", "name": "Connecticut" } }))
+});
+---
+<Layout
+  title="Transmission Repair Service Areas in CT | JP Tadduni Transmissions"
+  description="JP Tadduni Transmissions & Driveline serves Stratford, Bridgeport, New Haven, Fairfield County, and all of Connecticut. Expert transmission rebuild. Free diagnosis."
+  schema={pageSchema}
+>
+
+  <section class="bg-jp-bg pt-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center gap-2 text-xs text-jp-muted mb-6 font-body uppercase tracking-widest">
+        <a href="/" class="hover:text-jp-red transition-colors">Home</a><span>/</span>
+        <span class="text-jp-charcoal font-semibold">Service Areas</span>
+      </nav>
+      <span class="section-label">Serving All of Connecticut</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-charcoal leading-tight mb-6">
+        Connecticut's Transmission<br /><span class="text-jp-red">Rebuild Specialist.</span>
+      </h1>
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed mb-8">
+        Based in Stratford, CT — JP Tadduni Transmissions & Driveline serves customers across Fairfield County, New Haven County, Hartford County, and beyond. We also accept shipped transmissions from anywhere in the country.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href={phoneHref} class="btn-primary">Call Now: {phone}</a>
+        <a href="/contact" class="btn-secondary">Get A Free Quote →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      {counties.map(county => {
+        const countyTowns = towns.filter(t => t.county === county);
+        return (
+          <div class="mb-14 last:mb-0">
+            <div class="flex items-center gap-4 mb-6">
+              <h2 class="font-heading font-bold text-2xl text-jp-charcoal">{county} County</h2>
+              <div class="flex-1 h-px bg-jp-border"></div>
+              <span class="font-body text-xs text-jp-muted uppercase tracking-widest">{countyTowns.length} Towns</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {countyTowns.map(town => (
+                <a
+                  href={`/service-areas/${town.slug}`}
+                  class="jp-card flex items-center justify-between group hover:border-l-4 hover:border-jp-red transition-all duration-200"
+                >
+                  <div>
+                    <h3 class="font-heading font-bold text-jp-charcoal text-lg group-hover:text-jp-red transition-colors">{town.name}</h3>
+                    <p class="font-body text-xs text-jp-muted">{town.county} County, CT</p>
+                  </div>
+                  <svg class="w-5 h-5 text-jp-muted group-hover:text-jp-red group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+    </div>
+  </section>
+
+  <section class="py-14 bg-jp-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="section-label">Ship-In Service Available</span>
+          <h2 class="section-title mb-6">Not in Connecticut?<br /><span class="text-jp-red">Ship It to Us.</span></h2>
+          <div class="flex flex-col gap-4 font-body text-jp-muted leading-relaxed">
+            <p>We accept shipped transmissions from customers across the country. Pull the unit from your vehicle, ship it to our Stratford shop, and we'll rebuild it and ship it back — with a written warranty.</p>
+            <p>This is especially popular for classic car and project car owners who need specific units rebuilt correctly. Call us first to discuss the unit and what you're experiencing.</p>
+          </div>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href={phoneHref} class="btn-primary">Call to Arrange Ship-In</a>
+            <a href="/contact" class="btn-secondary">Email Us First →</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { title: "Free Diagnosis", sub: "No obligation assessment before work begins" },
+            { title: "All Makes & Models", sub: "Domestic, import, classic, and performance" },
+            { title: "Written Warranty", sub: "Every rebuild, shipped or drop-off" },
+            { title: "30+ Years", sub: "Experience on transmissions most shops won't touch" },
+          ].map(item => (
+            <div class="jp-card border-l-4 border-jp-red">
+              <h3 class="font-heading font-bold text-jp-charcoal text-base mb-1">{item.title}</h3>
+              <p class="font-body text-jp-muted text-xs">{item.sub}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>

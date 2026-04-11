@@ -1,12 +1,13 @@
 ---
 /**
  * Layout.astro – Root layout for JP Tadduni Transmissions & Driveline
- * Dark motorsport aesthetic with racing red accents.
+ * Light professional design with red accents and charcoal nav/footer.
  */
 
 import SEOHead from '../components/layout/SEOHead.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import MobileCallBar from '../components/layout/MobileCallBar.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -29,11 +30,12 @@ const { title, description, canonical, ogImage, schema } = Astro.props;
     ogImage={ogImage}
     schema={schema}
   />
-  <body class="min-h-screen flex flex-col bg-jp-black text-jp-gray">
+  <body class="min-h-screen flex flex-col bg-jp-bg text-jp-text">
     <Header />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
+    <MobileCallBar />
   </body>
 </html>

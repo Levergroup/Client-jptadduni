@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTABanner from '../../components/sections/CTABanner.astro';
+
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
+
+const symptoms = [
+  { symptom: "Slipping gears", detail: "RPMs climb but vehicle doesn't accelerate — classic sign of clutch pack or hydraulic pressure failure." },
+  { symptom: "Delayed engagement", detail: "Put it in drive and nothing happens for 2–3 seconds — pressure circuit or torque converter issue." },
+  { symptom: "Shudder at low speed", detail: "Shaking on light acceleration from a stop — often a torque converter clutch or fluid degradation issue." },
+  { symptom: "Harsh shifts", detail: "Banging or clunking between gears — valve body, solenoid, or pressure regulation problem." },
+  { symptom: "No movement in gear", detail: "Engine runs fine, selector moves, but vehicle won't move — internal failure or pressure loss." },
+  { symptom: "Grinding or whining noise", detail: "Bearing wear, gear damage, or low fluid — requires teardown inspection to properly assess." },
+];
+
+const serviceSchema = JSON.stringify({
+  "@context": "https://schema.org", "@type": "Service", "name": "Transmission Diagnostics",
+  "provider": { "@type": "AutoRepair", "name": "JP Tadduni Transmissions & Driveline", "telephone": "(475) XXX-XXXX",
+    "address": { "@type": "PostalAddress", "addressLocality": "Stratford", "addressRegion": "CT" }
+  },
+  "areaServed": { "@type": "State", "name": "Connecticut" }
+});
+---
+<Layout title="Free Transmission Diagnostics in Stratford, CT | JP Tadduni" description="Free transmission diagnostic in Stratford, CT. Know what's wrong before you spend a dollar. JP Tadduni diagnoses first — no obligation." schema={serviceSchema}>
+
+  <section class="bg-jp-bg pt-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center gap-2 text-xs text-jp-muted mb-6 font-body uppercase tracking-widest">
+        <a href="/" class="hover:text-jp-red transition-colors">Home</a><span>/</span>
+        <a href="/services" class="hover:text-jp-red transition-colors">Services</a><span>/</span>
+        <span class="text-jp-charcoal font-semibold">Free Diagnostics</span>
+      </nav>
+      <span class="section-label">No Obligation · No Surprises</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-charcoal leading-tight mb-6">
+        Free Diagnostics.<br /><span class="text-jp-red">Know Before You Spend.</span>
+      </h1>
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed mb-8">
+        You don't want to spend $2,000 on a rebuild if a $200 repair will solve the problem. We diagnose the real issue first — complete, honest assessment before you authorize a dollar of work.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href={phoneHref} class="btn-primary">Schedule Free Diagnosis</a>
+        <a href="/contact" class="btn-secondary">Send Us A Message →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <span class="section-label">Our Diagnostic Process</span>
+          <h2 class="section-title mb-6">We Don't Guess.<br /><span class="text-jp-red">We Diagnose.</span></h2>
+          <div class="flex flex-col gap-4 font-body text-jp-muted leading-relaxed">
+            <p>A lot of shops skip the diagnosis. They hear "transmission problem," pull the unit, tear it down, and then tell you what they found — after you're already on the hook for rebuild labor.</p>
+            <p>We do it differently. Before any teardown, we road test your vehicle, run a complete diagnostic, and tell you exactly what we found. Then we quote. You decide.</p>
+            <p class="text-jp-charcoal font-semibold">There's no cost to find out what's wrong. The cost comes only if you authorize the repair.</p>
+          </div>
+
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { step: "01", label: "Road Test", body: "We drive the vehicle to reproduce the symptom and observe shift behavior under load." },
+              { step: "02", label: "Diagnostic Scan", body: "We pull transmission codes and live data — fluid temp, solenoid duty cycles, pressure readings." },
+              { step: "03", label: "Honest Report", body: "We tell you what we found, what it will take to fix it, and what it will cost. No pressure." },
+            ].map(s => (
+              <div class="jp-card text-center">
+                <span class="font-heading font-bold text-3xl text-jp-red" style="opacity:0.3">{s.step}</span>
+                <h3 class="font-heading font-bold text-jp-charcoal text-base mt-1 mb-2">{s.label}</h3>
+                <p class="font-body text-jp-muted text-xs leading-relaxed">{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-5">
+          <div class="jp-card border-l-4 border-jp-red">
+            <h3 class="font-heading font-bold text-jp-charcoal text-xl mb-3">What's Included — Free</h3>
+            <div class="flex flex-col gap-3">
+              {[
+                "Complete road test to reproduce symptoms",
+                "OBD-II scan for transmission fault codes",
+                "Live data review — solenoids, pressures, temps",
+                "Visual inspection for external leaks",
+                "Fluid condition assessment",
+                "Written quote before any work begins",
+              ].map(item => (
+                <div class="flex items-center gap-3">
+                  <svg class="w-4 h-4 text-jp-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="font-body text-sm text-jp-text">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="jp-card bg-jp-bg">
+            <h3 class="font-heading font-bold text-jp-charcoal text-lg mb-2">Why Other Shops Skip This</h3>
+            <p class="font-body text-jp-muted text-sm leading-relaxed">
+              A thorough diagnosis takes time. Most shops make more money by going straight to teardown — once a transmission is apart, customers rarely walk away. We give you the information first, because we'd rather earn your trust than trap you in a repair you weren't expecting.
+            </p>
+          </div>
+
+          <div class="jp-card border-l-4 border-jp-red">
+            <p class="font-body text-jp-muted text-sm leading-relaxed mb-3">
+              <span class="font-semibold text-jp-charcoal">Ready to find out what's going on?</span> Call or drop by — we'll get it on the road and tell you exactly what we see.
+            </p>
+            <a href={phoneHref} class="btn-primary w-full justify-center text-sm">Call Now: {phone}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 bg-jp-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mb-12">
+        <span class="section-label">Common Symptoms</span>
+        <h2 class="section-title">What Are You Experiencing?</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {symptoms.map(s => (
+          <div class="jp-card flex gap-4">
+            <span class="w-2 h-2 rounded-full bg-jp-red flex-shrink-0 mt-2"></span>
+            <div>
+              <h3 class="font-heading font-bold text-jp-charcoal text-base mb-1">{s.symptom}</h3>
+              <p class="font-body text-jp-muted text-sm leading-relaxed">{s.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <p class="font-body text-jp-muted text-sm mb-4">Not seeing your symptom? Call us — if it's a transmission or driveline issue, we've seen it.</p>
+        <a href={phoneHref} class="btn-primary">Call: {phone}</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>

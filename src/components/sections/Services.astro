@@ -1,109 +1,97 @@
 ---
 /**
- * Services.astro – Service grid for JP Tadduni Transmissions.
- * 6 cards: dark background, red top border, chrome icon, pain/solution copy.
+ * Services.astro – 6-card service grid for JP Tadduni home page.
+ * White background, service cards with red top border accent.
  */
 
 const services = [
   {
     href: "/services/transmission-rebuild",
     name: "Transmission Rebuild",
-    pain: "Slipping, grinding, or no movement?",
-    solution: "We tear it down, rebuild to spec, and warranty the work.",
+    desc: "Complete tear-down, inspection, and rebuild with written warranty.",
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>`,
   },
   {
     href: "/services/driveline",
     name: "Driveline Services",
-    pain: "Vibration at highway speed?",
-    solution: "We balance, repair, and rebuild your entire driveline.",
+    desc: "Vibration at highway speed? We diagnose and repair your full driveline.",
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>`,
   },
   {
     href: "/services/classic-cars",
     name: "Classic Car Transmissions",
-    pain: "Old iron deserves expert hands.",
-    solution: "We specialize in vintage and muscle car transmissions.",
+    desc: "Vintage and muscle car transmissions are our specialty. Old iron done right.",
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>`,
   },
   {
-    href: "/services",
-    name: "Manual Transmission Service",
-    pain: "Hard shifting or grinding gears?",
-    solution: "We rebuild manuals most shops won't touch.",
+    href: "/services/manual-transmission",
+    name: "Manual Transmission",
+    desc: "Hard shifting or grinding gears? We rebuild manuals most shops won't even touch.",
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/>`,
   },
   {
     href: "/parts",
     name: "Parts Sales",
-    pain: "Need a specific transmission component?",
-    solution: "We stock and source hard-to-find drivetrain parts.",
+    desc: "Hard-to-find transmission and driveline parts — stocked and sourced.",
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>`,
   },
   {
-    href: "/contact",
-    name: "Diagnostics",
-    pain: "Not sure what's wrong?",
-    solution: "We identify the real issue before you spend a dollar.",
+    href: "/services/diagnostics",
+    name: "Free Diagnostics",
+    desc: "Not sure what's wrong? We identify the real issue before you spend a dollar.",
     icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>`,
   },
 ];
 ---
 
-<section class="py-20 sm:py-28 bg-jp-black">
+<section class="py-16 sm:py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
     <!-- Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
       <div>
-        <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-3">What We Do</p>
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-jp-white leading-tight">
-          Every Service.<br />
-          <span class="text-jp-chrome">Built Around Your Problem.</span>
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">
+          Connecticut's Complete<br />
+          Transmission &amp; Driveline Specialists
         </h2>
+        <p class="section-sub">
+          From daily drivers to classic muscle cars — we rebuild it right.
+        </p>
       </div>
-      <a href="/services" class="btn-secondary text-sm whitespace-nowrap self-start md:self-auto" style="animation: none;">
+      <a href="/services" class="btn-secondary whitespace-nowrap self-start md:self-auto flex-shrink-0">
         View All Services →
       </a>
     </div>
 
-    <!-- Services grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style="background: rgba(255,255,255,0.05);">
-      {services.map((service) => (
-        <a
-          href={service.href}
-          class="group bg-jp-dark flex flex-col gap-5 p-8 border-t-2 border-transparent hover:border-jp-red transition-all duration-300 hover:bg-jp-card"
-        >
+    <!-- Service cards grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map(service => (
+        <a href={service.href} class="service-card group flex flex-col gap-4 no-underline">
           <!-- Icon -->
-          <div class="w-11 h-11 border border-jp-border flex items-center justify-center group-hover:border-jp-red transition-colors duration-300">
-            <svg class="w-5 h-5 text-jp-chrome group-hover:text-jp-red transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="w-12 h-12 flex items-center justify-center bg-jp-bg rounded-lg group-hover:bg-jp-red transition-colors duration-300">
+            <svg class="w-6 h-6 text-jp-red group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <Fragment set:html={service.icon} />
             </svg>
           </div>
 
-          <!-- Pain line -->
-          <p class="font-body text-xs text-jp-red font-semibold uppercase tracking-wider">
-            {service.pain}
-          </p>
-
-          <!-- Service name -->
-          <h3 class="font-heading font-bold text-xl text-jp-white leading-snug group-hover:text-jp-red transition-colors duration-200">
+          <!-- Name -->
+          <h3 class="font-heading font-bold text-xl text-jp-charcoal group-hover:text-jp-red transition-colors duration-200">
             {service.name}
           </h3>
 
-          <!-- Solution -->
+          <!-- Description -->
           <p class="font-body text-jp-muted text-sm leading-relaxed flex-1">
-            {service.solution}
+            {service.desc}
           </p>
 
-          <!-- Arrow -->
-          <span class="font-body text-xs font-semibold text-jp-muted group-hover:text-jp-red transition-colors duration-200 uppercase tracking-widest flex items-center gap-1">
+          <!-- Learn more -->
+          <span class="font-body text-sm font-semibold text-jp-red flex items-center gap-1 mt-auto">
             Learn More
-            <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
           </span>
-
         </a>
       ))}
     </div>

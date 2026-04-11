@@ -1,61 +1,80 @@
 ---
 /**
- * ServiceAreas.astro – CT service area grid for JP Tadduni Transmissions.
- * Each town links to a dynamic /service-areas/[town] page.
+ * ServiceAreas.astro – CT service area town grid for JP Tadduni home page.
+ * White background, town pill tags with red hover.
  */
 
 const towns = [
-  "Stratford", "Bridgeport", "Milford", "New Haven",
-  "Fairfield", "Trumbull", "Shelton", "Derby",
-  "Ansonia", "Naugatuck", "Waterbury", "Meriden",
-  "Hartford", "Greenwich", "Stamford", "Norwalk", "Danbury",
+  { name: "Stratford",   slug: "stratford" },
+  { name: "Bridgeport",  slug: "bridgeport" },
+  { name: "Milford",     slug: "milford" },
+  { name: "New Haven",   slug: "new-haven" },
+  { name: "Fairfield",   slug: "fairfield" },
+  { name: "Trumbull",    slug: "trumbull" },
+  { name: "Shelton",     slug: "shelton" },
+  { name: "Derby",       slug: "derby" },
+  { name: "Ansonia",     slug: "ansonia" },
+  { name: "Naugatuck",   slug: "naugatuck" },
+  { name: "Waterbury",   slug: "waterbury" },
+  { name: "Meriden",     slug: "meriden" },
+  { name: "Hartford",    slug: "hartford" },
+  { name: "Greenwich",   slug: "greenwich" },
+  { name: "Stamford",    slug: "stamford" },
+  { name: "Norwalk",     slug: "norwalk" },
+  { name: "Danbury",     slug: "danbury" },
+  { name: "Westport",    slug: "westport" },
+  { name: "Darien",      slug: "darien" },
+  { name: "New Canaan",  slug: "new-canaan" },
+  { name: "Wilton",      slug: "wilton" },
+  { name: "Ridgefield",  slug: "ridgefield" },
+  { name: "Bethel",      slug: "bethel" },
+  { name: "Newtown",     slug: "newtown" },
+  { name: "Monroe",      slug: "monroe" },
 ];
-
-function townSlug(town: string) {
-  return town.toLowerCase().replace(/\s+/g, '-');
-}
 ---
 
-<section class="py-20 sm:py-28 bg-jp-black">
+<section class="py-16 sm:py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
     <!-- Header -->
-    <div class="mb-14 max-w-2xl">
-      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-3">Coverage</p>
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-jp-white leading-tight mb-4">
-        Serving All of Connecticut
-      </h2>
-      <p class="font-body text-jp-muted leading-relaxed">
-        Whether you're in the Naugatuck Valley, the Gold Coast, or anywhere in between —
-        JP Tadduni is your transmission specialist. We also accept shipped transmissions
-        from across the US.
+    <div class="mb-12 max-w-2xl">
+      <span class="section-label">Coverage</span>
+      <h2 class="section-title">Serving All of Connecticut</h2>
+      <p class="section-sub">
+        Based in Stratford, CT. We accept vehicles from across the state —
+        and shipped transmissions from anywhere in the US.
       </p>
     </div>
 
-    <!-- Towns grid -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-10">
-      {towns.map((town) => (
+    <!-- Town grid -->
+    <div class="flex flex-wrap gap-2 mb-10">
+      {towns.map(town => (
         <a
-          href={`/service-areas/${townSlug(town)}`}
-          class="group flex items-center gap-2 px-4 py-3 bg-jp-dark border border-jp-border hover:border-jp-red hover:bg-jp-card transition-all duration-200"
+          href={`/service-areas/${town.slug}`}
+          class="inline-flex items-center gap-1.5 px-4 py-2 bg-jp-bg border border-jp-border rounded-full font-body text-sm text-jp-text font-medium hover:bg-jp-red hover:text-white hover:border-jp-red transition-all duration-200"
         >
-          <span class="w-1 h-1 rounded-full bg-jp-red flex-shrink-0 group-hover:scale-150 transition-transform"></span>
-          <span class="font-body text-sm text-jp-muted group-hover:text-jp-gray transition-colors">{town}</span>
+          <svg class="w-3 h-3 text-jp-red group-hover:text-white" fill="currentColor" viewBox="0 0 8 8" aria-hidden="true">
+            <circle cx="4" cy="4" r="3"/>
+          </svg>
+          {town.name}
         </a>
       ))}
     </div>
 
     <!-- Ship-in note -->
-    <div class="flex items-center gap-4 p-6 border border-jp-red/30 bg-jp-dark max-w-2xl">
-      <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center border border-jp-red/50">
-        <svg class="w-4 h-4 text-jp-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+    <div class="flex items-start gap-4 p-5 bg-jp-bg border border-jp-border rounded-card max-w-2xl">
+      <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-jp-red rounded-full">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
         </svg>
       </div>
-      <p class="font-body text-sm text-jp-gray leading-relaxed">
-        <strong class="text-jp-white">Not in Connecticut?</strong> We accept shipped transmissions from across the US.
-        Call us and we'll walk you through the process.
-      </p>
+      <div>
+        <p class="font-heading font-bold text-jp-charcoal">Not in Connecticut?</p>
+        <p class="font-body text-jp-muted text-sm leading-relaxed mt-1">
+          We accept shipped transmissions from across the US.
+          Call us and we'll walk you through the process.
+        </p>
+      </div>
     </div>
 
   </div>

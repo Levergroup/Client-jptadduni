@@ -1,20 +1,17 @@
 ---
 /**
  * index.astro – JP Tadduni Transmissions & Driveline Homepage
- *
- * Section order (conversion-optimized):
- *   Hero → PainSection → PromiseSection → Services → ProofBar →
- *   ServiceAreas → PartsPreview → FAQ → CTABanner
+ * Light theme redesign. Section order:
+ * Hero → TrustBar → PainSection → Services → PartsPreview → ServiceAreas → FAQ → CTABanner
  */
 
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/sections/Hero.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
 import PainSection from '../components/sections/PainSection.astro';
-import PromiseSection from '../components/sections/PromiseSection.astro';
 import Services from '../components/sections/Services.astro';
-import ProofBar from '../components/sections/ProofBar.astro';
-import ServiceAreas from '../components/sections/ServiceAreas.astro';
 import PartsPreview from '../components/sections/PartsPreview.astro';
+import ServiceAreas from '../components/sections/ServiceAreas.astro';
 import FAQ from '../components/sections/FAQ.astro';
 import CTABanner from '../components/sections/CTABanner.astro';
 
@@ -22,15 +19,15 @@ const localBusinessSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   "name": "JP Tadduni Transmissions & Driveline",
-  "description":
-    "Stratford, Connecticut's transmission rebuild and driveline specialists. Expert transmission rebuilds, driveline services, classic car transmission specialists, manual transmissions, parts sales, and diagnostics. 30+ years experience. All makes and models. Written warranty.",
-  "telephone": "(203) 375-1700",
+  "description": "Stratford, Connecticut's transmission rebuild and driveline specialists. 30+ years experience. All makes and models. Written warranty.",
+  "telephone": "(475) XXX-XXXX",
   "url": "https://jptaddunitransmissions.com",
   "priceRange": "$$",
   "foundingDate": "1995",
   "slogan": "Transmissions Rebuilt Right. Warranted.",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Stratford",
     "addressLocality": "Stratford",
     "addressRegion": "CT",
     "postalCode": "06615",
@@ -41,11 +38,15 @@ const localBusinessSchema = JSON.stringify({
     "latitude": "41.1843",
     "longitude": "-73.1332"
   },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
+  ],
   "areaServed": [
-    "Stratford", "Bridgeport", "Milford", "New Haven",
-    "Fairfield", "Trumbull", "Shelton", "Derby",
-    "Ansonia", "Naugatuck", "Waterbury", "Meriden",
-    "Hartford", "Greenwich", "Stamford", "Norwalk", "Danbury"
+    "Stratford","Bridgeport","Milford","New Haven","Fairfield","Trumbull",
+    "Shelton","Derby","Ansonia","Naugatuck","Waterbury","Meriden","Hartford",
+    "Greenwich","Stamford","Norwalk","Danbury","Westport","Darien",
+    "New Canaan","Wilton","Ridgefield","Bethel","Newtown","Monroe"
   ].map(city => ({ "@type": "City", "name": city })),
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -56,29 +57,23 @@ const localBusinessSchema = JSON.stringify({
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Classic Car Transmissions" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manual Transmission Service" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Parts Sales" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Transmission Diagnostics" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Free Diagnostics" } }
     ]
-  },
-  "knowsAbout": [
-    "transmission rebuild", "driveline service", "classic car transmission",
-    "manual transmission repair", "automatic transmission rebuild",
-    "Connecticut transmission shop", "Stratford CT auto repair"
-  ]
+  }
 });
 ---
 
 <Layout
-  title="Transmission Rebuild & Driveline Service in Stratford, CT | JP Tadduni Transmissions"
-  description="JP Tadduni rebuilds transmissions right the first time — with a written warranty. Stratford, CT's specialist for all makes, models, and classic cars. Free diagnosis."
+  title="JP Tadduni Transmissions & Driveline | Stratford, CT Transmission Specialists"
+  description="CT's trusted transmission rebuild specialists. All makes, all models. Free diagnosis. Written warranty. Call JP in Stratford today."
   schema={localBusinessSchema}
 >
   <Hero />
+  <TrustBar />
   <PainSection />
-  <PromiseSection />
   <Services />
-  <ProofBar />
-  <ServiceAreas />
   <PartsPreview />
+  <ServiceAreas />
   <FAQ />
   <CTABanner />
 </Layout>

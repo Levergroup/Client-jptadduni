@@ -1,140 +1,82 @@
 ---
-/**
- * driveline.astro – Driveline Services page for JP Tadduni.
- */
-
 import Layout from '../../layouts/Layout.astro';
 import CTABanner from '../../components/sections/CTABanner.astro';
 
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
+
+const services = [
+  { name: "Driveshaft Balance & Repair", body: "Vibration at 50–70 mph is almost always a driveshaft problem. We balance and repair steel and aluminum driveshafts for cars, trucks, and SUVs. We also weld, shorten, and lengthen shafts for custom applications." },
+  { name: "U-Joint Replacement", body: "A worn U-joint clicks on acceleration and causes vibration that gets worse over time. Left alone, it will eventually break. We replace U-joints on all domestic and import applications." },
+  { name: "CV Axle Service", body: "Clicking on turns or vibration under acceleration is usually a failed CV joint. We replace CV axles and rebuild CV joint assemblies on front-wheel drive and AWD vehicles." },
+  { name: "Differential Rebuild", body: "Whining, howling, or chattering from your rear axle is a differential problem. We rebuild open, limited-slip, and locking differentials — including ratio changes." },
+  { name: "Transfer Case Service", body: "Four-wheel drive not engaging properly? We rebuild transfer cases and replace chain kits, bearings, and seals on all major applications." },
+  { name: "Custom Driveline Fabrication", body: "Swapped engine, lifted truck, or custom chassis? We build custom driveshafts for one-off applications. If it needs a driveshaft, we can build it." },
+];
+
 const serviceSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Driveline Services",
-  "description": "Driveshaft balancing, U-joint replacement, CV axle service, and differential rebuild in Stratford, CT. All makes and models.",
-  "provider": {
-    "@type": "AutoRepair",
-    "name": "JP Tadduni Transmissions & Driveline",
-    "telephone": "(203) 375-1700",
+  "@context": "https://schema.org", "@type": "Service", "name": "Driveline Services",
+  "provider": { "@type": "AutoRepair", "name": "JP Tadduni Transmissions & Driveline", "telephone": "(475) XXX-XXXX",
     "address": { "@type": "PostalAddress", "addressLocality": "Stratford", "addressRegion": "CT" }
   },
   "areaServed": { "@type": "State", "name": "Connecticut" }
 });
-
-const services = [
-  {
-    name: "Driveshaft Balance & Repair",
-    body: "Vibration at 50–70 mph is almost always a driveshaft problem. We balance and repair steel and aluminum driveshafts for cars, trucks, and SUVs. We also weld, shorten, and lengthen shafts for custom and lifted applications.",
-  },
-  {
-    name: "U-Joint Replacement",
-    body: "A worn U-joint clicks on acceleration and causes vibration that gets worse over time. Left alone, it will eventually break and drop your driveshaft. We replace U-joints on all domestic and import applications.",
-  },
-  {
-    name: "CV Axle Service",
-    body: "Clicking on turns or vibration under acceleration is usually a failed CV joint or torn boot. We replace CV axles and rebuild CV joint assemblies on front-wheel drive and AWD vehicles.",
-  },
-  {
-    name: "Differential Rebuild",
-    body: "Whining, howling, or chattering from your rear or front axle is a differential problem. We rebuild open, limited-slip, and locking differentials — including ratio changes for performance and towing applications.",
-  },
-  {
-    name: "Transfer Case Service",
-    body: "Four-wheel drive not engaging properly? Grinding when you shift into 4WD? Your transfer case may need service. We rebuild transfer cases and replace chain kits, bearings, and seals.",
-  },
-  {
-    name: "Custom Driveline Fabrication",
-    body: "Swapped engine, lifted truck, or custom chassis? We build custom driveshafts for one-off applications. If it needs a driveshaft, we can build it.",
-  },
-];
 ---
+<Layout title="Driveline Services in Stratford, CT | JP Tadduni Transmissions" description="Driveshaft balancing, U-joint replacement, CV axles, differential rebuild, and transfer case service in Stratford, CT. All makes and models." schema={serviceSchema}>
 
-<Layout
-  title="Driveline Services in Stratford, CT | JP Tadduni Transmissions"
-  description="Driveshaft balancing, U-joint replacement, CV axles, differential rebuild, and transfer case service in Stratford, CT. All makes and models. Free diagnosis."
-  schema={serviceSchema}
->
-
-  <!-- Hero -->
-  <section class="relative pt-24 pb-16 bg-jp-black overflow-hidden">
-    <div
-      class="absolute inset-0 pointer-events-none"
-      style="background: radial-gradient(ellipse at 30% 50%, rgba(204,0,0,0.1) 0%, transparent 60%);"
-      aria-hidden="true"
-    ></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-      <nav class="flex items-center gap-2 text-xs text-jp-muted mb-8 font-body uppercase tracking-widest">
-        <a href="/" class="hover:text-jp-gray transition-colors">Home</a>
-        <span>/</span>
-        <a href="/services" class="hover:text-jp-gray transition-colors">Services</a>
-        <span>/</span>
-        <span class="text-jp-chrome">Driveline Services</span>
+  <section class="bg-jp-bg pt-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center gap-2 text-xs text-jp-muted mb-6 font-body uppercase tracking-widest">
+        <a href="/" class="hover:text-jp-red transition-colors">Home</a><span>/</span>
+        <a href="/services" class="hover:text-jp-red transition-colors">Services</a><span>/</span>
+        <span class="text-jp-charcoal font-semibold">Driveline Services</span>
       </nav>
-      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-4">Stratford, CT</p>
-      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-white leading-tight mb-6">
-        Driveline Services.<br />
-        <span class="text-jp-red">From Shaft to Axle.</span>
+      <span class="section-label">Stratford, CT</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-charcoal leading-tight mb-6">
+        Driveline Services.<br /><span class="text-jp-red">From Shaft to Axle.</span>
       </h1>
-      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed mb-10">
-        Vibration at highway speed. Clicking on turns. Whining from the rear axle.
-        These are driveline problems — and JP Tadduni fixes all of them.
-        We handle everything between the transmission and the wheels.
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed mb-8">
+        Vibration at highway speed. Clicking on turns. Whining from the rear axle. These are driveline problems — and JP Tadduni fixes all of them.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/contact" class="btn-primary">Get Your Free Diagnosis →</a>
-        <a href="tel:+12033751700" class="btn-secondary" style="animation: none;">Call (203) 375-1700</a>
+        <a href={phoneHref} class="btn-primary">Call For A Free Quote</a>
+        <a href="/contact" class="btn-secondary">Request A Quote Online →</a>
       </div>
     </div>
   </section>
 
-  <div class="section-divider"></div>
-
-  <!-- Services -->
-  <section class="py-20 bg-jp-black">
+  <section class="py-14 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="mb-14">
-        <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-3">Full Coverage</p>
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl text-jp-white leading-tight">
-          Every Part of Your Driveline.<br />
-          <span class="text-jp-chrome">We Work on All of It.</span>
-        </h2>
+      <div class="mb-12">
+        <span class="section-label">Full Coverage</span>
+        <h2 class="section-title">Every Part of Your Driveline.<br /><span class="text-jp-red">We Work on All of It.</span></h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-px" style="background: rgba(255,255,255,0.04);">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {services.map(service => (
-          <div class="bg-jp-black p-8 sm:p-10 flex flex-col gap-4 border-l-4 border-jp-red/20 hover:border-jp-red transition-colors duration-300 group">
-            <h3 class="font-heading font-bold text-xl sm:text-2xl text-jp-white group-hover:text-jp-red transition-colors">{service.name}</h3>
-            <p class="font-body text-jp-muted leading-relaxed">{service.body}</p>
+          <div class="jp-card border-l-4 border-jp-red flex flex-col gap-3">
+            <h3 class="font-heading font-bold text-xl text-jp-charcoal">{service.name}</h3>
+            <p class="font-body text-jp-muted leading-relaxed text-sm">{service.body}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Symptoms callout -->
-  <section class="py-16 bg-jp-dark">
+  <section class="py-14 bg-jp-bg">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-4">Symptoms</p>
-      <h2 class="font-heading font-bold text-2xl sm:text-3xl text-jp-white mb-8">
-        Driveline problems don't resolve on their own — they progress.
-      </h2>
+      <span class="section-label mx-auto">Common Symptoms</span>
+      <h2 class="section-title mb-8">Driveline problems don't resolve on their own — they progress.</h2>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10">
-        {[
-          "Vibration at highway speed",
-          "Clicking when turning",
-          "Clunking on acceleration",
-          "Whining from rear axle",
-          "Shudder when engaging 4WD",
-          "Driveshaft noise underway",
-        ].map(symptom => (
-          <div class="flex items-center gap-2 jp-card text-sm font-body">
-            <span class="w-1.5 h-1.5 rounded-full bg-jp-red flex-shrink-0"></span>
-            <span class="text-jp-gray">{symptom}</span>
+        {["Vibration at highway speed","Clicking when turning","Clunking on acceleration","Whining from rear axle","Shudder when engaging 4WD","Driveshaft noise underway"].map(symptom => (
+          <div class="jp-card flex items-center gap-2 text-sm font-body">
+            <span class="w-2 h-2 rounded-full bg-jp-red flex-shrink-0"></span>
+            <span class="text-jp-text">{symptom}</span>
           </div>
         ))}
       </div>
-      <a href="/contact" class="btn-primary">Schedule Your Diagnosis →</a>
+      <a href={phoneHref} class="btn-primary">Schedule Your Diagnosis</a>
     </div>
   </section>
 
   <CTABanner />
-
 </Layout>

@@ -1,76 +1,71 @@
 ---
 /**
  * Header.astro – JP Tadduni Transmissions & Driveline
- * Dark motorsport nav with racing red CTAs.
+ * Charcoal announcement bar + white sticky nav with red CTA.
  */
 
-const phone = "(203) 375-1700";
-const phoneHref = "tel:+12033751700";
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
 
 const navLinks = [
-  { label: "Home",     href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Parts",    href: "/parts" },
-  { label: "About",    href: "/about" },
-  { label: "Contact",  href: "/contact" },
+  { label: "Home",          href: "/" },
+  { label: "Services",      href: "/services" },
+  { label: "Parts",         href: "/parts" },
+  { label: "Service Areas", href: "/service-areas" },
+  { label: "About",         href: "/about" },
+  { label: "Contact",       href: "/contact" },
 ];
 ---
 
-<header class="w-full bg-jp-black border-b border-jp-border sticky top-0 z-50"
-        style="box-shadow: 0 2px 20px rgba(0,0,0,0.8);">
-
-  <!-- Top strip -->
-  <div class="bg-jp-red text-white text-xs font-body font-medium text-center py-1.5 px-4 tracking-wide">
-    Stratford, CT's Transmission & Driveline Specialists — Free Diagnosis &amp; Honest Quotes
+<!-- Top announcement bar -->
+<div class="bg-jp-charcoal text-white py-2 px-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <span class="font-body text-gray-400 text-xs sm:text-sm hidden sm:block">
+      Serving All of Connecticut Since 1995
+    </span>
+    <a href={phoneHref} class="flex items-center gap-2 text-jp-red font-semibold text-sm hover:text-red-400 transition-colors ml-auto">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+      </svg>
+      {phone}
+    </a>
   </div>
+</div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-6">
+<!-- Main nav -->
+<header class="w-full bg-white sticky top-0 z-50" style="box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-6">
 
     <!-- Logo -->
-    <a href="/" class="flex flex-col leading-none group">
-      <span class="font-heading font-bold text-xl sm:text-2xl tracking-widest chrome-text uppercase">
+    <a href="/" class="flex flex-col leading-none flex-shrink-0">
+      <span class="font-heading font-bold text-xl sm:text-2xl tracking-wide text-jp-charcoal uppercase leading-none">
         JP Tadduni
       </span>
-      <span class="font-heading text-xs sm:text-sm tracking-[0.25em] text-jp-chrome uppercase">
+      <span class="font-body text-xs text-jp-red tracking-[0.2em] uppercase font-semibold">
         Transmissions &amp; Driveline
       </span>
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden lg:flex items-center gap-7 text-sm font-body font-medium">
+    <nav class="hidden lg:flex items-center gap-6">
       {navLinks.map(link => (
         <a
           href={link.href}
-          class="text-jp-chrome hover:text-white tracking-wide transition-colors duration-200 uppercase text-xs font-semibold"
+          class="font-body text-sm font-semibold text-jp-charcoal hover:text-jp-red transition-colors uppercase tracking-wide"
         >
           {link.label}
         </a>
       ))}
     </nav>
 
-    <!-- CTA group -->
-    <div class="flex items-center gap-3">
-      <a
-        href={phoneHref}
-        class="hidden sm:flex items-center gap-2 text-jp-gray hover:text-white text-sm font-semibold transition-colors"
-      >
-        <svg class="w-4 h-4 text-jp-red" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-        </svg>
-        {phone}
+    <!-- CTA + hamburger -->
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <a href="/contact" class="btn-primary hidden sm:inline-flex text-sm px-5 py-2.5">
+        Get A Free Quote →
       </a>
-      <a
-        href="/contact"
-        class="btn-primary text-sm px-4 py-2 text-base hidden sm:inline-flex"
-        style="clip-path: none; animation: none;"
-      >
-        Free Diagnosis
-      </a>
-
-      <!-- Mobile hamburger -->
       <button
         id="menu-toggle"
-        class="lg:hidden p-2 text-jp-chrome hover:text-white transition-colors"
+        class="lg:hidden p-2 text-jp-charcoal hover:text-jp-red transition-colors"
         aria-label="Open menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,38 +73,28 @@ const navLinks = [
         </svg>
       </button>
     </div>
-
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="flex-col bg-jp-dark border-t border-jp-border lg:hidden">
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="flex-col bg-white border-t border-jp-border lg:hidden">
     <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
       {navLinks.map(link => (
         <a
           href={link.href}
-          class="text-jp-chrome hover:text-white hover:bg-jp-card px-3 py-2 text-sm font-semibold uppercase tracking-widest transition-all border-l-2 border-transparent hover:border-jp-red"
+          class="font-body text-sm font-semibold text-jp-charcoal hover:text-jp-red hover:bg-jp-bg px-3 py-3 rounded transition-colors uppercase tracking-wide border-l-4 border-transparent hover:border-jp-red"
         >
           {link.label}
         </a>
       ))}
-      <div class="mt-3 pt-3 border-t border-jp-border flex flex-col gap-2">
-        <a href={phoneHref} class="flex items-center gap-2 text-jp-gray px-3 py-2 text-sm font-semibold">
-          <svg class="w-4 h-4 text-jp-red" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-          </svg>
-          {phone}
-        </a>
-        <a href="/contact" class="btn-primary text-center text-sm mx-3" style="clip-path: none; animation: none;">
-          Get Free Diagnosis
-        </a>
+      <div class="mt-3 pt-3 border-t border-jp-border">
+        <a href="/contact" class="btn-primary w-full justify-center">Get A Free Quote →</a>
       </div>
     </nav>
   </div>
-
 </header>
 
 <script>
   const toggle = document.getElementById('menu-toggle');
-  const menu   = document.getElementById('mobile-menu');
+  const menu = document.getElementById('mobile-menu');
   toggle?.addEventListener('click', () => menu?.classList.toggle('open'));
 </script>

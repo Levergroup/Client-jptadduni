@@ -1,128 +1,67 @@
 ---
-/**
- * contact.astro – Contact & Free Quote page for JP Tadduni Transmissions.
- */
-
 import Layout from '../layouts/Layout.astro';
 import QuoteForm from '../components/forms/QuoteForm.astro';
-
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
+const email = "info@jptaddunitransmissions.com";
 const contactSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "AutoRepair",
-  "name": "JP Tadduni Transmissions & Driveline",
-  "telephone": "(203) 375-1700",
+  "@context": "https://schema.org", "@type": "AutoRepair",
+  "name": "JP Tadduni Transmissions & Driveline", "telephone": "(475) XXX-XXXX",
   "email": "info@jptaddunitransmissions.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Stratford",
-    "addressRegion": "CT",
-    "postalCode": "06615",
-    "addressCountry": "US"
-  },
+  "address": { "@type": "PostalAddress", "addressLocality": "Stratford", "addressRegion": "CT", "postalCode": "06615" },
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
   ]
 });
 ---
+<Layout title="Contact JP Tadduni Transmissions | Free Diagnosis in Stratford, CT" description="Get a free transmission diagnosis from JP Tadduni in Stratford, CT. Fill out the form or call — we call back within 1 business hour." schema={contactSchema}>
 
-<Layout
-  title="Contact JP Tadduni Transmissions | Free Diagnosis in Stratford, CT"
-  description="Get a free transmission diagnosis and honest quote from JP Tadduni in Stratford, CT. Call (203) 375-1700 or fill out the form. We'll call back within 1 business hour."
-  schema={contactSchema}
->
-
-  <!-- Header -->
-  <section class="relative pt-24 pb-12 bg-jp-black overflow-hidden">
-    <div
-      class="absolute inset-0 pointer-events-none"
-      style="background: radial-gradient(ellipse at 50% 50%, rgba(204,0,0,0.08) 0%, transparent 60%);"
-      aria-hidden="true"
-    ></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-      <p class="font-body text-xs font-semibold tracking-[0.25em] uppercase text-jp-red mb-4">Free Diagnosis</p>
-      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-jp-white leading-tight mb-4">
-        Let's Talk About Your Transmission
-      </h1>
-      <p class="font-body text-jp-muted text-lg max-w-xl mx-auto">
-        Fill out the form and we'll call you within 1 business hour.
-        No obligation, no pressure — just straight answers.
-      </p>
+  <section class="bg-jp-bg pt-12 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <span class="section-label mx-auto">Free Diagnosis</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl text-jp-charcoal leading-tight mb-4">Let's Talk About Your Transmission</h1>
+      <p class="font-body text-lg text-jp-muted max-w-xl mx-auto">Fill out the form and we'll call you within 1 business hour. No obligation, no pressure.</p>
     </div>
   </section>
 
-  <div class="section-divider"></div>
-
-  <!-- Main grid -->
-  <section class="py-20 bg-jp-black">
+  <section class="py-14 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
-        <!-- Left: Contact info -->
-        <div class="lg:col-span-2 flex flex-col gap-8">
-
-          <!-- Call -->
-          <div class="jp-card">
-            <p class="font-body text-xs font-semibold uppercase tracking-widest text-jp-red mb-3">Call Us</p>
-            <a href="tel:+12033751700" class="font-heading font-bold text-2xl text-jp-white hover:text-jp-red transition-colors block mb-1">
-              (203) 375-1700
-            </a>
+        <div class="lg:col-span-2 flex flex-col gap-6">
+          <div class="jp-card border-l-4 border-jp-red">
+            <p class="section-label">Call Us</p>
+            <a href={phoneHref} class="font-heading font-bold text-2xl text-jp-charcoal hover:text-jp-red transition-colors block mb-1">{phone}</a>
             <p class="font-body text-jp-muted text-sm">Mon–Fri: 8am–5pm · Sat: 8am–1pm</p>
           </div>
-
-          <!-- Location -->
           <div class="jp-card">
-            <p class="font-body text-xs font-semibold uppercase tracking-widest text-jp-red mb-3">Location</p>
-            <p class="font-heading font-bold text-lg text-jp-white mb-1">JP Tadduni Transmissions</p>
-            <p class="font-body text-jp-muted text-sm leading-relaxed">
-              Stratford, CT 06615<br />
-              Connecticut
-            </p>
+            <p class="section-label">Location</p>
+            <p class="font-heading font-bold text-lg text-jp-charcoal mb-1">JP Tadduni Transmissions</p>
+            <p class="font-body text-jp-muted text-sm">Stratford, CT 06615</p>
           </div>
-
-          <!-- Email -->
           <div class="jp-card">
-            <p class="font-body text-xs font-semibold uppercase tracking-widest text-jp-red mb-3">Email</p>
-            <a href="mailto:info@jptaddunitransmissions.com" class="font-body text-jp-gray hover:text-white transition-colors text-sm">
-              info@jptaddunitransmissions.com
-            </a>
+            <p class="section-label">Email</p>
+            <a href={`mailto:${email}`} class="font-body text-jp-red text-sm font-semibold">{email}</a>
           </div>
-
-          <!-- Ship-in -->
-          <div class="p-6 border border-jp-red/30 bg-jp-dark">
-            <p class="font-heading font-bold text-jp-white mb-2">Shipping Your Transmission?</p>
-            <p class="font-body text-jp-muted text-sm leading-relaxed">
-              We accept shipped transmissions from across the US.
-              Call us before shipping and we'll walk you through the process.
-            </p>
+          <div class="p-5 bg-jp-bg border border-jp-border rounded-card">
+            <p class="font-heading font-bold text-jp-charcoal mb-2">Shipping Your Transmission?</p>
+            <p class="font-body text-jp-muted text-sm leading-relaxed">We accept shipped transmissions from across the US. Call us before shipping.</p>
           </div>
-
-          <!-- Trust items -->
-          <div class="flex flex-col gap-2 text-xs font-body text-jp-muted uppercase tracking-widest">
-            {[
-              "Free diagnosis — no obligation",
-              "Honest quote before any work",
-              "We call back within 1 business hour",
-              "Written warranty on every rebuild",
-            ].map(item => (
+          <div class="flex flex-col gap-2 text-sm font-body text-jp-muted">
+            {["Free diagnosis — no obligation","Honest quote before any work","We call back within 1 business hour","Written warranty on every rebuild"].map(item => (
               <span class="flex items-center gap-2">
-                <svg class="w-3.5 h-3.5 text-jp-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
+                <svg class="w-4 h-4 text-jp-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
                 {item}
               </span>
             ))}
           </div>
-
         </div>
 
-        <!-- Right: Form -->
         <div class="lg:col-span-3">
-          <div class="bg-jp-dark p-8 sm:p-10 border border-jp-border">
-            <h2 class="font-heading font-bold text-2xl text-jp-white mb-2">Request Your Free Diagnosis</h2>
-            <p class="font-body text-jp-muted text-sm mb-8">
-              Tell us about your vehicle and the issue. We'll call you within 1 business hour.
-            </p>
+          <div class="jp-card">
+            <h2 class="font-heading font-bold text-2xl text-jp-charcoal mb-2">Request Your Free Diagnosis</h2>
+            <p class="font-body text-jp-muted text-sm mb-6">Tell us about your vehicle and the issue. We'll call within 1 business hour.</p>
             <QuoteForm />
           </div>
         </div>
@@ -130,5 +69,4 @@ const contactSchema = JSON.stringify({
       </div>
     </div>
   </section>
-
 </Layout>

@@ -2,104 +2,101 @@
 /**
  * QuoteForm.astro – Contact/quote form for JP Tadduni Transmissions.
  * POSTs to GHL webhook, redirects to /thank-you on success.
- * Fields: Name, Phone, Email, Vehicle (Year/Make/Model), Issue, Referral.
  */
 
-const GHL_WEBHOOK = "https://placeholder-ghl-webhook.com/jp-tadduni";
+const GHL_WEBHOOK = "https://placeholder-webhook.com/jp-tadduni";
 ---
 
-<form
-  id="quote-form"
-  class="flex flex-col gap-5"
-  novalidate
->
-  <!-- Row: Name + Phone -->
+<form id="quote-form" class="flex flex-col gap-5" novalidate>
+
+  <!-- Name + Phone row -->
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-    <div class="flex flex-col gap-2">
-      <label for="name" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+    <div class="flex flex-col gap-1.5">
+      <label for="name" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
         Full Name <span class="text-jp-red">*</span>
       </label>
       <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        autocomplete="name"
+        type="text" id="name" name="name" required autocomplete="name"
         placeholder="John Smith"
-        class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors"
+        class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors"
       />
     </div>
-    <div class="flex flex-col gap-2">
-      <label for="phone" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+    <div class="flex flex-col gap-1.5">
+      <label for="phone" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
         Phone Number <span class="text-jp-red">*</span>
       </label>
       <input
-        type="tel"
-        id="phone"
-        name="phone"
-        required
-        autocomplete="tel"
-        placeholder="(203) 555-0100"
-        class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors"
+        type="tel" id="phone" name="phone" required autocomplete="tel"
+        placeholder="(475) 555-0100"
+        class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors"
       />
     </div>
   </div>
 
   <!-- Email -->
-  <div class="flex flex-col gap-2">
-    <label for="email" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+  <div class="flex flex-col gap-1.5">
+    <label for="email" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
       Email Address <span class="text-jp-red">*</span>
     </label>
     <input
-      type="email"
-      id="email"
-      name="email"
-      required
-      autocomplete="email"
+      type="email" id="email" name="email" required autocomplete="email"
       placeholder="john@example.com"
-      class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors"
+      class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors"
     />
   </div>
 
   <!-- Vehicle -->
-  <div class="flex flex-col gap-2">
-    <label for="vehicle" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+  <div class="flex flex-col gap-1.5">
+    <label for="vehicle" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
       Vehicle Year, Make &amp; Model <span class="text-jp-red">*</span>
     </label>
     <input
-      type="text"
-      id="vehicle"
-      name="vehicle"
-      required
+      type="text" id="vehicle" name="vehicle" required
       placeholder="e.g. 1969 Chevrolet Camaro, 2018 Ford F-150"
-      class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors"
+      class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors"
     />
   </div>
 
-  <!-- Issue Description -->
-  <div class="flex flex-col gap-2">
-    <label for="issue" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
-      Describe the Issue <span class="text-jp-red">*</span>
+  <!-- Service needed -->
+  <div class="flex flex-col gap-1.5">
+    <label for="service" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+      Service Needed
+    </label>
+    <select
+      id="service" name="service"
+      class="border border-jp-border bg-white text-jp-text px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors appearance-none"
+    >
+      <option value="">Select service...</option>
+      <option value="transmission-rebuild">Transmission Rebuild</option>
+      <option value="driveline">Driveline Service</option>
+      <option value="classic-car">Classic Car Transmission</option>
+      <option value="manual">Manual Transmission</option>
+      <option value="parts">Parts Inquiry</option>
+      <option value="diagnostics">Diagnostics</option>
+      <option value="not-sure">Not Sure</option>
+    </select>
+  </div>
+
+  <!-- Issue description -->
+  <div class="flex flex-col gap-1.5">
+    <label for="issue" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+      Describe the Problem <span class="text-jp-red">*</span>
     </label>
     <textarea
-      id="issue"
-      name="issue"
-      required
-      rows="4"
+      id="issue" name="issue" required rows="4"
       placeholder="Tell us what's happening — slipping, grinding, no movement, vibration, leaking, etc."
-      class="bg-jp-black border border-jp-border text-jp-white placeholder-jp-muted px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors resize-none"
+      class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors resize-none"
     ></textarea>
   </div>
 
-  <!-- How did you hear about us -->
-  <div class="flex flex-col gap-2">
-    <label for="referral" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-chrome">
+  <!-- Referral -->
+  <div class="flex flex-col gap-1.5">
+    <label for="referral" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
       How Did You Hear About Us?
     </label>
     <select
-      id="referral"
-      name="referral"
-      class="bg-jp-black border border-jp-border text-jp-gray px-4 py-3 text-sm font-body focus:outline-none focus:border-jp-red transition-colors appearance-none"
+      id="referral" name="referral"
+      class="border border-jp-border bg-white text-jp-text px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors appearance-none"
     >
       <option value="">Select one...</option>
       <option value="google">Google Search</option>
@@ -111,15 +108,13 @@ const GHL_WEBHOOK = "https://placeholder-ghl-webhook.com/jp-tadduni";
     </select>
   </div>
 
-  <!-- Error message -->
-  <p id="form-error" class="hidden font-body text-sm text-jp-red font-medium"></p>
+  <!-- Error -->
+  <p id="form-error" class="hidden font-body text-sm text-jp-red font-medium bg-red-50 px-4 py-3 rounded-lg border border-red-200"></p>
 
   <!-- Submit -->
   <button
-    type="submit"
-    id="submit-btn"
+    type="submit" id="submit-btn"
     class="btn-primary w-full justify-center text-base py-4 mt-2"
-    style="animation: none;"
   >
     <span id="submit-text">Send My Request →</span>
     <span id="submit-loading" class="hidden">Sending...</span>
@@ -128,6 +123,7 @@ const GHL_WEBHOOK = "https://placeholder-ghl-webhook.com/jp-tadduni";
   <p class="font-body text-xs text-jp-muted text-center">
     We'll call you within 1 business hour. No obligation, no pressure.
   </p>
+
 </form>
 
 <script define:vars={{ GHL_WEBHOOK }}>
@@ -139,18 +135,14 @@ const GHL_WEBHOOK = "https://placeholder-ghl-webhook.com/jp-tadduni";
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+    if (!form.checkValidity()) { form.reportValidity(); return; }
 
     submitBtn.disabled = true;
     submitText.classList.add('hidden');
     submitLoading.classList.remove('hidden');
     errorMsg.classList.add('hidden');
 
-    const data = new FormData(form);
-    const payload = Object.fromEntries(data.entries());
+    const payload = Object.fromEntries(new FormData(form).entries());
 
     try {
       await fetch(GHL_WEBHOOK, {
@@ -161,7 +153,7 @@ const GHL_WEBHOOK = "https://placeholder-ghl-webhook.com/jp-tadduni";
       });
       window.location.href = '/thank-you';
     } catch {
-      errorMsg.textContent = 'Something went wrong. Please call us directly at (203) 375-1700.';
+      errorMsg.textContent = 'Something went wrong. Please call us directly at (475) XXX-XXXX.';
       errorMsg.classList.remove('hidden');
       submitBtn.disabled = false;
       submitText.classList.remove('hidden');
