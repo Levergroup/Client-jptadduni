@@ -9,28 +9,28 @@ const categories = [
   {
     name: "Manual Transmission Units",
     parts: [
-      { name: "Muncie 4-Speed (M20/M21/M22)", cat: "Classic Car Parts", desc: "Complete units and components for GM muscle car applications. All ratios available." },
-      { name: "T56 Magnum 6-Speed", cat: "Manual Transmissions", desc: "Tremec T56 Magnum units and parts for high performance builds." },
-      { name: "Ford Toploader 4-Speed", cat: "Classic Car Parts", desc: "3.00 and 2.78 first gear ratio units and components." },
-      { name: "NV4500 Manual Parts", cat: "Manual Transmissions", desc: "Parts and rebuild kits for GM and Dodge NV4500 5-speed manuals." },
+      { name: "Muncie 4-Speed (M20/M21/M22)", cat: "Classic Car Parts", desc: "Complete units and components for GM muscle car applications. All ratios available.", img: "https://images.pexels.com/photos/3642618/pexels-photo-3642618.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of classic manual transmission automotive part" },
+      { name: "T56 Magnum 6-Speed", cat: "Manual Transmissions", desc: "Tremec T56 Magnum units and parts for high performance builds.", img: "https://images.pexels.com/photos/11526277/pexels-photo-11526277.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of a 6-speed manual gearbox unit" },
+      { name: "Ford Toploader 4-Speed", cat: "Classic Car Parts", desc: "3.00 and 2.78 first gear ratio units and components.", img: "https://images.pexels.com/photos/8985510/pexels-photo-8985510.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic working on a classic transmission unit" },
+      { name: "NV4500 Manual Parts", cat: "Manual Transmissions", desc: "Parts and rebuild kits for GM and Dodge NV4500 5-speed manuals.", img: "https://images.pexels.com/photos/8478225/pexels-photo-8478225.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of manual transmission components being serviced" },
     ],
   },
   {
     name: "Automatic Transmission Parts",
     parts: [
-      { name: "TH350 / TH400 Parts", cat: "Transmission Units", desc: "Rebuild kits, hard parts, and complete units for GM automatics." },
-      { name: "700R4 / 4L60E Parts", cat: "Transmission Units", desc: "Full rebuild kits and hard parts for GM overdrive transmissions." },
-      { name: "Ford C4 / C6 Parts", cat: "Transmission Units", desc: "Rebuild kits and components for classic Ford automatics." },
-      { name: "Torque Converters", cat: "Transmission Units", desc: "Stock replacement and performance torque converters for automatic transmissions." },
+      { name: "TH350 / TH400 Parts", cat: "Transmission Units", desc: "Rebuild kits, hard parts, and complete units for GM automatics.", img: "https://images.pexels.com/photos/8985714/pexels-photo-8985714.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic working on an automatic transmission" },
+      { name: "700R4 / 4L60E Parts", cat: "Transmission Units", desc: "Full rebuild kits and hard parts for GM overdrive transmissions.", img: "https://images.pexels.com/photos/8985601/pexels-photo-8985601.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Automatic transmission repair in a professional shop" },
+      { name: "Ford C4 / C6 Parts", cat: "Transmission Units", desc: "Rebuild kits and components for classic Ford automatics.", img: "https://images.pexels.com/photos/8478231/pexels-photo-8478231.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic inspecting transmission components" },
+      { name: "Torque Converters", cat: "Transmission Units", desc: "Stock replacement and performance torque converters for automatic transmissions.", img: "https://images.pexels.com/photos/11157437/pexels-photo-11157437.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Disassembled automatic transmission parts including torque converter" },
     ],
   },
   {
     name: "Differential & Driveline Parts",
     parts: [
-      { name: "Positraction Units", cat: "Differential Parts", desc: "Limited slip differentials for GM 10-bolt and 12-bolt rear axle applications." },
-      { name: "Ring & Pinion Sets", cat: "Ring & Pinion", desc: "Gear sets for GM, Ford, and Chrysler rear axle applications. Multiple ratios." },
-      { name: "Differential Rebuild Kits", cat: "Rebuild Kits", desc: "Master rebuild kits for GM, Ford, and Chrysler differentials." },
-      { name: "Transmission Coolers", cat: "Rebuild Kits", desc: "External transmission coolers for towing and performance applications." },
+      { name: "Positraction Units", cat: "Differential Parts", desc: "Limited slip differentials for GM 10-bolt and 12-bolt rear axle applications.", img: "https://images.pexels.com/photos/159275/pexels-photo-159275.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of precision automotive gears — positraction differential" },
+      { name: "Ring & Pinion Sets", cat: "Ring & Pinion", desc: "Gear sets for GM, Ford, and Chrysler rear axle applications. Multiple ratios.", img: "https://images.pexels.com/photos/221028/pexels-photo-221028.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Grayscale close-up of interlocking ring and pinion gears" },
+      { name: "Differential Rebuild Kits", cat: "Rebuild Kits", desc: "Master rebuild kits for GM, Ford, and Chrysler differentials.", img: "https://images.pexels.com/photos/159298/pexels-photo-159298.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanical gear set for differential rebuild kit" },
+      { name: "Transmission Coolers", cat: "Cooling", desc: "External transmission coolers for towing and performance applications.", img: "https://images.pexels.com/photos/1819668/pexels-photo-1819668.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Automotive cooling radiator for transmission cooler" },
     ],
   },
 ];
@@ -71,10 +71,15 @@ const categories = [
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {cat.parts.map(part => (
                 <div class="parts-card flex flex-col gap-3">
-                  <!-- Image placeholder -->
-                  <div class="w-full bg-jp-light rounded-md flex flex-col items-center justify-center py-10">
-                    <svg class="w-10 h-10 text-jp-border mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    <p class="font-body text-xs text-jp-muted text-center px-2">{part.name}</p>
+                  <!-- Part photo -->
+                  <div class="w-full rounded-md overflow-hidden">
+                    <img
+                      src={part.img}
+                      alt={part.imgAlt}
+                      class="w-full h-44 object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <span class="inline-block text-xs font-semibold uppercase tracking-wider text-jp-red bg-red-50 px-2 py-1 rounded self-start">{part.cat}</span>
                   <h3 class="font-heading font-bold text-base text-jp-charcoal">{part.name}</h3>
