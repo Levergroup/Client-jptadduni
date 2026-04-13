@@ -8,11 +8,22 @@ const phone = "(475) XXX-XXXX";
 const phoneHref = "tel:+14750000000";
 ---
 
-<section class="py-16 sm:py-20 bg-jp-red relative overflow-hidden">
-  <!-- Subtle grid overlay -->
+<section class="py-16 sm:py-20 relative overflow-hidden">
+
+  <!-- Background photo — mechanic tools flat lay -->
+  <img
+    src="https://images.pexels.com/photos/1029243/pexels-photo-1029243.jpeg?auto=compress&cs=tinysrgb&w=1600"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    loading="lazy"
+    decoding="async"
+    aria-hidden="true"
+  />
+
+  <!-- Red overlay -->
   <div
-    class="absolute inset-0 pointer-events-none opacity-10"
-    style="background-image: linear-gradient(rgba(0,0,0,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.3) 1px, transparent 1px); background-size: 40px 40px;"
+    class="absolute inset-0"
+    style="background: rgba(180,0,0,0.82);"
     aria-hidden="true"
   ></div>
 

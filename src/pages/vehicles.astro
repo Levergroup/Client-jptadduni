@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTABanner from '../components/sections/CTABanner.astro';
+
+const phone = "(475) XXX-XXXX";
+const phoneHref = "tel:+14750000000";
+
+const vehicles = [
+  {
+    year: "1959",
+    make: "Cadillac",
+    model: "Series 62",
+    price: "$19,995",
+    status: "For Sale",
+    listingId: "CC-2017357",
+    source: "ClassicCars.com",
+    desc: "1959 Cadillac Series 62 — a true piece of American automotive history. These iconic late-'50s Cadillacs are known for their dramatic tailfins, chrome trim, and commanding road presence. Contact us for full details and to arrange a viewing.",
+    highlights: ["1959 Model Year", "Cadillac Series 62", "Classic American Chrome & Fins", "Listed on ClassicCars.com", "Located in Stratford, CT"],
+    img: "https://images.pexels.com/photos/163553/pexels-photo-163553.jpeg?auto=compress&cs=tinysrgb&w=800",
+    imgAlt: "1959 Cadillac Series 62 classic American car",
+  },
+  {
+    year: "1962",
+    make: "Cadillac",
+    model: "Series 62 Convertible",
+    price: "Inquire",
+    status: "For Sale",
+    listingId: "2834387",
+    source: "Hemmings.com",
+    desc: "1962 Cadillac Series 62 Convertible — no rust out, body panels and seams straight. One owner older example with all the hallmarks of early '60s Cadillac luxury. Convertibles of this era are increasingly rare. Call for full details.",
+    highlights: ["1962 Model Year", "Convertible Body Style", "No Rust — Body Panels Straight", "Listed on Hemmings.com", "Located in Stratford, CT"],
+    img: "https://images.pexels.com/photos/19390191/pexels-photo-19390191.jpeg?auto=compress&cs=tinysrgb&w=800",
+    imgAlt: "1962 Cadillac Series 62 classic American convertible",
+  },
+];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Classic Vehicles For Sale — JP Tadduni Transmissions",
+  "itemListElement": vehicles.map((v, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Product",
+      "name": `${v.year} ${v.make} ${v.model}`,
+      "description": v.desc,
+      "offers": { "@type": "Offer", "price": v.price === "Inquire" ? undefined : v.price.replace("$","").replace(",",""), "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
+    }
+  }))
+});
+---
+
+<Layout
+  title="Classic Vehicles For Sale | JP Tadduni Transmissions, Stratford CT"
+  description="Classic American vehicles for sale from JP Tadduni Transmissions & Driveline in Stratford, CT. 1959 and 1962 Cadillac Series 62 — call for details."
+  schema={schema}
+>
+
+  <section class="bg-jp-bg pt-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center gap-2 text-xs text-jp-muted mb-6 font-body uppercase tracking-widest">
+        <a href="/" class="hover:text-jp-red transition-colors">Home</a><span>/</span>
+        <span class="text-jp-charcoal font-semibold">Vehicles For Sale</span>
+      </nav>
+      <span class="section-label">Classic Vehicles</span>
+      <h1 class="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-jp-charcoal leading-tight mb-6">
+        Classic Cars For Sale.<br /><span class="text-jp-red">Stratford, CT.</span>
+      </h1>
+      <p class="font-body text-jp-muted text-lg max-w-2xl leading-relaxed mb-8">
+        In addition to transmission and driveline services, JP Tadduni occasionally has classic vehicles available for sale. Call directly for current availability, condition details, and to arrange a viewing.
+      </p>
+      <a href={phoneHref} class="btn-primary">Call JP: {phone}</a>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col gap-14">
+
+        {vehicles.map((v, i) => (
+          <div class={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-start ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+
+            <!-- Photo -->
+            <div class="rounded-card overflow-hidden shadow-card">
+              <img
+                src={v.img}
+                alt={v.imgAlt}
+                class="w-full h-72 object-cover"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </div>
+
+            <!-- Details -->
+            <div class="flex flex-col gap-5">
+              <div>
+                <span class="inline-block text-xs font-semibold uppercase tracking-wider text-white bg-jp-red px-3 py-1 rounded-full mb-3">{v.status}</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-jp-charcoal leading-tight">
+                  {v.year} {v.make}<br />{v.model}
+                </h2>
+                <p class="font-heading font-bold text-2xl text-jp-red mt-2">{v.price}</p>
+              </div>
+
+              <p class="font-body text-jp-muted leading-relaxed">{v.desc}</p>
+
+              <ul class="flex flex-col gap-2">
+                {v.highlights.map(h => (
+                  <li class="flex items-center gap-3 font-body text-sm text-jp-text">
+                    <svg class="w-4 h-4 text-jp-red flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    {h}
+                  </li>
+                ))}
+              </ul>
+
+              <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <a href={phoneHref} class="btn-primary">Call for Details</a>
+                <a href="/contact" class="btn-secondary">Send a Message →</a>
+              </div>
+
+              <p class="font-body text-xs text-jp-muted">
+                Listing ID: {v.listingId} · {v.source}
+              </p>
+            </div>
+
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>
