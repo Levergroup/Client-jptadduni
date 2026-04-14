@@ -1,7 +1,7 @@
 ---
 /**
  * PartsPreview.astro – Parts preview for JP Tadduni home page.
- * Light gray background, 4 white product cards with image placeholders.
+ * 4 featured parts with real photos, linked to individual product pages.
  */
 
 const phone = "(475) XXX-XXXX";
@@ -9,24 +9,36 @@ const phoneHref = "tel:+14750000000";
 
 const parts = [
   {
+    slug: "muncie-4-speed",
     name: "Muncie 4-Speed",
     desc: "Classic muscle car 4-speed transmission units and components",
     tag: "Classic Car Parts",
+    img: "https://images.pexels.com/photos/3642618/pexels-photo-3642618.jpeg?auto=compress&cs=tinysrgb&w=600",
+    imgAlt: "Close-up of classic Muncie 4-speed manual transmission",
   },
   {
+    slug: "t56-magnum",
     name: "T56 Magnum",
     desc: "6-speed manual transmission for high performance applications",
     tag: "Manual Transmissions",
+    img: "https://images.pexels.com/photos/11526277/pexels-photo-11526277.jpeg?auto=compress&cs=tinysrgb&w=600",
+    imgAlt: "Tremec T56 Magnum 6-speed gearbox unit",
   },
   {
+    slug: "positraction-units",
     name: "Positraction Units",
     desc: "Limited slip differentials for GM and Ford applications",
     tag: "Differential Parts",
+    img: "https://images.pexels.com/photos/159275/pexels-photo-159275.jpeg?auto=compress&cs=tinysrgb&w=600",
+    imgAlt: "Close-up of precision positraction limited slip differential gears",
   },
   {
+    slug: "ring-pinion-sets",
     name: "Ring & Pinion Sets",
     desc: "Gear sets for all major rear axle applications",
     tag: "Ring & Pinion",
+    img: "https://images.pexels.com/photos/221028/pexels-photo-221028.jpeg?auto=compress&cs=tinysrgb&w=600",
+    imgAlt: "Interlocking ring and pinion gear set",
   },
 ];
 ---
@@ -53,16 +65,16 @@ const parts = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
       {parts.map(part => (
         <div class="parts-card flex flex-col gap-4">
-          <!-- Image placeholder -->
-          <div
-            class="w-full aspect-square bg-jp-light flex flex-col items-center justify-center rounded-md"
-            style="min-height: 160px;"
-          >
-            <svg class="w-12 h-12 text-jp-border mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-            <p class="font-body text-xs text-jp-muted text-center px-4">{part.name}</p>
-          </div>
+          <!-- Part photo -->
+          <a href={`/parts/${part.slug}`} class="block w-full rounded-md overflow-hidden">
+            <img
+              src={part.img}
+              alt={part.imgAlt}
+              class="w-full h-44 object-cover hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
 
           <!-- Category tag -->
           <span class="inline-block font-body text-xs font-semibold uppercase tracking-wider text-jp-red bg-red-50 px-2 py-1 rounded self-start">
@@ -75,12 +87,12 @@ const parts = [
           <!-- Desc -->
           <p class="font-body text-jp-muted text-sm leading-relaxed flex-1">{part.desc}</p>
 
-          <!-- Inquire button -->
+          <!-- Button -->
           <a
-            href="/contact"
+            href={`/parts/${part.slug}`}
             class="btn-primary text-sm py-2.5 justify-center text-center mt-auto"
           >
-            Inquire About This Part →
+            View Part Details →
           </a>
         </div>
       ))}

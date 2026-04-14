@@ -9,28 +9,28 @@ const categories = [
   {
     name: "Manual Transmission Units",
     parts: [
-      { name: "Muncie 4-Speed (M20/M21/M22)", cat: "Classic Car Parts", desc: "Complete units and components for GM muscle car applications. All ratios available.", img: "https://images.pexels.com/photos/3642618/pexels-photo-3642618.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of classic manual transmission automotive part" },
-      { name: "T56 Magnum 6-Speed", cat: "Manual Transmissions", desc: "Tremec T56 Magnum units and parts for high performance builds.", img: "https://images.pexels.com/photos/11526277/pexels-photo-11526277.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of a 6-speed manual gearbox unit" },
-      { name: "Ford Toploader 4-Speed", cat: "Classic Car Parts", desc: "3.00 and 2.78 first gear ratio units and components.", img: "https://images.pexels.com/photos/8985510/pexels-photo-8985510.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic working on a classic transmission unit" },
-      { name: "NV4500 Manual Parts", cat: "Manual Transmissions", desc: "Parts and rebuild kits for GM and Dodge NV4500 5-speed manuals.", img: "https://images.pexels.com/photos/8478225/pexels-photo-8478225.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of manual transmission components being serviced" },
+      { slug: "muncie-4-speed",         name: "Muncie 4-Speed (M20/M21/M22)", cat: "Classic Car Parts",    desc: "Complete units and components for GM muscle car applications. All ratios available.", img: "https://images.pexels.com/photos/3642618/pexels-photo-3642618.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of classic manual transmission automotive part" },
+      { slug: "t56-magnum",             name: "T56 Magnum 6-Speed",           cat: "Manual Transmissions", desc: "Tremec T56 Magnum units and parts for high performance builds.", img: "https://images.pexels.com/photos/11526277/pexels-photo-11526277.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of a 6-speed manual gearbox unit" },
+      { slug: "ford-toploader-4-speed", name: "Ford Toploader 4-Speed",       cat: "Classic Car Parts",    desc: "3.00 and 2.78 first gear ratio units and components.", img: "https://images.pexels.com/photos/8985510/pexels-photo-8985510.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic working on a classic transmission unit" },
+      { slug: "nv4500-manual-parts",    name: "NV4500 Manual Parts",          cat: "Manual Transmissions", desc: "Parts and rebuild kits for GM and Dodge NV4500 5-speed manuals.", img: "https://images.pexels.com/photos/8478225/pexels-photo-8478225.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of manual transmission components being serviced" },
     ],
   },
   {
     name: "Automatic Transmission Parts",
     parts: [
-      { name: "TH350 / TH400 Parts", cat: "Transmission Units", desc: "Rebuild kits, hard parts, and complete units for GM automatics.", img: "https://images.pexels.com/photos/8985714/pexels-photo-8985714.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic working on an automatic transmission" },
-      { name: "700R4 / 4L60E Parts", cat: "Transmission Units", desc: "Full rebuild kits and hard parts for GM overdrive transmissions.", img: "https://images.pexels.com/photos/8985601/pexels-photo-8985601.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Automatic transmission repair in a professional shop" },
-      { name: "Ford C4 / C6 Parts", cat: "Transmission Units", desc: "Rebuild kits and components for classic Ford automatics.", img: "https://images.pexels.com/photos/8478231/pexels-photo-8478231.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic inspecting transmission components" },
-      { name: "Torque Converters", cat: "Transmission Units", desc: "Stock replacement and performance torque converters for automatic transmissions.", img: "https://images.pexels.com/photos/11157437/pexels-photo-11157437.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Disassembled automatic transmission parts including torque converter" },
+      { slug: "th350-th400-parts", name: "TH350 / TH400 Parts", cat: "Transmission Units", desc: "Rebuild kits, hard parts, and complete units for GM automatics.", img: "https://images.pexels.com/photos/8985714/pexels-photo-8985714.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic working on an automatic transmission" },
+      { slug: "700r4-4l60e-parts", name: "700R4 / 4L60E Parts", cat: "Transmission Units", desc: "Full rebuild kits and hard parts for GM overdrive transmissions.", img: "https://images.pexels.com/photos/8985601/pexels-photo-8985601.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Automatic transmission repair in a professional shop" },
+      { slug: "ford-c4-c6-parts",  name: "Ford C4 / C6 Parts",  cat: "Transmission Units", desc: "Rebuild kits and components for classic Ford automatics.", img: "https://images.pexels.com/photos/8478231/pexels-photo-8478231.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanic inspecting transmission components" },
+      { slug: "torque-converters", name: "Torque Converters",    cat: "Transmission Units", desc: "Stock replacement and performance torque converters for automatic transmissions.", img: "https://images.pexels.com/photos/11157437/pexels-photo-11157437.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Disassembled automatic transmission parts including torque converter" },
     ],
   },
   {
     name: "Differential & Driveline Parts",
     parts: [
-      { name: "Positraction Units", cat: "Differential Parts", desc: "Limited slip differentials for GM 10-bolt and 12-bolt rear axle applications.", img: "https://images.pexels.com/photos/159275/pexels-photo-159275.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of precision automotive gears — positraction differential" },
-      { name: "Ring & Pinion Sets", cat: "Ring & Pinion", desc: "Gear sets for GM, Ford, and Chrysler rear axle applications. Multiple ratios.", img: "https://images.pexels.com/photos/221028/pexels-photo-221028.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Grayscale close-up of interlocking ring and pinion gears" },
-      { name: "Differential Rebuild Kits", cat: "Rebuild Kits", desc: "Master rebuild kits for GM, Ford, and Chrysler differentials.", img: "https://images.pexels.com/photos/159298/pexels-photo-159298.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanical gear set for differential rebuild kit" },
-      { name: "Transmission Coolers", cat: "Cooling", desc: "External transmission coolers for towing and performance applications.", img: "https://images.pexels.com/photos/1819668/pexels-photo-1819668.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Automotive cooling radiator for transmission cooler" },
+      { slug: "positraction-units",         name: "Positraction Units",        cat: "Differential Parts", desc: "Limited slip differentials for GM 10-bolt and 12-bolt rear axle applications.", img: "https://images.pexels.com/photos/159275/pexels-photo-159275.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Close-up of precision automotive gears — positraction differential" },
+      { slug: "ring-pinion-sets",           name: "Ring & Pinion Sets",        cat: "Ring & Pinion",      desc: "Gear sets for GM, Ford, and Chrysler rear axle applications. Multiple ratios.", img: "https://images.pexels.com/photos/221028/pexels-photo-221028.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Grayscale close-up of interlocking ring and pinion gears" },
+      { slug: "differential-rebuild-kits",  name: "Differential Rebuild Kits", cat: "Rebuild Kits",       desc: "Master rebuild kits for GM, Ford, and Chrysler differentials.", img: "https://images.pexels.com/photos/159298/pexels-photo-159298.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Mechanical gear set for differential rebuild kit" },
+      { slug: "transmission-coolers",       name: "Transmission Coolers",      cat: "Cooling",            desc: "External transmission coolers for towing and performance applications.", img: "https://images.pexels.com/photos/1819668/pexels-photo-1819668.jpeg?auto=compress&cs=tinysrgb&w=600", imgAlt: "Automotive cooling radiator for transmission cooler" },
     ],
   },
 ];
@@ -72,19 +72,19 @@ const categories = [
               {cat.parts.map(part => (
                 <div class="parts-card flex flex-col gap-3">
                   <!-- Part photo -->
-                  <div class="w-full rounded-md overflow-hidden">
+                  <a href={`/parts/${part.slug}`} class="block w-full rounded-md overflow-hidden">
                     <img
                       src={part.img}
                       alt={part.imgAlt}
-                      class="w-full h-44 object-cover"
+                      class="w-full h-44 object-cover hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                       decoding="async"
                     />
-                  </div>
+                  </a>
                   <span class="inline-block text-xs font-semibold uppercase tracking-wider text-jp-red bg-red-50 px-2 py-1 rounded self-start">{part.cat}</span>
                   <h3 class="font-heading font-bold text-base text-jp-charcoal">{part.name}</h3>
                   <p class="font-body text-jp-muted text-sm leading-relaxed flex-1">{part.desc}</p>
-                  <a href="/contact" class="btn-primary text-sm py-2.5 justify-center text-center mt-auto">Inquire About This Part →</a>
+                  <a href={`/parts/${part.slug}`} class="btn-primary text-sm py-2.5 justify-center text-center mt-auto">View Part Details →</a>
                 </div>
               ))}
             </div>
