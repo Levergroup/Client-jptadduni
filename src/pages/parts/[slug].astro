@@ -1,327 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CTABanner from '../../components/sections/CTABanner.astro';
+import { allParts } from '../../data/parts';
 
 const phone = "(475) XXX-XXXX";
 const phoneHref = "tel:+14750000000";
-
-const allParts = [
-  // ── Manual Transmission Units ──────────────────────────────────────────
-  {
-    slug: "muncie-4-speed",
-    name: "Muncie 4-Speed",
-    fullName: "Muncie 4-Speed (M20 / M21 / M22)",
-    category: "Classic Car Parts",
-    categoryGroup: "Manual Transmission Units",
-    desc: "The Muncie 4-speed is the definitive muscle car transmission — found behind some of the most iconic American V8s ever built. We carry complete units and hard parts across all three ratios: M20 wide-ratio, M21 close-ratio, and the legendary M22 \"Rock Crusher\" for high-torque applications. Whether you're restoring a numbers-matching car or building a performance street machine, we'll help you find the right unit.",
-    specs: [
-      "M20 Wide-Ratio: 2.52 first gear",
-      "M21 Close-Ratio: 2.20 first gear",
-      "M22 Rock Crusher: Heavy-duty close-ratio for high torque",
-      "Input shaft: 1-1/8\" 10-spline (most) or 26-spline",
-      "Output shaft: 27-spline (most applications)",
-      "Tail housing: Short or long available",
-    ],
-    compatible: [
-      "1963–1974 Chevrolet Corvette",
-      "1964–1972 Chevelle / El Camino",
-      "1967–1969 Camaro",
-      "1964–1972 Chevrolet / GMC trucks (M20)",
-      "1969–1972 Nova, Pontiac GTO, Firebird",
-    ],
-    img: "https://images.pexels.com/photos/3642618/pexels-photo-3642618.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Close-up of classic Muncie 4-speed manual transmission components",
-    related: ["t56-magnum", "ford-toploader-4-speed", "nv4500-manual-parts"],
-  },
-  {
-    slug: "t56-magnum",
-    name: "T56 Magnum 6-Speed",
-    fullName: "Tremec T56 Magnum 6-Speed",
-    category: "Manual Transmissions",
-    categoryGroup: "Manual Transmission Units",
-    desc: "The Tremec T56 Magnum is the gold standard for modern high-performance 6-speed manual builds. Rated to handle 700 lb-ft of torque, it's the go-to swap for LS-powered muscle cars, Coyote Ford builds, and any application where you want a modern manual with serious strength. We carry complete units and replacement parts including synchros, shift forks, and input/output shafts.",
-    specs: [
-      "Torque capacity: up to 700 lb-ft",
-      "6 forward speeds + reverse",
-      "Input shaft: 26-spline",
-      "Output shaft: 31-spline",
-      "Gear ratios: 2.97 / 2.07 / 1.43 / 1.00 / 0.84 / 0.57",
-      "Reverse: 3.28",
-    ],
-    compatible: [
-      "LS1/LS2/LS3/LS7 engine swaps",
-      "Ford 5.0 Coyote applications",
-      "2010–2015 Camaro SS (direct fit)",
-      "1993–2002 Camaro / Firebird (with adapter)",
-      "Custom resto-mod builds",
-    ],
-    img: "https://images.pexels.com/photos/11526277/pexels-photo-11526277.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Tremec T56 Magnum 6-speed manual gearbox unit",
-    related: ["muncie-4-speed", "nv4500-manual-parts", "th350-th400-parts"],
-  },
-  {
-    slug: "ford-toploader-4-speed",
-    name: "Ford Toploader 4-Speed",
-    fullName: "Ford Toploader 4-Speed",
-    category: "Classic Car Parts",
-    categoryGroup: "Manual Transmission Units",
-    desc: "The Ford Toploader is one of the strongest factory 4-speed units ever produced. Known for its top-loading case design and robust construction, these transmissions were used across Ford's performance lineup from the mid-1960s through the 1970s. We carry units in both 2.78 and 3.00 first gear ratios, plus individual components for rebuilds.",
-    specs: [
-      "Wide-ratio: 2.78 / 1.93 / 1.36 / 1.00",
-      "Close-ratio: 2.32 / 1.69 / 1.29 / 1.00",
-      "Input shaft: 1\" 10-spline (small block) or 1-1/8\" (big block)",
-      "Output shaft: 28-spline",
-      "Side-loaded shifter",
-      "Cast iron case",
-    ],
-    compatible: [
-      "1964–1973 Ford Mustang",
-      "1966–1971 Ford Fairlane / Torino",
-      "1969–1970 Ford Boss 302 / Boss 429",
-      "1967–1970 Ford Shelby GT350 / GT500",
-      "1967–1976 Ford Bronco",
-    ],
-    img: "https://images.pexels.com/photos/8985510/pexels-photo-8985510.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Mechanic working on a classic Ford Toploader 4-speed transmission",
-    related: ["muncie-4-speed", "ford-c4-c6-parts", "t56-magnum"],
-  },
-  {
-    slug: "nv4500-manual-parts",
-    name: "NV4500 Manual Parts",
-    fullName: "NV4500 5-Speed Manual Parts",
-    category: "Manual Transmissions",
-    categoryGroup: "Manual Transmission Units",
-    desc: "The NV4500 is a heavy-duty 5-speed manual found in GM and Dodge trucks from the early '90s through the mid-2000s. Known for its cast iron construction and exceptional durability, it's a popular upgrade and rebuild candidate. We stock rebuild kits, synchro sets, input/output shafts, and hard parts for both GM and Dodge applications.",
-    specs: [
-      "5 forward speeds + reverse",
-      "Input shaft: 14-spline (GM) / 23-spline (Dodge)",
-      "Output shaft: 29-spline",
-      "Gear ratios: 6.34 / 3.44 / 1.71 / 1.00 / 0.73",
-      "Torque capacity: 460+ lb-ft",
-      "Cast iron case",
-    ],
-    compatible: [
-      "1992–2007 Chevrolet / GMC 2500–3500 trucks",
-      "1994–2005 Dodge Ram 2500–3500 (Cummins & gas)",
-      "1992–2007 GM diesel applications (6.5L, Duramax)",
-    ],
-    img: "https://images.pexels.com/photos/8478225/pexels-photo-8478225.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Close-up of NV4500 manual transmission components being serviced",
-    related: ["t56-magnum", "th350-th400-parts", "differential-rebuild-kits"],
-  },
-
-  // ── Automatic Transmission Parts ──────────────────────────────────────
-  {
-    slug: "th350-th400-parts",
-    name: "TH350 / TH400 Parts",
-    fullName: "TH350 / TH400 Rebuild Parts",
-    category: "Transmission Units",
-    categoryGroup: "Automatic Transmission Parts",
-    desc: "The Turbo-Hydramatic 350 and 400 are the backbone of GM automatic transmissions — used in virtually every performance and heavy-duty GM application for decades. We carry complete rebuild kits, clutch packs, hard parts, valve body kits, and complete remanufactured units. Whether it's a street rebuild or a performance race build, we have what you need.",
-    specs: [
-      "TH350: 3-speed, case length ~21.75\"",
-      "TH400: 3-speed, case length ~24.4\"",
-      "TH400 torque capacity: 450+ lb-ft (stock)",
-      "Shift kits, performance valve bodies available",
-      "Band adjustments and clutch packs in stock",
-      "Complete master rebuild kits available",
-    ],
-    compatible: [
-      "1969–1986 GM cars and trucks (TH350)",
-      "1965–1990 GM performance / heavy-duty (TH400)",
-      "Buick, Oldsmobile, Pontiac applications",
-      "LS engine swap builds (with adapter)",
-      "Drag and street performance builds",
-    ],
-    img: "https://images.pexels.com/photos/8985714/pexels-photo-8985714.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Mechanic working on a TH400 automatic transmission rebuild",
-    related: ["700r4-4l60e-parts", "torque-converters", "th350-th400-parts"],
-  },
-  {
-    slug: "700r4-4l60e-parts",
-    name: "700R4 / 4L60E Parts",
-    fullName: "700R4 / 4L60E Rebuild Parts",
-    category: "Transmission Units",
-    categoryGroup: "Automatic Transmission Parts",
-    desc: "The 700R4 and its electronic successor the 4L60E are GM's most widely used overdrive automatic transmissions. Found in millions of trucks, SUVs, and performance cars, these units are highly rebuildable and upgradeable. We stock full master rebuild kits, Sonnax hard parts upgrades, shift kits, and remanufactured torque converters for both versions.",
-    specs: [
-      "4-speed automatic with overdrive",
-      "700R4: cable-controlled throttle valve",
-      "4L60E: fully electronic (PCM controlled)",
-      "Gear ratios: 3.06 / 1.63 / 1.00 / 0.70",
-      "Output shaft: 27-spline",
-      "Performance shift kits and valve body upgrades available",
-    ],
-    compatible: [
-      "1982–1992 GM cars and trucks (700R4)",
-      "1992–2013 GM trucks / SUVs (4L60E)",
-      "Camaro, Corvette, Firebird applications",
-      "S10 / Blazer / Sonoma",
-      "Full-size Chevy / GMC trucks and vans",
-    ],
-    img: "https://images.pexels.com/photos/8985601/pexels-photo-8985601.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Automatic transmission repair in a professional transmission shop",
-    related: ["th350-th400-parts", "torque-converters", "transmission-coolers"],
-  },
-  {
-    slug: "ford-c4-c6-parts",
-    name: "Ford C4 / C6 Parts",
-    fullName: "Ford C4 / C6 Rebuild Parts",
-    category: "Transmission Units",
-    categoryGroup: "Automatic Transmission Parts",
-    desc: "The Ford C4 and C6 are among the most reliable and rebuildable automatic transmissions ever built. The C4 is a lightweight 3-speed favored in Mustangs and small-block applications, while the C6 is Ford's heavy-duty workhorse used behind big-block engines and in trucks. We carry rebuild kits, hard parts, and valve body upgrades for both.",
-    specs: [
-      "C4: 3-speed, aluminum case, small-block applications",
-      "C6: 3-speed, aluminum case, big-block and diesel",
-      "Performance shift kits available for both",
-      "C4 input shaft: 24-spline",
-      "C6 input shaft: 26-spline",
-      "Complete master rebuild kits in stock",
-    ],
-    compatible: [
-      "1964–1981 Ford Mustang (C4 — small block)",
-      "1967–1981 Ford Mustang (C6 — big block)",
-      "1966–1981 Ford Fairlane / Torino",
-      "1967–1991 Ford trucks (C6)",
-      "1968–1979 Ford Bronco",
-    ],
-    img: "https://images.pexels.com/photos/8478231/pexels-photo-8478231.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Mechanic inspecting Ford C4 automatic transmission components",
-    related: ["ford-toploader-4-speed", "torque-converters", "transmission-coolers"],
-  },
-  {
-    slug: "torque-converters",
-    name: "Torque Converters",
-    fullName: "Performance & OEM Torque Converters",
-    category: "Transmission Units",
-    categoryGroup: "Automatic Transmission Parts",
-    desc: "A worn or wrong torque converter causes shudder, overheating, and poor performance. We carry stock replacement and performance torque converters for GM, Ford, and Chrysler automatic transmissions. Whether you need a direct OEM replacement or a stall-speed converter matched to your engine's power curve, we can help you spec the right unit.",
-    specs: [
-      "Stall speeds: 1,600–3,500+ RPM available",
-      "Sizes: 9\", 10\", 11\", 12\" diameter",
-      "GM, Ford, and Chrysler bolt patterns",
-      "Lock-up and non-lock-up versions",
-      "Performance billet covers available",
-      "Remanufactured OEM replacements in stock",
-    ],
-    compatible: [
-      "TH350 / TH400 applications",
-      "700R4 / 4L60E / 4L80E",
-      "Ford C4 / C6 / AOD",
-      "Chrysler 727 / 904 / A518",
-      "Custom stall specs available on request",
-    ],
-    img: "https://images.pexels.com/photos/11157437/pexels-photo-11157437.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Disassembled automatic transmission parts including torque converter",
-    related: ["th350-th400-parts", "700r4-4l60e-parts", "transmission-coolers"],
-  },
-
-  // ── Differential & Driveline Parts ────────────────────────────────────
-  {
-    slug: "positraction-units",
-    name: "Positraction Units",
-    fullName: "Positraction Limited Slip Units",
-    category: "Differential Parts",
-    categoryGroup: "Differential & Driveline Parts",
-    desc: "Positraction is GM's limited-slip differential system — one of the most sought-after options for classic muscle cars and performance builds. When one wheel loses traction, a posi unit transfers power to the wheel with grip. We carry new and rebuilt Positraction units for GM 10-bolt and 12-bolt rear axle applications, plus clutch packs and rebuild kits.",
-    specs: [
-      "GM 10-bolt: 7.5\", 8.2\", 8.5\" ring gear",
-      "GM 12-bolt: 8.875\" ring gear",
-      "Clutch-type limited slip design",
-      "Preload and bias ratios available",
-      "Clutch pack and spider gear service kits",
-      "New units and rebuilt cores available",
-    ],
-    compatible: [
-      "1964–1972 Chevelle / El Camino",
-      "1967–1981 Camaro / Firebird",
-      "1963–1979 Corvette (various axle ratios)",
-      "1969–1972 Nova",
-      "1967–1972 GM trucks (10-bolt)",
-    ],
-    img: "https://images.pexels.com/photos/159275/pexels-photo-159275.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Close-up of precision positraction limited slip differential gears",
-    related: ["ring-pinion-sets", "differential-rebuild-kits", "transmission-coolers"],
-  },
-  {
-    slug: "ring-pinion-sets",
-    name: "Ring & Pinion Sets",
-    fullName: "Ring & Pinion Gear Sets",
-    category: "Ring & Pinion",
-    categoryGroup: "Differential & Driveline Parts",
-    desc: "Changing your ring and pinion ratio is one of the most impactful performance modifications you can make — affecting acceleration, highway RPM, and towing capability. We carry gear sets for GM, Ford, and Chrysler rear axle applications in a wide range of ratios, from highway-friendly 2.73s to aggressive 4.56s and beyond.",
-    specs: [
-      "Available ratios: 2.73, 3.08, 3.42, 3.73, 4.10, 4.56, 4.88+",
-      "GM 10-bolt and 12-bolt applications",
-      "Ford 8\", 8.8\", 9\" applications",
-      "Chrysler 8.25\", 8.75\", Dana 60",
-      "Street, performance, and drag racing sets",
-      "Installation and setup service available",
-    ],
-    compatible: [
-      "GM 10-bolt (7.5\", 8.2\", 8.5\" ring gear)",
-      "GM 12-bolt (8.875\" ring gear)",
-      "Ford 8\" and 8.8\" (Mustang, F-150)",
-      "Ford 9\" (classic Mustang, performance builds)",
-      "Chrysler 8.75\" and Dana 60 (Dodge trucks)",
-    ],
-    img: "https://images.pexels.com/photos/221028/pexels-photo-221028.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Grayscale close-up of interlocking ring and pinion gear set",
-    related: ["positraction-units", "differential-rebuild-kits", "positraction-units"],
-  },
-  {
-    slug: "differential-rebuild-kits",
-    name: "Differential Rebuild Kits",
-    fullName: "Differential Master Rebuild Kits",
-    category: "Rebuild Kits",
-    categoryGroup: "Differential & Driveline Parts",
-    desc: "A properly rebuilt differential is as important as the gear set itself. Our master rebuild kits include everything you need: carrier bearings, pinion bearings, pinion seal, crush sleeve or solid spacer, shims, and installation hardware. We carry kits for GM, Ford, and Chrysler differentials across a wide range of applications.",
-    specs: [
-      "Master kit includes: carrier bearings, pinion bearings, seal, shims",
-      "Solid pinion spacer kits available (performance)",
-      "OEM-spec and performance bearing grades",
-      "Application-specific shim assortments",
-      "Complete hardware kits included",
-      "Available for 10-bolt, 12-bolt, 8\", 8.8\", 9\", Dana 60",
-    ],
-    compatible: [
-      "GM 10-bolt (7.5\", 8.2\", 8.5\")",
-      "GM 12-bolt (8.875\")",
-      "Ford 8\", 8.8\" (Mustang, Explorer, F-series)",
-      "Ford 9\" (classic performance)",
-      "Chrysler 8.25\", 8.75\", Dana 44 / Dana 60",
-    ],
-    img: "https://images.pexels.com/photos/159298/pexels-photo-159298.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Mechanical gear set and bearings for differential rebuild kit",
-    related: ["positraction-units", "ring-pinion-sets", "transmission-coolers"],
-  },
-  {
-    slug: "transmission-coolers",
-    name: "Transmission Coolers",
-    fullName: "External Transmission Coolers",
-    category: "Cooling",
-    categoryGroup: "Differential & Driveline Parts",
-    desc: "Transmission heat is the number one killer of automatic transmissions. An external cooler keeps fluid temps in check during towing, performance driving, or any high-demand application. We carry a range of external coolers sized for light-duty passenger cars up to heavy towing applications, plus installation fittings and line kits.",
-    specs: [
-      "Plate-and-fin and tube-and-fin designs",
-      "Sizes: 6\" × 10\" up to 11\" × 17\"",
-      "-6 AN and 5/16\" barb fittings available",
-      "Mounting hardware and brackets included",
-      "Transmission line kits available",
-      "Compatible with all fluid types (Dexron, Mercon, ATF+4)",
-    ],
-    compatible: [
-      "All automatic transmissions with external line ports",
-      "GM 700R4, 4L60E, 4L80E, TH400",
-      "Ford AOD, 4R70W, 5R55, 6R80",
-      "Chrysler 727, 904, 42RLE, 545RFE",
-      "Towing, performance, and daily driver applications",
-    ],
-    img: "https://images.pexels.com/photos/1819668/pexels-photo-1819668.jpeg?auto=compress&cs=tinysrgb&w=900",
-    imgAlt: "Automotive transmission cooler radiator for external cooling",
-    related: ["700r4-4l60e-parts", "th350-th400-parts", "torque-converters"],
-  },
-];
 
 export function getStaticPaths() {
   return allParts.map(part => ({
@@ -332,36 +15,21 @@ export function getStaticPaths() {
 
 const { part } = Astro.props;
 
-// Related parts data
 const relatedParts = part.related
-  .map(slug => allParts.find(p => p.slug === slug))
+  .map((slug: string) => allParts.find(p => p.slug === slug))
   .filter(Boolean)
-  .filter((p, i, arr) => arr.findIndex(x => x!.slug === p!.slug) === i)
-  .slice(0, 3) as typeof allParts;
-
-const schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": part.fullName,
-  "description": part.desc,
-  "brand": { "@type": "Brand", "name": "JP Tadduni Transmissions & Driveline" },
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "seller": { "@type": "LocalBusiness", "name": "JP Tadduni Transmissions & Driveline" }
-  }
-});
+  .filter((p: any, i: number, arr: any[]) => arr.findIndex((x: any) => x.slug === p.slug) === i)
+  .slice(0, 3);
 ---
 
 <Layout
   title={`${part.fullName} | JP Tadduni Transmissions, Stratford CT`}
-  description={`${part.fullName} — ${part.desc.slice(0, 140)}… Call JP Tadduni in Stratford, CT for pricing and availability.`}
-  schema={schema}
+  description={`${part.fullName} — ${part.desc.slice(0, 140)}… Call JP Tadduni in Stratford, CT.`}
 >
 
-  <!-- Breadcrumb + Hero -->
   <section class="bg-jp-bg pt-10 pb-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
       <nav class="flex items-center gap-2 text-xs text-jp-muted mb-6 font-body uppercase tracking-widest flex-wrap">
         <a href="/" class="hover:text-jp-red transition-colors">Home</a>
         <span>/</span>
@@ -372,7 +40,7 @@ const schema = JSON.stringify({
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-        <!-- Product Image -->
+        <!-- Image -->
         <div class="rounded-card overflow-hidden shadow-card">
           <img
             src={part.img}
@@ -383,28 +51,20 @@ const schema = JSON.stringify({
           />
         </div>
 
-        <!-- Product Info -->
+        <!-- Info -->
         <div class="flex flex-col gap-6">
-
           <div>
-            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-jp-red bg-red-50 px-3 py-1 rounded-full mb-3">
-              {part.category}
-            </span>
+            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-jp-red bg-red-50 px-3 py-1 rounded-full mb-3">{part.category}</span>
             <p class="font-body text-sm text-jp-muted uppercase tracking-widest mb-1">{part.categoryGroup}</p>
-            <h1 class="font-heading font-bold text-3xl sm:text-4xl text-jp-charcoal leading-tight">
-              {part.fullName}
-            </h1>
+            <h1 class="font-heading font-bold text-3xl sm:text-4xl text-jp-charcoal leading-tight">{part.fullName}</h1>
           </div>
 
           <p class="font-body text-jp-muted leading-relaxed">{part.desc}</p>
 
-          <!-- Specs -->
           <div>
-            <p class="font-heading font-semibold text-jp-charcoal text-sm uppercase tracking-wider mb-3 border-l-2 border-jp-red pl-3">
-              Specs & Details
-            </p>
+            <p class="font-heading font-semibold text-jp-charcoal text-sm uppercase tracking-wider mb-3 border-l-2 border-jp-red pl-3">Specs & Details</p>
             <ul class="flex flex-col gap-2">
-              {part.specs.map(spec => (
+              {part.specs.map((spec: string) => (
                 <li class="flex items-start gap-3 font-body text-sm text-jp-text">
                   <svg class="w-4 h-4 text-jp-red flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
@@ -415,13 +75,10 @@ const schema = JSON.stringify({
             </ul>
           </div>
 
-          <!-- Compatible Vehicles -->
           <div>
-            <p class="font-heading font-semibold text-jp-charcoal text-sm uppercase tracking-wider mb-3 border-l-2 border-jp-red pl-3">
-              Compatible Vehicles
-            </p>
+            <p class="font-heading font-semibold text-jp-charcoal text-sm uppercase tracking-wider mb-3 border-l-2 border-jp-red pl-3">Compatible Vehicles</p>
             <ul class="flex flex-col gap-1.5">
-              {part.compatible.map(vehicle => (
+              {part.compatible.map((vehicle: string) => (
                 <li class="flex items-center gap-2 font-body text-sm text-jp-muted">
                   <span class="w-1.5 h-1.5 rounded-full bg-jp-red flex-shrink-0"></span>
                   {vehicle}
@@ -430,7 +87,6 @@ const schema = JSON.stringify({
             </ul>
           </div>
 
-          <!-- CTAs -->
           <div class="flex flex-col sm:flex-row gap-3 pt-2 border-t border-jp-border">
             <a href={phoneHref} class="btn-primary flex-1 justify-center">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -438,48 +94,27 @@ const schema = JSON.stringify({
               </svg>
               Call to Inquire: {phone}
             </a>
-            <a href="/contact" class="btn-secondary flex-1 justify-center">
-              Send a Message →
-            </a>
+            <a href="/contact" class="btn-secondary flex-1 justify-center">Send a Message →</a>
           </div>
 
-          <p class="font-body text-xs text-jp-muted">
-            Pricing and availability vary. Call or message us and we'll get back to you same day.
-          </p>
-
+          <p class="font-body text-xs text-jp-muted">Pricing and availability vary. Call or message us and we'll get back to you same day.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Related Parts -->
   {relatedParts.length > 0 && (
     <section class="py-14 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 class="font-heading font-bold text-2xl text-jp-charcoal mb-8 border-l-4 border-jp-red pl-4">
-          Related Parts
-        </h2>
+        <h2 class="font-heading font-bold text-2xl text-jp-charcoal mb-8 border-l-4 border-jp-red pl-4">Related Parts</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {relatedParts.map(rp => (
+          {relatedParts.map((rp: any) => (
             <a href={`/parts/${rp.slug}`} class="parts-card flex flex-col gap-3 group">
               <div class="rounded-md overflow-hidden">
-                <img
-                  src={rp.img}
-                  alt={rp.imgAlt}
-                  class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <img src={rp.img} alt={rp.imgAlt} class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" />
               </div>
-              <span class="inline-block text-xs font-semibold uppercase tracking-wider text-jp-red bg-red-50 px-2 py-1 rounded self-start">
-                {rp.category}
-              </span>
-              <h3 class="font-heading font-bold text-base text-jp-charcoal group-hover:text-jp-red transition-colors">
-                {rp.name}
-              </h3>
-              <p class="font-body text-jp-muted text-sm leading-relaxed">
-                {rp.desc.slice(0, 100)}…
-              </p>
+              <span class="inline-block text-xs font-semibold uppercase tracking-wider text-jp-red bg-red-50 px-2 py-1 rounded self-start">{rp.category}</span>
+              <h3 class="font-heading font-bold text-base text-jp-charcoal group-hover:text-jp-red transition-colors">{rp.name}</h3>
               <span class="font-body text-sm text-jp-red font-semibold mt-auto">View Part →</span>
             </a>
           ))}
