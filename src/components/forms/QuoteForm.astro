@@ -4,7 +4,7 @@
  * POSTs to GHL webhook, redirects to /thank-you on success.
  */
 
-const GHL_WEBHOOK = "https://placeholder-webhook.com/jp-tadduni";
+const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuWw942/webhook-trigger/u8MEd63hy6wXrlMDaL5R";
 ---
 
 <form id="quote-form" class="flex flex-col gap-5" novalidate>
@@ -142,7 +142,16 @@ const GHL_WEBHOOK = "https://placeholder-webhook.com/jp-tadduni";
     submitLoading.classList.remove('hidden');
     errorMsg.classList.add('hidden');
 
-    const payload = Object.fromEntries(new FormData(form).entries());
+    const fd = new FormData(form);
+    const payload = {
+      full_name:   fd.get('name'),
+      phone:       fd.get('phone'),
+      email:       fd.get('email'),
+      vehicle:     fd.get('vehicle'),
+      service:     fd.get('service'),
+      message:     fd.get('issue'),
+      lead_source: fd.get('referral'),
+    };
 
     try {
       await fetch(GHL_WEBHOOK, {
