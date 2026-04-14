@@ -126,12 +126,14 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
 
 </form>
 
-<script define:vars={{ GHL_WEBHOOK }}>
-  const form = document.getElementById('quote-form');
-  const submitBtn = document.getElementById('submit-btn');
+<script>
+  const WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuWw942/webhook-trigger/u8MEd63hy6wXrlMDaL5R";
+
+  const form       = document.getElementById('quote-form');
+  const submitBtn  = document.getElementById('submit-btn');
   const submitText = document.getElementById('submit-text');
-  const submitLoading = document.getElementById('submit-loading');
-  const errorMsg = document.getElementById('form-error');
+  const submitLoad = document.getElementById('submit-loading');
+  const errorMsg   = document.getElementById('form-error');
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -139,22 +141,21 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
 
     submitBtn.disabled = true;
     submitText.classList.add('hidden');
-    submitLoading.classList.remove('hidden');
+    submitLoad.classList.remove('hidden');
     errorMsg.classList.add('hidden');
 
-    const fd = new FormData(form);
     const payload = {
-      full_name:   fd.get('name'),
-      phone:       fd.get('phone'),
-      email:       fd.get('email'),
-      vehicle:     fd.get('vehicle'),
-      service:     fd.get('service'),
-      message:     fd.get('issue'),
-      lead_source: fd.get('referral'),
+      full_name:   document.getElementById('name').value.trim(),
+      phone:       document.getElementById('phone').value.trim(),
+      email:       document.getElementById('email').value.trim(),
+      vehicle:     document.getElementById('vehicle').value.trim(),
+      service:     document.getElementById('service').value,
+      message:     document.getElementById('issue').value.trim(),
+      lead_source: document.getElementById('referral').value,
     };
 
     try {
-      await fetch(GHL_WEBHOOK, {
+      await fetch(WEBHOOK, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -165,7 +166,7 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
       errorMsg.classList.remove('hidden');
       submitBtn.disabled = false;
       submitText.classList.remove('hidden');
-      submitLoading.classList.add('hidden');
+      submitLoad.classList.add('hidden');
     }
   });
 </script>
