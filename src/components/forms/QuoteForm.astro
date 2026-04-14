@@ -12,22 +12,22 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
   <!-- Name + Phone row -->
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
     <div class="flex flex-col gap-1.5">
-      <label for="name" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+      <label for="qf-name" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
         Full Name <span class="text-jp-red">*</span>
       </label>
       <input
-        type="text" id="name" name="name" required autocomplete="name"
+        type="text" id="qf-name" name="qf-name" required autocomplete="name"
         placeholder="John Smith"
         class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors"
       />
     </div>
     <div class="flex flex-col gap-1.5">
-      <label for="phone" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+      <label for="qf-phone" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
         Phone Number <span class="text-jp-red">*</span>
       </label>
       <input
-        type="tel" id="phone" name="phone" required autocomplete="tel"
-        placeholder="(475) 555-0100"
+        type="tel" id="qf-phone" name="qf-phone" required autocomplete="tel"
+        placeholder="(860) 555-0100"
         class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors"
       />
     </div>
@@ -35,11 +35,11 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
 
   <!-- Email -->
   <div class="flex flex-col gap-1.5">
-    <label for="email" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+    <label for="qf-email" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
       Email Address <span class="text-jp-red">*</span>
     </label>
     <input
-      type="email" id="email" name="email" required autocomplete="email"
+      type="email" id="qf-email" name="qf-email" required autocomplete="email"
       placeholder="john@example.com"
       class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors"
     />
@@ -47,11 +47,11 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
 
   <!-- Vehicle -->
   <div class="flex flex-col gap-1.5">
-    <label for="vehicle" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+    <label for="qf-vehicle" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
       Vehicle Year, Make &amp; Model <span class="text-jp-red">*</span>
     </label>
     <input
-      type="text" id="vehicle" name="vehicle" required
+      type="text" id="qf-vehicle" name="qf-vehicle" required
       placeholder="e.g. 1969 Chevrolet Camaro, 2018 Ford F-150"
       class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors"
     />
@@ -59,11 +59,11 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
 
   <!-- Service needed -->
   <div class="flex flex-col gap-1.5">
-    <label for="service" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+    <label for="qf-service" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
       Service Needed
     </label>
     <select
-      id="service" name="service"
+      id="qf-service" name="qf-service"
       class="border border-jp-border bg-white text-jp-text px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors appearance-none"
     >
       <option value="">Select service...</option>
@@ -79,11 +79,11 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
 
   <!-- Issue description -->
   <div class="flex flex-col gap-1.5">
-    <label for="issue" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+    <label for="qf-issue" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
       Describe the Problem <span class="text-jp-red">*</span>
     </label>
     <textarea
-      id="issue" name="issue" required rows="4"
+      id="qf-issue" name="qf-issue" required rows="4"
       placeholder="Tell us what's happening — slipping, grinding, no movement, vibration, leaking, etc."
       class="border border-jp-border bg-white text-jp-text placeholder-jp-muted px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors resize-none"
     ></textarea>
@@ -91,11 +91,11 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
 
   <!-- Referral -->
   <div class="flex flex-col gap-1.5">
-    <label for="referral" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
+    <label for="qf-referral" class="font-body text-xs font-semibold uppercase tracking-widest text-jp-charcoal">
       How Did You Hear About Us?
     </label>
     <select
-      id="referral" name="referral"
+      id="qf-referral" name="qf-referral"
       class="border border-jp-border bg-white text-jp-text px-4 py-3 text-sm font-body rounded-lg focus:outline-none focus:border-jp-red focus:ring-2 focus:ring-red-100 transition-colors appearance-none"
     >
       <option value="">Select one...</option>
@@ -145,13 +145,13 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
     errorMsg.classList.add('hidden');
 
     const payload = {
-      full_name:   document.getElementById('name').value.trim(),
-      phone:       document.getElementById('phone').value.trim(),
-      email:       document.getElementById('email').value.trim(),
-      vehicle:     document.getElementById('vehicle').value.trim(),
-      service:     document.getElementById('service').value,
-      message:     document.getElementById('issue').value.trim(),
-      lead_source: document.getElementById('referral').value,
+      full_name:   document.getElementById('qf-name').value.trim(),
+      phone:       document.getElementById('qf-phone').value.trim(),
+      email:       document.getElementById('qf-email').value.trim(),
+      vehicle:     document.getElementById('qf-vehicle').value.trim(),
+      service:     document.getElementById('qf-service').value,
+      message:     document.getElementById('qf-issue').value.trim(),
+      lead_source: document.getElementById('qf-referral').value,
     };
 
     try {
