@@ -158,7 +158,6 @@ const GHL_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Eg7w8riiQrXu4UuW
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-        mode: 'no-cors',
       });
       window.location.href = '/thank-you';
     } catch {
