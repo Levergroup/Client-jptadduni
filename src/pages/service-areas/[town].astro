@@ -34,14 +34,14 @@ export function getStaticPaths() {
 }
 
 const { town } = Astro.props;
-const phone = "(475) XXX-XXXX";
-const phoneHref = "tel:+14750000000";
+const phone = "(860) 717-3158";
+const phoneHref = "tel:+18607173158";
 
 const localServiceSchema = JSON.stringify({
   "@context": "https://schema.org", "@type": "Service",
   "name": `Transmission Rebuild in ${town.name}, CT`,
   "description": `JP Tadduni Transmissions & Driveline provides expert transmission rebuild and driveline services to ${town.name}, Connecticut.`,
-  "provider": { "@type": "AutoRepair", "name": "JP Tadduni Transmissions & Driveline", "telephone": "(475) XXX-XXXX",
+  "provider": { "@type": "AutoRepair", "name": "JP Tadduni Transmissions & Driveline", "telephone": "(860) 717-3158",
     "address": { "@type": "PostalAddress", "addressLocality": "Stratford", "addressRegion": "CT", "postalCode": "06615" }
   },
   "areaServed": { "@type": "City", "name": town.name, "containedInPlace": { "@type": "State", "name": "Connecticut" } }

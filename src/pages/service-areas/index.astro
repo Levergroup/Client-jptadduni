@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import CTABanner from '../../components/sections/CTABanner.astro';
 
-const phone = "(475) XXX-XXXX";
-const phoneHref = "tel:+14750000000";
+const phone = "(860) 717-3158";
+const phoneHref = "tel:+18607173158";
 
 const towns = [
   { slug: "stratford",   name: "Stratford",   county: "Fairfield" },
@@ -38,7 +38,7 @@ const counties = [...new Set(towns.map(t => t.county))];
 const pageSchema = JSON.stringify({
   "@context": "https://schema.org", "@type": "AutoRepair",
   "name": "JP Tadduni Transmissions & Driveline",
-  "telephone": "(475) XXX-XXXX",
+  "telephone": "(860) 717-3158",
   "address": { "@type": "PostalAddress", "addressLocality": "Stratford", "addressRegion": "CT", "postalCode": "06615" },
   "areaServed": towns.map(t => ({ "@type": "City", "name": t.name, "containedInPlace": { "@type": "State", "name": "Connecticut" } }))
 });
