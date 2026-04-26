@@ -33,7 +33,7 @@ export default function ForCreatorsPage() {
             Every video you post is a blog post, email, and SOP waiting to happen. TubeScribed unlocks all of it in 8 seconds.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
-            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Start Free Trial</Button>
+            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
           </motion.div>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function ForCreatorsPage() {
             You already do the hard part — you create great content. TubeScribed handles the repurposing. Paste a URL from any of your videos and get a clean transcript plus 15 content formats in seconds. No VA. No editing. No extra hours.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Start Free Trial</Button>
+            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
           </motion.div>
         </div>
       </section>

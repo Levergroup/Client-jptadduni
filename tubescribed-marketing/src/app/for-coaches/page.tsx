@@ -33,7 +33,7 @@ export default function ForCoachesPage() {
             Train TubeScribed on your brand voice once. Every SOP it generates sounds exactly like you — your words, your framework, your methodology.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
-            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Start Free Trial</Button>
+            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
           </motion.div>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function ForCoachesPage() {
             ))}
           </div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} className="text-center mt-10">
-            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Start Free Trial</Button>
+            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
           </motion.div>
         </div>
       </section>
