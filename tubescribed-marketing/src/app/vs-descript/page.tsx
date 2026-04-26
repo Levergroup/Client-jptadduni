@@ -25,8 +25,8 @@ export default function VsDescriptPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="bg-navy-800 border border-navy-700 rounded-2xl p-6">
               <h3 className="font-syne font-bold text-lg text-brand-red mb-2">TubeScribed</h3>
-              <div className="font-syne font-bold text-4xl text-navy-100 mb-2">$9<span className="text-navy-400 text-lg font-normal">/mo</span></div>
-              <p className="font-dm-sans text-navy-400 text-sm">Focused on YouTube content repurposing. Brand workspace, 15 output types, SOP generator. 7-day free trial.</p>
+              <div className="font-syne font-bold text-4xl text-navy-100 mb-2">$19<span className="text-navy-400 text-lg font-normal">/mo</span></div>
+              <p className="font-dm-sans text-navy-400 text-sm">Focused on YouTube content repurposing. Brand workspace, 15 output types, SOP generator. Free run — no credit card.</p>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="bg-navy-800 border border-navy-700 rounded-2xl p-6">
               <h3 className="font-syne font-bold text-lg text-navy-400 mb-2">Descript</h3>
@@ -70,9 +70,9 @@ export default function VsDescriptPage() {
             <h2 className="font-syne font-bold text-2xl lg:text-3xl text-navy-100 mb-6">The Verdict</h2>
             <p className="font-dm-sans text-navy-400 text-lg leading-relaxed mb-8">
               Descript is a powerful video editing tool — if you need to cut video, remove silences, and publish edited content, it does that well. But it&apos;s a $24–48/month video editor with transcription baked in. It has no brand workspace, no SOP generator, no 15-output content studio, and it requires you to upload video files.<br /><br />
-              TubeScribed connects directly to YouTube. No uploads. No video editing. Just content repurposing — starting at $9/month with a 7-day free trial.
+              TubeScribed connects directly to YouTube. No uploads. No video editing. Just content repurposing — starting at $19/month, with a free run to try it first. No credit card.
             </p>
-            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Start Free Trial</Button>
+            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
           </motion.div>
         </div>
       </section>

@@ -54,9 +54,9 @@ export default function VsOtterPage() {
             <h2 className="font-syne font-bold text-2xl lg:text-3xl text-navy-100 mb-6">The Verdict</h2>
             <p className="font-dm-sans text-navy-400 text-lg leading-relaxed mb-8">
               If you record meetings, Otter.ai is great. If you create YouTube content and want to repurpose it into business assets, TubeScribed is built exactly for that. Otter.ai doesn&apos;t connect to YouTube directly, has no brand workspace, no SOP generator, and no content output studio. It&apos;s a meeting tool.<br /><br />
-              TubeScribed is a content repurposing machine — starting at $9/month with a 7-day free trial.
+              TubeScribed is a content repurposing machine — starting at $19/month, with a free run to try it first. No credit card.
             </p>
-            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Start Free Trial</Button>
+            <Button href={`${APP_URL}/signup`} variant="primary" className="px-8 py-4 text-lg">Try Free</Button>
           </motion.div>
         </div>
       </section>
